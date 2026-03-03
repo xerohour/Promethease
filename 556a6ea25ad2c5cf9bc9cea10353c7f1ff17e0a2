@@ -1,0 +1,15 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb128-b5fa-7973-9b94-d5e7a241d217
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Applied OpenAI/Codex brand styling to primary user-facing pages.
+- Added changelog and release-note artifacts.
+- Updated 2026 UI2 pages with searchable controls and branded visual tokens.
+<!-- git-memento-session:end -->
