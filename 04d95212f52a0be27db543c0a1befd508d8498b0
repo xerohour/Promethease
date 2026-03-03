@@ -1,0 +1,13 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb128-b5fa-7973-9b94-d5e7a241d217
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Remove unintended submodule artifacts from CI fix branch.
+<!-- git-memento-session:end -->
