@@ -6,15 +6,15 @@
   <title>Promethease 2026 UI2 Report - John Stinson</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body {{ background: #0b1220; color: #e6edf5; }}
-    .card {{ background: #111a2a; border: 1px solid #263247; }}
-    .muted {{ color: #96a9c1; }}
-    .chip {{ padding: .2rem .55rem; border-radius: 999px; font-size: .75rem; }}
-    .rep-good {{ background:#163f2c; color:#9ce8c0; }}
-    .rep-bad {{ background:#4a1f2b; color:#ffb3c3; }}
-    .rep-na {{ background:#2a3448; color:#c8d6ea; }}
-    .table-wrap {{ max-height: 72vh; overflow: auto; }}
-    a {{ color: #8fc6ff; }}
+    body { background: #0b1220; color: #e6edf5; }
+    .card { background: #111a2a; border: 1px solid #263247; }
+    .muted { color: #96a9c1; }
+    .chip { padding: .2rem .55rem; border-radius: 999px; font-size: .75rem; }
+    .rep-good { background:#163f2c; color:#9ce8c0; }
+    .rep-bad { background:#4a1f2b; color:#ffb3c3; }
+    .rep-na { background:#2a3448; color:#c8d6ea; }
+    .table-wrap { max-height: 72vh; overflow: auto; }
+    a { color: #8fc6ff; }
   </style>
 </head>
 <body>
@@ -63,40 +63,40 @@
     const countEl = document.getElementById("count");
     let data = [];
 
-    function chipClass(rep) {{
+    function chipClass(rep) {
       if (rep === "Good") return "rep-good";
       if (rep === "Bad") return "rep-bad";
       return "rep-na";
-    }}
+    }
 
-    function safe(v) {{
+    function safe(v) {
       if (v === null || v === undefined) return "";
-      return String(v).replace(/[&<>"]/g, c => ({{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}}[c]));
-    }}
+      return String(v).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+    }
 
-    function render() {{
+    function render() {
       const q = qEl.value.toLowerCase().trim();
       const rep = repEl.value;
       const minMag = Number(minMagEl.value || 0);
 
-      const filtered = data.filter(item => {{
+      const filtered = data.filter(item => {
         if (rep && item.repute !== rep) return false;
         if ((item.magnitude || 0) < minMag) return false;
-        if (q) {{
+        if (q) {
           const hay = [
             item.rsid, item.genotype, (item.genes || []).join(" "),
             item.summary || "", item.repute || ""
           ].join(" ").toLowerCase();
           if (!hay.includes(q)) return false;
-        }}
+        }
         return true;
-      }});
+      });
 
-      rowsEl.innerHTML = filtered.map(item => {{
+      rowsEl.innerHTML = filtered.map(item => {
         const repText = item.repute || "Not Set";
         const repChip = `<span class="chip ${chipClass(repText)}">${safe(repText)}</span>`;
         const mag = item.magnitude !== null && item.magnitude !== undefined ? item.magnitude.toFixed(2) : "";
-        const snpUrl = `https://www.snpedia.com/index.php/${{encodeURIComponent(item.rsid)}}`;
+        const snpUrl = `https://www.snpedia.com/index.php/${encodeURIComponent(item.rsid)}`;
         return `<tr>
           <td><a href="${snpUrl}" target="_blank" rel="noreferrer">${safe(item.rsid)}</a></td>
           <td>${safe(item.genotype || "")}</td>
@@ -105,19 +105,19 @@
           <td>${safe(mag)}</td>
           <td>${safe(item.summary || "")}</td>
         </tr>`;
-      }}).join("");
+      }).join("");
       countEl.textContent = `Showing ${filtered.length.toLocaleString()} of ${data.length.toLocaleString()} findings`;
-    }}
+    }
 
     fetch("promethease_data/Promethease_2026_03_03_genome_John_Stinson_Full_20260303020155_findings_2026.json")
       .then(r => r.json())
-      .then(j => {{
+      .then(j => {
         data = Array.isArray(j.findings) ? j.findings : [];
         render();
-      }})
-      .catch(() => {{
+      })
+      .catch(() => {
         countEl.textContent = "Could not load findings JSON.";
-      }});
+      });
 
     [qEl, repEl, minMagEl].forEach(el => el.addEventListener("input", render));
   </script>
