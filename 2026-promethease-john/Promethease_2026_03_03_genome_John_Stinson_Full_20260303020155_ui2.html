@@ -4,39 +4,114 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Promethease 2026 UI2 Report - John Stinson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../openai-brand.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body { background: #0b1220; color: #e6edf5; }
-    .card { background: #111a2a; border: 1px solid #263247; }
-    .muted { color: #96a9c1; }
-    .chip { padding: .2rem .55rem; border-radius: 999px; font-size: .75rem; }
-    .rep-good { background:#163f2c; color:#9ce8c0; }
-    .rep-bad { background:#4a1f2b; color:#ffb3c3; }
-    .rep-na { background:#2a3448; color:#c8d6ea; }
-    .table-wrap { max-height: 72vh; overflow: auto; }
-    a { color: #8fc6ff; }
+    :root {
+      --bg: var(--oa-charcoal);
+      --panel: var(--oa-slate);
+      --line: var(--oa-graphite);
+      --text: var(--oa-mist);
+      --muted: var(--oa-steel);
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+    }
+    .page {
+      min-height: 100vh;
+      padding: 1rem;
+      padding-right: min(32vw, 420px);
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+    }
+    .muted {
+      color: var(--muted);
+    }
+    .chip {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+    .rep-good {
+      background: rgba(16, 163, 127, 0.22);
+      color: #70ebcc;
+    }
+    .rep-bad {
+      background: rgba(212, 84, 100, 0.28);
+      color: #ffccd4;
+    }
+    .rep-na {
+      background: rgba(158, 161, 170, 0.2);
+      color: #d3d6dc;
+    }
+    .table-wrap {
+      max-height: 76vh;
+      overflow: auto;
+    }
+    .table-dark {
+      --bs-table-bg: transparent;
+    }
+    a { color: var(--oa-azure); }
+    a:hover { color: var(--oa-green); }
+    mark {
+      background: rgba(43, 143, 255, 0.35);
+      color: #fff;
+      border-radius: 0.15rem;
+      padding: 0 0.1rem;
+    }
+    .navmenu { background: var(--oa-slate); border-left: 1px solid var(--line); }
+    .navmenu-default {
+      color: var(--text);
+    }
+    .navmenu-fixed-right.offcanvas {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(32vw, 420px);
+      z-index: 1040;
+      overflow-y: auto;
+    }
+    .filter-label {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    .toolbar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 991px) {
+      .page {
+        padding-right: 1rem;
+        padding-bottom: 20rem;
+      }
+      .navmenu-fixed-right.offcanvas {
+        width: 100%;
+        height: 18rem;
+        top: auto;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="container py-4">
+  <main class="page">
     <div class="card p-4 mb-3">
       <h1 class="h4 mb-1">Promethease 2026 UI2 Report - John Stinson</h1>
       <div class="muted">Generated on 2026-03-03 02:01:55 UTC · Genome: genome_John_Stinson_v4_Full_20260128201328.txt · Findings: 301</div>
-      <div class="row g-2 mt-2">
-        <div class="col-12 col-md-6">
-          <input id="q" class="form-control form-control-sm" placeholder="Search rsID, gene, summary..." />
-        </div>
-        <div class="col-6 col-md-3">
-          <select id="repute" class="form-select form-select-sm">
-            <option value="">All repute</option>
-            <option value="Good">Good</option>
-            <option value="Bad">Bad</option>
-            <option value="Not Set">Not Set</option>
-          </select>
-        </div>
-        <div class="col-6 col-md-3">
-          <input id="minMag" type="number" step="0.1" min="0" class="form-control form-control-sm" placeholder="Min magnitude" />
-        </div>
+      <div class="toolbar mt-3">
+        <button id="focusSearch" class="btn btn-sm btn-outline-light" type="button">Focus Search</button>
+        <button id="clearAll" class="btn btn-sm btn-outline-secondary" type="button">Reset Filters</button>
       </div>
     </div>
 
@@ -45,7 +120,12 @@
         <table class="table table-dark table-sm align-middle">
           <thead style="position: sticky; top: 0; z-index: 2;">
             <tr>
-              <th>rsID</th><th>Genotype</th><th>Gene(s)</th><th>Repute</th><th>Magnitude</th><th>Summary</th>
+              <th>rsID</th>
+              <th>Genotype</th>
+              <th>Gene(s)</th>
+              <th>Repute</th>
+              <th>Magnitude</th>
+              <th>Summary</th>
             </tr>
           </thead>
           <tbody id="rows"></tbody>
@@ -55,12 +135,49 @@
     </div>
   </main>
 
+  <aside
+    id="rightFilters"
+    class="navmenu navmenu-default navmenu-fixed-right offcanvas col-lg-3 col-md-4 col-sm-5 col-xs-12 in canvas-slid p-3"
+    aria-label="Search and filters"
+  >
+    <h2 class="h6 mb-3">Search & Filters</h2>
+
+    <label class="filter-label" for="q">Text search</label>
+    <input id="q" class="form-control form-control-sm mb-3" placeholder="rsID, gene, summary, genotype..." />
+
+    <label class="filter-label" for="gene">Gene contains</label>
+    <input id="gene" class="form-control form-control-sm mb-3" placeholder="e.g. APOE" />
+
+    <label class="filter-label" for="repute">Repute</label>
+    <select id="repute" class="form-select form-select-sm mb-3">
+      <option value="">All repute</option>
+      <option value="Good">Good</option>
+      <option value="Bad">Bad</option>
+      <option value="Not Set">Not Set</option>
+    </select>
+
+    <label class="filter-label" for="minMag">Min magnitude</label>
+    <input id="minMag" type="number" step="0.1" min="0" class="form-control form-control-sm mb-3" placeholder="0.0" />
+
+    <label class="filter-label" for="sortBy">Sort</label>
+    <select id="sortBy" class="form-select form-select-sm">
+      <option value="magnitude-desc">Magnitude (high to low)</option>
+      <option value="magnitude-asc">Magnitude (low to high)</option>
+      <option value="rsid-asc">rsID (A to Z)</option>
+      <option value="rsid-desc">rsID (Z to A)</option>
+    </select>
+  </aside>
+
   <script>
     const rowsEl = document.getElementById("rows");
     const qEl = document.getElementById("q");
+    const geneEl = document.getElementById("gene");
     const repEl = document.getElementById("repute");
     const minMagEl = document.getElementById("minMag");
+    const sortByEl = document.getElementById("sortBy");
     const countEl = document.getElementById("count");
+    const clearAllEl = document.getElementById("clearAll");
+    const focusSearchEl = document.getElementById("focusSearch");
     let data = [];
 
     function chipClass(rep) {
@@ -71,42 +188,98 @@
 
     function safe(v) {
       if (v === null || v === undefined) return "";
-      return String(v).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+      return String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]));
+    }
+
+    function highlight(text, q) {
+      const raw = String(text || "");
+      if (!q) return safe(raw);
+      const lower = raw.toLowerCase();
+      const qLower = q.toLowerCase();
+      let at = 0;
+      let out = "";
+      while (true) {
+        const idx = lower.indexOf(qLower, at);
+        if (idx === -1) break;
+        out += safe(raw.slice(at, idx));
+        out += "<mark>" + safe(raw.slice(idx, idx + q.length)) + "</mark>";
+        at = idx + q.length;
+      }
+      out += safe(raw.slice(at));
+      return out;
+    }
+
+    function normalizeRepute(rep) {
+      return rep || "Not Set";
+    }
+
+    function compareRows(a, b, mode) {
+      const magA = Number(a.magnitude || 0);
+      const magB = Number(b.magnitude || 0);
+      const rsA = String(a.rsid || "");
+      const rsB = String(b.rsid || "");
+      if (mode === "magnitude-asc") return magA - magB;
+      if (mode === "rsid-asc") return rsA.localeCompare(rsB);
+      if (mode === "rsid-desc") return rsB.localeCompare(rsA);
+      return magB - magA;
     }
 
     function render() {
-      const q = qEl.value.toLowerCase().trim();
+      const q = qEl.value.trim();
+      const qLower = q.toLowerCase();
+      const geneQ = geneEl.value.toLowerCase().trim();
       const rep = repEl.value;
       const minMag = Number(minMagEl.value || 0);
+      const sortBy = sortByEl.value;
 
-      const filtered = data.filter(item => {
-        if (rep && item.repute !== rep) return false;
-        if ((item.magnitude || 0) < minMag) return false;
-        if (q) {
-          const hay = [
-            item.rsid, item.genotype, (item.genes || []).join(" "),
-            item.summary || "", item.repute || ""
-          ].join(" ").toLowerCase();
-          if (!hay.includes(q)) return false;
-        }
-        return true;
-      });
+      const filtered = data
+        .filter(item => {
+          const normalizedRepute = normalizeRepute(item.repute);
+          if (rep && normalizedRepute !== rep) return false;
+          if ((item.magnitude || 0) < minMag) return false;
+          if (geneQ) {
+            const genes = (item.genes || []).join(" ").toLowerCase();
+            if (!genes.includes(geneQ)) return false;
+          }
+          if (qLower) {
+            const hay = [
+              item.rsid,
+              item.genotype,
+              (item.genes || []).join(" "),
+              item.summary || "",
+              normalizedRepute
+            ].join(" ").toLowerCase();
+            if (!hay.includes(qLower)) return false;
+          }
+          return true;
+        })
+        .sort((a, b) => compareRows(a, b, sortBy));
 
       rowsEl.innerHTML = filtered.map(item => {
-        const repText = item.repute || "Not Set";
+        const repText = normalizeRepute(item.repute);
         const repChip = `<span class="chip ${chipClass(repText)}">${safe(repText)}</span>`;
-        const mag = item.magnitude !== null && item.magnitude !== undefined ? item.magnitude.toFixed(2) : "";
+        const mag = item.magnitude !== null && item.magnitude !== undefined ? Number(item.magnitude).toFixed(2) : "";
         const snpUrl = `https://www.snpedia.com/index.php/${encodeURIComponent(item.rsid)}`;
         return `<tr>
-          <td><a href="${snpUrl}" target="_blank" rel="noreferrer">${safe(item.rsid)}</a></td>
-          <td>${safe(item.genotype || "")}</td>
-          <td>${safe((item.genes || []).join(", "))}</td>
+          <td><a href="${snpUrl}" target="_blank" rel="noreferrer">${highlight(item.rsid, q)}</a></td>
+          <td>${highlight(item.genotype || "", q)}</td>
+          <td>${highlight((item.genes || []).join(", "), q || geneEl.value.trim())}</td>
           <td>${repChip}</td>
           <td>${safe(mag)}</td>
-          <td>${safe(item.summary || "")}</td>
+          <td>${highlight(item.summary || "", q)}</td>
         </tr>`;
       }).join("");
+
       countEl.textContent = `Showing ${filtered.length.toLocaleString()} of ${data.length.toLocaleString()} findings`;
+    }
+
+    function resetFilters() {
+      qEl.value = "";
+      geneEl.value = "";
+      repEl.value = "";
+      minMagEl.value = "";
+      sortByEl.value = "magnitude-desc";
+      render();
     }
 
     fetch("promethease_data/Promethease_2026_03_03_genome_John_Stinson_Full_20260303020155_findings_2026.json")
@@ -119,7 +292,16 @@
         countEl.textContent = "Could not load findings JSON.";
       });
 
-    [qEl, repEl, minMagEl].forEach(el => el.addEventListener("input", render));
+    [qEl, geneEl, repEl, minMagEl, sortByEl].forEach(el => el.addEventListener("input", render));
+    clearAllEl.addEventListener("click", resetFilters);
+    focusSearchEl.addEventListener("click", () => qEl.focus());
+
+    document.addEventListener("keydown", evt => {
+      if (evt.key === "/" && document.activeElement !== qEl) {
+        evt.preventDefault();
+        qEl.focus();
+      }
+    });
   </script>
 </body>
 </html>

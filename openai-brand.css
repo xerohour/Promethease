@@ -1,0 +1,22 @@
+:root {
+  --oa-charcoal: #0e0f12;
+  --oa-slate: #202123;
+  --oa-mist: #f5f7fa;
+  --oa-steel: #9ea1aa;
+  --oa-green: #10a37f;
+  --oa-azure: #2b8fff;
+  --oa-graphite: #40434a;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 700;
+}
+
+code, pre, kbd, samp {
+  font-family: "IBM Plex Mono", Menlo, monospace;
+}
