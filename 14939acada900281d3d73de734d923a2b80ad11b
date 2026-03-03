@@ -1,0 +1,13 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb3b4-1900-72b3-8920-fad2d40d3de7
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Add agentic_kb as submodule pointing to fork
+<!-- git-memento-session:end -->
