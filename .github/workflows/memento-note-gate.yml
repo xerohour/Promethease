@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   enforce-memento-notes:
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'ignore-notes') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,4 +26,3 @@ jobs:
         with:
           mode: gate
           strict: "true"
-          ignore-label: "ignore-notes"
