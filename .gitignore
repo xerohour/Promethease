@@ -1,0 +1,13 @@
+.vercel
+
+# Local shell/session artifacts
+pwsh-buffer*.txt
+session.txt
+typed-commands.txt
+typed-history-all.txt
+
+# Accidental home-mirror directory
+~/
+
+# Local Codex/memento scratch data
+memento-full*.md
