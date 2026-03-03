@@ -1,0 +1,25 @@
+name: memento-notes-merge-carry
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  carry-notes-to-merge-commit:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: mandel-macaque/memento/install@v1
+        with:
+          memento-repo: mandel-macaque/memento
+
+      - uses: mandel-macaque/memento@v1
+        with:
+          mode: merge-carry

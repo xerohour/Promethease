@@ -1,0 +1,23 @@
+name: memento-note-comments
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  comment-memento-notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: mandel-macaque/memento@v1
+        with:
+          mode: comment
+          github-token: ${{ secrets.GITHUB_TOKEN }}
