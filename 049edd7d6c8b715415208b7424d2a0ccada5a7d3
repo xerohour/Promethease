@@ -1,0 +1,14 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb3f0-98d6-72d3-85ab-e8f46932dcf5
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Reintroduced workflow fix to limit memento comment job to pull_request events.
+- Prevented invalid revision range failures on push-context runs after history rewrites.
+<!-- git-memento-session:end -->
