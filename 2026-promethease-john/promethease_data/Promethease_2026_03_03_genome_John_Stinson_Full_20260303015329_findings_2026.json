@@ -1,0 +1,3621 @@
+{
+  "generated_at_utc": "2026-03-03T01:53:29.105055+00:00",
+  "person": "John Stinson",
+  "genome_file": "genome_John_Stinson_v4_Full_20260128201328.txt",
+  "snpedia_online_hits": 276,
+  "findings_count": 301,
+  "findings": [
+    {
+      "rsid": "rs17646665",
+      "genotype": "AA",
+      "genes": [
+        "SORT1"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs17646665",
+      "chromosome": "1",
+      "position": "109912051"
+    },
+    {
+      "rsid": "rs1800098",
+      "genotype": "GG",
+      "genes": [
+        "CFTR"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs1800098",
+      "chromosome": "7",
+      "position": "117230454"
+    },
+    {
+      "rsid": "rs7754840",
+      "genotype": "CC",
+      "genes": [
+        "CDKAL1"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs7754840",
+      "chromosome": "6",
+      "position": "20661250"
+    },
+    {
+      "rsid": "rs1801394",
+      "genotype": "GG",
+      "genes": [
+        "MTRR"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs1801394",
+      "chromosome": "5",
+      "position": "7870973"
+    },
+    {
+      "rsid": "rs601338",
+      "genotype": "AA",
+      "genes": [
+        "FUT2"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs601338",
+      "chromosome": "19",
+      "position": "49206674"
+    },
+    {
+      "rsid": "rs2802292",
+      "genotype": "TT",
+      "genes": [
+        "FOXO3"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs2802292",
+      "chromosome": "6",
+      "position": "108908518"
+    },
+    {
+      "rsid": "rs5882",
+      "genotype": "AA",
+      "genes": [
+        "CETP"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs5882",
+      "chromosome": "16",
+      "position": "57016092"
+    },
+    {
+      "rsid": "rs1799853",
+      "genotype": "CC",
+      "genes": [
+        "CYP2C9"
+      ],
+      "repute": "Bad",
+      "magnitude": 2.5,
+      "summary": "Rs1799853",
+      "chromosome": "10",
+      "position": "96702047"
+    },
+    {
+      "rsid": "rs10830963",
+      "genotype": "CG",
+      "genes": [
+        "MTNR1B"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs10830963",
+      "chromosome": "11",
+      "position": "92708710"
+    },
+    {
+      "rsid": "rs4149056",
+      "genotype": "CT",
+      "genes": [
+        "SLCO1B1"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs4149056",
+      "chromosome": "12",
+      "position": "21331549"
+    },
+    {
+      "rsid": "rs4988235",
+      "genotype": "AG",
+      "genes": [
+        "LCT"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs4988235",
+      "chromosome": "2",
+      "position": "136608646"
+    },
+    {
+      "rsid": "rs4680",
+      "genotype": "AG",
+      "genes": [
+        "COMT"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs4680",
+      "chromosome": "22",
+      "position": "19951271"
+    },
+    {
+      "rsid": "rs4880",
+      "genotype": "AG",
+      "genes": [
+        "SOD2"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs4880",
+      "chromosome": "6",
+      "position": "160113872"
+    },
+    {
+      "rsid": "rs1057910",
+      "genotype": "AC",
+      "genes": [
+        "CYP2C9"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs1057910",
+      "chromosome": "10",
+      "position": "96741053"
+    },
+    {
+      "rsid": "rs12248560",
+      "genotype": "CT",
+      "genes": [
+        "CYP2C19"
+      ],
+      "repute": "Bad",
+      "magnitude": 1.5,
+      "summary": "Rs12248560",
+      "chromosome": "10",
+      "position": "96521657"
+    },
+    {
+      "rsid": "rs429358",
+      "genotype": "TT",
+      "genes": [
+        "APOE"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs429358",
+      "chromosome": "19",
+      "position": "45411941"
+    },
+    {
+      "rsid": "rs7412",
+      "genotype": "CC",
+      "genes": [
+        "APOE"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs7412",
+      "chromosome": "19",
+      "position": "45412079"
+    },
+    {
+      "rsid": "rs1021737",
+      "genotype": "GG",
+      "genes": [
+        "CTH"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs1021737",
+      "chromosome": "1",
+      "position": "70904800"
+    },
+    {
+      "rsid": "rs7192",
+      "genotype": "GG",
+      "genes": [
+        "HLA-DRA"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs7192",
+      "chromosome": "6",
+      "position": "32411646"
+    },
+    {
+      "rsid": "rs2235544",
+      "genotype": "CC",
+      "genes": [
+        "DIO1"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs2235544",
+      "chromosome": "1",
+      "position": "54375570"
+    },
+    {
+      "rsid": "rs3815148",
+      "genotype": "AA",
+      "genes": [
+        "COG5"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs3815148",
+      "chromosome": "7",
+      "position": "106938420"
+    },
+    {
+      "rsid": "rs2180439",
+      "genotype": "CT",
+      "genes": [
+        "EDA2R"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs2180439",
+      "chromosome": "20",
+      "position": "21853100"
+    },
+    {
+      "rsid": "rs9939609",
+      "genotype": "TT",
+      "genes": [
+        "FTO"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs9939609",
+      "chromosome": "16",
+      "position": "53820527"
+    },
+    {
+      "rsid": "rs7903146",
+      "genotype": "CC",
+      "genes": [
+        "TCF7L2"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs7903146",
+      "chromosome": "10",
+      "position": "114758349"
+    },
+    {
+      "rsid": "rs6025",
+      "genotype": "CC",
+      "genes": [
+        "F5"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs6025",
+      "chromosome": "1",
+      "position": "169519049"
+    },
+    {
+      "rsid": "rs4244285",
+      "genotype": "GG",
+      "genes": [
+        "CYP2C19"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs4244285",
+      "chromosome": "10",
+      "position": "96541616"
+    },
+    {
+      "rsid": "rs4986893",
+      "genotype": "GG",
+      "genes": [
+        "CYP2C19"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs4986893",
+      "chromosome": "10",
+      "position": "96540410"
+    },
+    {
+      "rsid": "rs9923231",
+      "genotype": "CC",
+      "genes": [
+        "VKORC1"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs9923231",
+      "chromosome": "16",
+      "position": "31107689"
+    },
+    {
+      "rsid": "rs1801133",
+      "genotype": "GG",
+      "genes": [
+        "MTHFR"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs1801133",
+      "chromosome": "1",
+      "position": "11856378"
+    },
+    {
+      "rsid": "rs1801131",
+      "genotype": "GT",
+      "genes": [
+        "MTHFR"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs1801131",
+      "chromosome": "1",
+      "position": "11854476"
+    },
+    {
+      "rsid": "rs776746",
+      "genotype": "CC",
+      "genes": [
+        "CYP3A5"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs776746",
+      "chromosome": "7",
+      "position": "99270539"
+    },
+    {
+      "rsid": "rs3918290",
+      "genotype": "CC",
+      "genes": [
+        "DPYD"
+      ],
+      "repute": "Good",
+      "magnitude": 1.0,
+      "summary": "Rs3918290",
+      "chromosome": "1",
+      "position": "97915614"
+    },
+    {
+      "rsid": "rs1065852",
+      "genotype": "GG",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1065852",
+      "chromosome": "22",
+      "position": "42526694"
+    },
+    {
+      "rsid": "rs1544410",
+      "genotype": "CT",
+      "genes": [
+        "VDR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1544410",
+      "chromosome": "12",
+      "position": "48239835"
+    },
+    {
+      "rsid": "rs7975232",
+      "genotype": "AC",
+      "genes": [
+        "VDR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7975232",
+      "chromosome": "12",
+      "position": "48238837"
+    },
+    {
+      "rsid": "rs731236",
+      "genotype": "AG",
+      "genes": [
+        "VDR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs731236",
+      "chromosome": "12",
+      "position": "48238757"
+    },
+    {
+      "rsid": "rs12934922",
+      "genotype": "AT",
+      "genes": [
+        "BCMO1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12934922",
+      "chromosome": "16",
+      "position": "81301694"
+    },
+    {
+      "rsid": "rs1805007",
+      "genotype": "CC",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1805007",
+      "chromosome": "16",
+      "position": "89986117"
+    },
+    {
+      "rsid": "rs12913832",
+      "genotype": "GG",
+      "genes": [
+        "HERC2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12913832",
+      "chromosome": "15",
+      "position": "28365618"
+    },
+    {
+      "rsid": "rs713598",
+      "genotype": "GG",
+      "genes": [
+        "TAS2R38"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs713598",
+      "chromosome": "7",
+      "position": "141673345"
+    },
+    {
+      "rsid": "rs2740574",
+      "genotype": "TT",
+      "genes": [
+        "CYP3A4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2740574",
+      "chromosome": "7",
+      "position": "99382096"
+    },
+    {
+      "rsid": "rs55886062",
+      "genotype": "AA",
+      "genes": [
+        "DPYD"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs55886062",
+      "chromosome": "1",
+      "position": "97981343"
+    },
+    {
+      "rsid": "rs1800462",
+      "genotype": "CC",
+      "genes": [
+        "TPMT"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800462",
+      "chromosome": "6",
+      "position": "18143955"
+    },
+    {
+      "rsid": "rs1142345",
+      "genotype": "TT",
+      "genes": [
+        "TPMT"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1142345",
+      "chromosome": "6",
+      "position": "18130918"
+    },
+    {
+      "rsid": "rs16947",
+      "genotype": "GG",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs16947",
+      "chromosome": "22",
+      "position": "42523943"
+    },
+    {
+      "rsid": "rs28371725",
+      "genotype": "CT",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs28371725",
+      "chromosome": "22",
+      "position": "42523805"
+    },
+    {
+      "rsid": "rs5030865",
+      "genotype": "CC",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs5030865",
+      "chromosome": "22",
+      "position": "42525035"
+    },
+    {
+      "rsid": "rs7294",
+      "genotype": "TT",
+      "genes": [
+        "VKORC1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7294",
+      "chromosome": "16",
+      "position": "31102321"
+    },
+    {
+      "rsid": "rs2108622",
+      "genotype": "CC",
+      "genes": [
+        "CYP4F2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2108622",
+      "chromosome": "19",
+      "position": "15990431"
+    },
+    {
+      "rsid": "rs10757278",
+      "genotype": "AG",
+      "genes": [
+        "CDKN2A/CDKN2B"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10757278",
+      "chromosome": "9",
+      "position": "22124477"
+    },
+    {
+      "rsid": "rs1333049",
+      "genotype": "CG",
+      "genes": [
+        "CDKN2A/CDKN2B"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1333049",
+      "chromosome": "9",
+      "position": "22125503"
+    },
+    {
+      "rsid": "rs2383206",
+      "genotype": "AG",
+      "genes": [
+        "CDKN2A/CDKN2B"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2383206",
+      "chromosome": "9",
+      "position": "22115026"
+    },
+    {
+      "rsid": "rs4402960",
+      "genotype": "GT",
+      "genes": [
+        "IGF2BP2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4402960",
+      "chromosome": "3",
+      "position": "185511687"
+    },
+    {
+      "rsid": "rs5219",
+      "genotype": "CT",
+      "genes": [
+        "KCNJ11"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs5219",
+      "chromosome": "11",
+      "position": "17409572"
+    },
+    {
+      "rsid": "rs13266634",
+      "genotype": "CC",
+      "genes": [
+        "SLC30A8"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13266634",
+      "chromosome": "8",
+      "position": "118184783"
+    },
+    {
+      "rsid": "rs6983267",
+      "genotype": "GG",
+      "genes": [
+        "CCAT2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6983267",
+      "chromosome": "8",
+      "position": "128413305"
+    },
+    {
+      "rsid": "rs10771399",
+      "genotype": "AA",
+      "genes": [
+        "PTHLH"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10771399",
+      "chromosome": "12",
+      "position": "28155080"
+    },
+    {
+      "rsid": "rs1447295",
+      "genotype": "CC",
+      "genes": [
+        "CASC8"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1447295",
+      "chromosome": "8",
+      "position": "128485038"
+    },
+    {
+      "rsid": "rs3803662",
+      "genotype": "AG",
+      "genes": [
+        "TOX3"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3803662",
+      "chromosome": "16",
+      "position": "52586341"
+    },
+    {
+      "rsid": "rs1800566",
+      "genotype": "GG",
+      "genes": [
+        "NQO1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800566",
+      "chromosome": "16",
+      "position": "69745145"
+    },
+    {
+      "rsid": "rs1051266",
+      "genotype": "CC",
+      "genes": [
+        "SLC19A1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1051266",
+      "chromosome": "21",
+      "position": "46957794"
+    },
+    {
+      "rsid": "rs1805087",
+      "genotype": "AA",
+      "genes": [
+        "MTR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1805087",
+      "chromosome": "1",
+      "position": "237048500"
+    },
+    {
+      "rsid": "rs1801181",
+      "genotype": "GG",
+      "genes": [
+        "CBS"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1801181",
+      "chromosome": "21",
+      "position": "44480616"
+    },
+    {
+      "rsid": "rs1042713",
+      "genotype": "AG",
+      "genes": [
+        "ADRB2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1042713",
+      "chromosome": "5",
+      "position": "148206440"
+    },
+    {
+      "rsid": "rs1042714",
+      "genotype": "CC",
+      "genes": [
+        "ADRB2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1042714",
+      "chromosome": "5",
+      "position": "148206473"
+    },
+    {
+      "rsid": "rs2070424",
+      "genotype": "AG",
+      "genes": [
+        "SOD1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2070424",
+      "chromosome": "21",
+      "position": "33039320"
+    },
+    {
+      "rsid": "rs1042522",
+      "genotype": "CG",
+      "genes": [
+        "TP53"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1042522",
+      "chromosome": "17",
+      "position": "7579472"
+    },
+    {
+      "rsid": "rs1426654",
+      "genotype": "AA",
+      "genes": [
+        "SLC24A5"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1426654",
+      "chromosome": "15",
+      "position": "48426484"
+    },
+    {
+      "rsid": "rs16891982",
+      "genotype": "GG",
+      "genes": [
+        "SLC45A2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs16891982",
+      "chromosome": "5",
+      "position": "33951693"
+    },
+    {
+      "rsid": "rs885479",
+      "genotype": "GG",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs885479",
+      "chromosome": "16",
+      "position": "89986154"
+    },
+    {
+      "rsid": "rs4778241",
+      "genotype": "CC",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4778241",
+      "chromosome": "15",
+      "position": "28338713"
+    },
+    {
+      "rsid": "rs7495174",
+      "genotype": "AA",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7495174",
+      "chromosome": "15",
+      "position": "28344238"
+    },
+    {
+      "rsid": "rs12821256",
+      "genotype": "TT",
+      "genes": [
+        "KITLG"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12821256",
+      "chromosome": "12",
+      "position": "89328335"
+    },
+    {
+      "rsid": "rs12203592",
+      "genotype": "CT",
+      "genes": [
+        "IRF4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12203592",
+      "chromosome": "6",
+      "position": "396321"
+    },
+    {
+      "rsid": "rs1393350",
+      "genotype": "AA",
+      "genes": [
+        "TYR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1393350",
+      "chromosome": "11",
+      "position": "89011046"
+    },
+    {
+      "rsid": "rs1667394",
+      "genotype": "TT",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1667394",
+      "chromosome": "15",
+      "position": "28530182"
+    },
+    {
+      "rsid": "rs4778138",
+      "genotype": "AA",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4778138",
+      "chromosome": "15",
+      "position": "28335820"
+    },
+    {
+      "rsid": "rs8024968",
+      "genotype": "CC",
+      "genes": [
+        "SLC24A4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Asociado con color de ojos",
+      "chromosome": "15",
+      "position": "28283689"
+    },
+    {
+      "rsid": "rs7174027",
+      "genotype": "AG",
+      "genes": [
+        "ASIP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7174027",
+      "chromosome": "15",
+      "position": "28328765"
+    },
+    {
+      "rsid": "rs4911414",
+      "genotype": "GG",
+      "genes": [
+        "ASIP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4911414",
+      "chromosome": "20",
+      "position": "32729444"
+    },
+    {
+      "rsid": "rs1015362",
+      "genotype": "CC",
+      "genes": [
+        "ASIP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1015362",
+      "chromosome": "20",
+      "position": "32738612"
+    },
+    {
+      "rsid": "rs2378249",
+      "genotype": "AA",
+      "genes": [
+        "ASIP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2378249",
+      "chromosome": "20",
+      "position": "33218090"
+    },
+    {
+      "rsid": "rs683",
+      "genotype": "CC",
+      "genes": [
+        "TYR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Asociado con color de ojos",
+      "chromosome": "9",
+      "position": "12709305"
+    },
+    {
+      "rsid": "rs12896399",
+      "genotype": "GG",
+      "genes": [
+        "SLC24A4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12896399",
+      "chromosome": "14",
+      "position": "92773663"
+    },
+    {
+      "rsid": "rs916977",
+      "genotype": "CC",
+      "genes": [
+        "HERC2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs916977",
+      "chromosome": "15",
+      "position": "28513364"
+    },
+    {
+      "rsid": "rs749846",
+      "genotype": "CC",
+      "genes": [
+        "ASIP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Asociado con color de piel",
+      "chromosome": "15",
+      "position": "28268990"
+    },
+    {
+      "rsid": "rs4911442",
+      "genotype": "AA",
+      "genes": [
+        "ASIP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4911442",
+      "chromosome": "20",
+      "position": "33355046"
+    },
+    {
+      "rsid": "rs1408799",
+      "genotype": "CT",
+      "genes": [
+        "TYRP1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1408799",
+      "chromosome": "9",
+      "position": "12672097"
+    },
+    {
+      "rsid": "rs2733832",
+      "genotype": "CC",
+      "genes": [
+        "TYRP1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2733832",
+      "chromosome": "9",
+      "position": "12704725"
+    },
+    {
+      "rsid": "rs1042602",
+      "genotype": "CC",
+      "genes": [
+        "TYR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1042602",
+      "chromosome": "11",
+      "position": "88911696"
+    },
+    {
+      "rsid": "rs1800407",
+      "genotype": "CC",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800407",
+      "chromosome": "15",
+      "position": "28230318"
+    },
+    {
+      "rsid": "rs1800401",
+      "genotype": "GG",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800401",
+      "chromosome": "15",
+      "position": "28260053"
+    },
+    {
+      "rsid": "rs1805008",
+      "genotype": "CC",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1805008",
+      "chromosome": "16",
+      "position": "89986144"
+    },
+    {
+      "rsid": "rs2228479",
+      "genotype": "GG",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2228479",
+      "chromosome": "16",
+      "position": "89985940"
+    },
+    {
+      "rsid": "rs11547464",
+      "genotype": "GG",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11547464",
+      "chromosome": "16",
+      "position": "89986091"
+    },
+    {
+      "rsid": "rs1805005",
+      "genotype": "GT",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1805005",
+      "chromosome": "16",
+      "position": "89985844"
+    },
+    {
+      "rsid": "rs1805006",
+      "genotype": "CC",
+      "genes": [
+        "MC1R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1805006",
+      "chromosome": "16",
+      "position": "89985918"
+    },
+    {
+      "rsid": "rs1110400",
+      "genotype": "TT",
+      "genes": [
+        "TYR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1110400",
+      "chromosome": "16",
+      "position": "89986130"
+    },
+    {
+      "rsid": "rs26722",
+      "genotype": "CC",
+      "genes": [
+        "SLC24A5"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs26722",
+      "chromosome": "5",
+      "position": "33963870"
+    },
+    {
+      "rsid": "rs3892097",
+      "genotype": "CC",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3892097",
+      "chromosome": "22",
+      "position": "42524947"
+    },
+    {
+      "rsid": "rs5030655",
+      "genotype": "II",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs5030655",
+      "chromosome": "22",
+      "position": "42525086"
+    },
+    {
+      "rsid": "rs28399504",
+      "genotype": "AA",
+      "genes": [
+        "CYP2C19"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs28399504",
+      "chromosome": "10",
+      "position": "96522463"
+    },
+    {
+      "rsid": "rs56337013",
+      "genotype": "CC",
+      "genes": [
+        "CYP2C19"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs56337013",
+      "chromosome": "10",
+      "position": "96612495"
+    },
+    {
+      "rsid": "rs7900194",
+      "genotype": "GG",
+      "genes": [
+        "CYP2C9"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7900194",
+      "chromosome": "10",
+      "position": "96702066"
+    },
+    {
+      "rsid": "rs28371686",
+      "genotype": "CC",
+      "genes": [
+        "CYP2C9"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs28371686",
+      "chromosome": "10",
+      "position": "96741058"
+    },
+    {
+      "rsid": "rs1111875",
+      "genotype": "CT",
+      "genes": [
+        "HHEX"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1111875",
+      "chromosome": "10",
+      "position": "94462882"
+    },
+    {
+      "rsid": "rs5015480",
+      "genotype": "CT",
+      "genes": [
+        "HHEX"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs5015480",
+      "chromosome": "10",
+      "position": "94465559"
+    },
+    {
+      "rsid": "rs10923931",
+      "genotype": "GG",
+      "genes": [
+        "NOTCH2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10923931",
+      "chromosome": "1",
+      "position": "120517959"
+    },
+    {
+      "rsid": "rs8050136",
+      "genotype": "CC",
+      "genes": [
+        "FTO"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs8050136",
+      "chromosome": "16",
+      "position": "53816275"
+    },
+    {
+      "rsid": "rs17782313",
+      "genotype": "TT",
+      "genes": [
+        "MC4R"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs17782313",
+      "chromosome": "18",
+      "position": "57851097"
+    },
+    {
+      "rsid": "rs174537",
+      "genotype": "TT",
+      "genes": [
+        "FADS1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs174537",
+      "chromosome": "11",
+      "position": "61552680"
+    },
+    {
+      "rsid": "rs174546",
+      "genotype": "TT",
+      "genes": [
+        "FADS1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs174546",
+      "chromosome": "11",
+      "position": "61569830"
+    },
+    {
+      "rsid": "rs174556",
+      "genotype": "TT",
+      "genes": [
+        "FADS2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs174556",
+      "chromosome": "11",
+      "position": "61580635"
+    },
+    {
+      "rsid": "rs174575",
+      "genotype": "CG",
+      "genes": [
+        "FADS2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs174575",
+      "chromosome": "11",
+      "position": "61602003"
+    },
+    {
+      "rsid": "rs4939827",
+      "genotype": "TT",
+      "genes": [
+        "SMAD7"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4939827",
+      "chromosome": "18",
+      "position": "46453463"
+    },
+    {
+      "rsid": "rs10795668",
+      "genotype": "GG",
+      "genes": [
+        "LAMC1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10795668",
+      "chromosome": "10",
+      "position": "8701219"
+    },
+    {
+      "rsid": "rs3802842",
+      "genotype": "AC",
+      "genes": [
+        "COLQ"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3802842",
+      "chromosome": "11",
+      "position": "111171709"
+    },
+    {
+      "rsid": "rs4464148",
+      "genotype": "TT",
+      "genes": [
+        "CRAC1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4464148",
+      "chromosome": "18",
+      "position": "46459032"
+    },
+    {
+      "rsid": "rs59421388",
+      "genotype": "CC",
+      "genes": [
+        "CYP2D6"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs59421388",
+      "chromosome": "22",
+      "position": "42523610"
+    },
+    {
+      "rsid": "rs2256871",
+      "genotype": "AA",
+      "genes": [
+        "CYP2C9"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2256871",
+      "chromosome": "10",
+      "position": "96708974"
+    },
+    {
+      "rsid": "rs2359612",
+      "genotype": "GG",
+      "genes": [
+        "VKORC1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2359612",
+      "chromosome": "16",
+      "position": "31103796"
+    },
+    {
+      "rsid": "rs9934438",
+      "genotype": "GG",
+      "genes": [
+        "VKORC1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9934438",
+      "chromosome": "16",
+      "position": "31104878"
+    },
+    {
+      "rsid": "rs174570",
+      "genotype": "TT",
+      "genes": [
+        "FADS2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs174570",
+      "chromosome": "11",
+      "position": "61597212"
+    },
+    {
+      "rsid": "rs864745",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs864745",
+      "chromosome": "7",
+      "position": "28180556"
+    },
+    {
+      "rsid": "rs10946398",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10946398",
+      "chromosome": "6",
+      "position": "20661034"
+    },
+    {
+      "rsid": "rs12779790",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12779790",
+      "chromosome": "10",
+      "position": "12328010"
+    },
+    {
+      "rsid": "rs7961581",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7961581",
+      "chromosome": "12",
+      "position": "71663102"
+    },
+    {
+      "rsid": "rs4607103",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4607103",
+      "chromosome": "3",
+      "position": "64711904"
+    },
+    {
+      "rsid": "rs11708067",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11708067",
+      "chromosome": "3",
+      "position": "123065778"
+    },
+    {
+      "rsid": "rs10811661",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10811661",
+      "chromosome": "9",
+      "position": "22134094"
+    },
+    {
+      "rsid": "rs564398",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs564398",
+      "chromosome": "9",
+      "position": "22029547"
+    },
+    {
+      "rsid": "rs9472138",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9472138",
+      "chromosome": "6",
+      "position": "43811762"
+    },
+    {
+      "rsid": "rs7578326",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7578326",
+      "chromosome": "2",
+      "position": "227020653"
+    },
+    {
+      "rsid": "rs9300039",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9300039",
+      "chromosome": "11",
+      "position": "41915366"
+    },
+    {
+      "rsid": "rs10490072",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Aumento del riesgo de diabetes tipo 2",
+      "chromosome": "2",
+      "position": "60669931"
+    },
+    {
+      "rsid": "rs174611",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Afecta riesgo cardiovascular o metabolismo de lípidos",
+      "chromosome": "11",
+      "position": "61627881"
+    },
+    {
+      "rsid": "rs3817198",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3817198",
+      "chromosome": "11",
+      "position": "1909006"
+    },
+    {
+      "rsid": "rs13281615",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13281615",
+      "chromosome": "8",
+      "position": "128355618"
+    },
+    {
+      "rsid": "rs2981582",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2981582",
+      "chromosome": "10",
+      "position": "123352317"
+    },
+    {
+      "rsid": "rs889312",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs889312",
+      "chromosome": "5",
+      "position": "56031884"
+    },
+    {
+      "rsid": "rs13387042",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13387042",
+      "chromosome": "2",
+      "position": "217905832"
+    },
+    {
+      "rsid": "rs6504950",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6504950",
+      "chromosome": "17",
+      "position": "53056471"
+    },
+    {
+      "rsid": "rs2070744",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2070744",
+      "chromosome": "7",
+      "position": "150690079"
+    },
+    {
+      "rsid": "rs1800779",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800779",
+      "chromosome": "7",
+      "position": "150689943"
+    },
+    {
+      "rsid": "rs662",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs662",
+      "chromosome": "7",
+      "position": "94937446"
+    },
+    {
+      "rsid": "rs352140",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs352140",
+      "chromosome": "3",
+      "position": "52256697"
+    },
+    {
+      "rsid": "rs2542052",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2542052",
+      "chromosome": "11",
+      "position": "116699984"
+    },
+    {
+      "rsid": "rs2764264",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2764264",
+      "chromosome": "6",
+      "position": "108934461"
+    },
+    {
+      "rsid": "rs13217795",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13217795",
+      "chromosome": "6",
+      "position": "108974098"
+    },
+    {
+      "rsid": "rs13220810",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13220810",
+      "chromosome": "6",
+      "position": "108913201"
+    },
+    {
+      "rsid": "rs12777823",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12777823",
+      "chromosome": "10",
+      "position": "96405502"
+    },
+    {
+      "rsid": "rs339097",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs339097",
+      "chromosome": "7",
+      "position": "128399224"
+    },
+    {
+      "rsid": "rs11676382",
+      "genotype": "CG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11676382",
+      "chromosome": "2",
+      "position": "85777633"
+    },
+    {
+      "rsid": "rs12714145",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12714145",
+      "chromosome": "2",
+      "position": "85787341"
+    },
+    {
+      "rsid": "rs4775096",
+      "genotype": "TT",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Asociado con variación en características físicas",
+      "chromosome": "15",
+      "position": "59140329"
+    },
+    {
+      "rsid": "rs4775101",
+      "genotype": "TT",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Asociado con variación en características físicas",
+      "chromosome": "15",
+      "position": "59218094"
+    },
+    {
+      "rsid": "rs6155",
+      "genotype": "TT",
+      "genes": [
+        "AR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Asociado con variación en características físicas",
+      "chromosome": "6",
+      "position": "87797904"
+    },
+    {
+      "rsid": "rs4994",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4994",
+      "chromosome": "8",
+      "position": "37823798"
+    },
+    {
+      "rsid": "rs1061325",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1061325",
+      "chromosome": "22",
+      "position": "19184095"
+    },
+    {
+      "rsid": "rs10984447",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10984447",
+      "chromosome": "9",
+      "position": "121984553"
+    },
+    {
+      "rsid": "rs3129934",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3129934",
+      "chromosome": "6",
+      "position": "32336187"
+    },
+    {
+      "rsid": "rs3124314",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3124314",
+      "chromosome": "1",
+      "position": "152037515"
+    },
+    {
+      "rsid": "rs2305795",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2305795",
+      "chromosome": "19",
+      "position": "10226052"
+    },
+    {
+      "rsid": "rs801114",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs801114",
+      "chromosome": "1",
+      "position": "228997835"
+    },
+    {
+      "rsid": "rs560887",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs560887",
+      "chromosome": "2",
+      "position": "169763148"
+    },
+    {
+      "rsid": "rs189798",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs189798",
+      "chromosome": "8",
+      "position": "8990577"
+    },
+    {
+      "rsid": "rs710521",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs710521",
+      "chromosome": "3",
+      "position": "189645933"
+    },
+    {
+      "rsid": "rs499697",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs499697",
+      "chromosome": "1",
+      "position": "152493154"
+    },
+    {
+      "rsid": "rs1121980",
+      "genotype": "AG",
+      "genes": [
+        "FTO"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1121980",
+      "chromosome": "16",
+      "position": "53809247"
+    },
+    {
+      "rsid": "rs10468017",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10468017",
+      "chromosome": "15",
+      "position": "58678512"
+    },
+    {
+      "rsid": "rs10883365",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10883365",
+      "chromosome": "10",
+      "position": "101287764"
+    },
+    {
+      "rsid": "rs9652490",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9652490",
+      "chromosome": "15",
+      "position": "77963887"
+    },
+    {
+      "rsid": "rs9272346",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9272346",
+      "chromosome": "6",
+      "position": "32604372"
+    },
+    {
+      "rsid": "rs16942",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs16942",
+      "chromosome": "17",
+      "position": "41244000"
+    },
+    {
+      "rsid": "rs10830962",
+      "genotype": "CG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10830962",
+      "chromosome": "11",
+      "position": "92698427"
+    },
+    {
+      "rsid": "rs17563",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs17563",
+      "chromosome": "14",
+      "position": "54417522"
+    },
+    {
+      "rsid": "rs965513",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs965513",
+      "chromosome": "9",
+      "position": "100556109"
+    },
+    {
+      "rsid": "rs966423",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs966423",
+      "chromosome": "2",
+      "position": "218310340"
+    },
+    {
+      "rsid": "rs1160312",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1160312",
+      "chromosome": "20",
+      "position": "22050503"
+    },
+    {
+      "rsid": "rs4654748",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4654748",
+      "chromosome": "1",
+      "position": "21786068"
+    },
+    {
+      "rsid": "rs6997709",
+      "genotype": "GT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6997709",
+      "chromosome": "8",
+      "position": "140180024"
+    },
+    {
+      "rsid": "rs1799884",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1799884",
+      "chromosome": "7",
+      "position": "44229068"
+    },
+    {
+      "rsid": "rs10488631",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10488631",
+      "chromosome": "7",
+      "position": "128594183"
+    },
+    {
+      "rsid": "rs7216389",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7216389",
+      "chromosome": "17",
+      "position": "38069949"
+    },
+    {
+      "rsid": "rs7816345",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7816345",
+      "chromosome": "8",
+      "position": "36846109"
+    },
+    {
+      "rsid": "rs17070145",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs17070145",
+      "chromosome": "5",
+      "position": "167845791"
+    },
+    {
+      "rsid": "rs34677591",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs34677591",
+      "chromosome": "11",
+      "position": "111957665"
+    },
+    {
+      "rsid": "rs3825942",
+      "genotype": "GG",
+      "genes": [
+        "LOXL1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3825942",
+      "chromosome": "15",
+      "position": "74219582"
+    },
+    {
+      "rsid": "rs1050631",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1050631",
+      "chromosome": "18",
+      "position": "33694120"
+    },
+    {
+      "rsid": "rs7927894",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7927894",
+      "chromosome": "11",
+      "position": "76301316"
+    },
+    {
+      "rsid": "rs9264942",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9264942",
+      "chromosome": "6",
+      "position": "31274380"
+    },
+    {
+      "rsid": "rs17822931",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs17822931",
+      "chromosome": "16",
+      "position": "48258198"
+    },
+    {
+      "rsid": "rs1768208",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1768208",
+      "chromosome": "3",
+      "position": "39523003"
+    },
+    {
+      "rsid": "rs10513789",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10513789",
+      "chromosome": "3",
+      "position": "182760073"
+    },
+    {
+      "rsid": "rs3135391",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3135391",
+      "chromosome": "6",
+      "position": "32410987"
+    },
+    {
+      "rsid": "rs602662",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs602662",
+      "chromosome": "19",
+      "position": "49206985"
+    },
+    {
+      "rsid": "rs9273363",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9273363",
+      "chromosome": "6",
+      "position": "32626272"
+    },
+    {
+      "rsid": "rs2070776",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2070776",
+      "chromosome": "17",
+      "position": "62007498"
+    },
+    {
+      "rsid": "rs1935949",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1935949",
+      "chromosome": "6",
+      "position": "108999287"
+    },
+    {
+      "rsid": "rs6922466",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6922466",
+      "chromosome": "6",
+      "position": "138444930"
+    },
+    {
+      "rsid": "rs3135388",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3135388",
+      "chromosome": "6",
+      "position": "32413051"
+    },
+    {
+      "rsid": "rs2303138",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2303138",
+      "chromosome": "5",
+      "position": "96350710"
+    },
+    {
+      "rsid": "rs53576",
+      "genotype": "GG",
+      "genes": [
+        "OXTR"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs53576",
+      "chromosome": "3",
+      "position": "8804371"
+    },
+    {
+      "rsid": "rs744373",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs744373",
+      "chromosome": "2",
+      "position": "127894615"
+    },
+    {
+      "rsid": "rs72552713",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs72552713",
+      "chromosome": "4",
+      "position": "89052957"
+    },
+    {
+      "rsid": "rs7571971",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7571971",
+      "chromosome": "2",
+      "position": "88895351"
+    },
+    {
+      "rsid": "rs13254738",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13254738",
+      "chromosome": "8",
+      "position": "128104343"
+    },
+    {
+      "rsid": "rs7743761",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7743761",
+      "chromosome": "6",
+      "position": "31336100"
+    },
+    {
+      "rsid": "rs2811712",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2811712",
+      "chromosome": "9",
+      "position": "21998035"
+    },
+    {
+      "rsid": "rs2395185",
+      "genotype": "GT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2395185",
+      "chromosome": "6",
+      "position": "32433167"
+    },
+    {
+      "rsid": "rs10889677",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10889677",
+      "chromosome": "1",
+      "position": "67725120"
+    },
+    {
+      "rsid": "rs11672691",
+      "genotype": "AG",
+      "genes": [
+        "CEACAM21"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11672691",
+      "chromosome": "19",
+      "position": "41985587"
+    },
+    {
+      "rsid": "rs17672135",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs17672135",
+      "chromosome": "1",
+      "position": "240445596"
+    },
+    {
+      "rsid": "rs664143",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs664143",
+      "chromosome": "11",
+      "position": "108225661"
+    },
+    {
+      "rsid": "rs8070723",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs8070723",
+      "chromosome": "17",
+      "position": "44081064"
+    },
+    {
+      "rsid": "rs13153971",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13153971",
+      "chromosome": "5",
+      "position": "149581321"
+    },
+    {
+      "rsid": "rs1611115",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1611115",
+      "chromosome": "9",
+      "position": "136500515"
+    },
+    {
+      "rsid": "rs6441286",
+      "genotype": "GT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6441286",
+      "chromosome": "3",
+      "position": "159728878"
+    },
+    {
+      "rsid": "rs10936599",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10936599",
+      "chromosome": "3",
+      "position": "169492101"
+    },
+    {
+      "rsid": "rs944289",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs944289",
+      "chromosome": "14",
+      "position": "36649246"
+    },
+    {
+      "rsid": "rs201571",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs201571",
+      "chromosome": "20",
+      "position": "22013514"
+    },
+    {
+      "rsid": "rs9940128",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9940128",
+      "chromosome": "16",
+      "position": "53800754"
+    },
+    {
+      "rsid": "rs4027132",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4027132",
+      "chromosome": "2",
+      "position": "12037492"
+    },
+    {
+      "rsid": "rs2073963",
+      "genotype": "GT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2073963",
+      "chromosome": "7",
+      "position": "18877874"
+    },
+    {
+      "rsid": "rs7807268",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7807268",
+      "chromosome": "7",
+      "position": "148258048"
+    },
+    {
+      "rsid": "rs1108580",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1108580",
+      "chromosome": "9",
+      "position": "136505114"
+    },
+    {
+      "rsid": "rs3790567",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3790567",
+      "chromosome": "1",
+      "position": "67822377"
+    },
+    {
+      "rsid": "rs1385699",
+      "genotype": "T",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1385699",
+      "chromosome": "X",
+      "position": "65824986"
+    },
+    {
+      "rsid": "rs547154",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs547154",
+      "chromosome": "6",
+      "position": "31910938"
+    },
+    {
+      "rsid": "rs4950928",
+      "genotype": "CG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4950928",
+      "chromosome": "1",
+      "position": "203155882"
+    },
+    {
+      "rsid": "rs4149268",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4149268",
+      "chromosome": "9",
+      "position": "107647220"
+    },
+    {
+      "rsid": "rs3923809",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3923809",
+      "chromosome": "6",
+      "position": "38440970"
+    },
+    {
+      "rsid": "rs10090154",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10090154",
+      "chromosome": "8",
+      "position": "128532137"
+    },
+    {
+      "rsid": "rs9303277",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9303277",
+      "chromosome": "17",
+      "position": "37976469"
+    },
+    {
+      "rsid": "rs1815739",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1815739",
+      "chromosome": "11",
+      "position": "66328095"
+    },
+    {
+      "rsid": "rs4307059",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4307059",
+      "chromosome": "5",
+      "position": "25967703"
+    },
+    {
+      "rsid": "rs2383207",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2383207",
+      "chromosome": "9",
+      "position": "22115959"
+    },
+    {
+      "rsid": "rs2230926",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2230926",
+      "chromosome": "6",
+      "position": "138196066"
+    },
+    {
+      "rsid": "rs12173570",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs12173570",
+      "chromosome": "6",
+      "position": "151957714"
+    },
+    {
+      "rsid": "rs7105934",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7105934",
+      "chromosome": "11",
+      "position": "69239741"
+    },
+    {
+      "rsid": "rs7538876",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7538876",
+      "chromosome": "1",
+      "position": "17722363"
+    },
+    {
+      "rsid": "rs1801282",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1801282",
+      "chromosome": "3",
+      "position": "12393125"
+    },
+    {
+      "rsid": "rs9543325",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9543325",
+      "chromosome": "13",
+      "position": "73916628"
+    },
+    {
+      "rsid": "rs608995",
+      "genotype": "AT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs608995",
+      "chromosome": "11",
+      "position": "100905733"
+    },
+    {
+      "rsid": "rs2073711",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2073711",
+      "chromosome": "15",
+      "position": "65494212"
+    },
+    {
+      "rsid": "rs3738919",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs3738919",
+      "chromosome": "2",
+      "position": "187521260"
+    },
+    {
+      "rsid": "rs6908425",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6908425",
+      "chromosome": "6",
+      "position": "20728731"
+    },
+    {
+      "rsid": "rs13192841",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs13192841",
+      "chromosome": "6",
+      "position": "137967214"
+    },
+    {
+      "rsid": "rs5174",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs5174",
+      "chromosome": "1",
+      "position": "53712727"
+    },
+    {
+      "rsid": "rs11614913",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11614913",
+      "chromosome": "12",
+      "position": "54385599"
+    },
+    {
+      "rsid": "rs2075650",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2075650",
+      "chromosome": "19",
+      "position": "45395619"
+    },
+    {
+      "rsid": "rs2201841",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2201841",
+      "chromosome": "1",
+      "position": "67694202"
+    },
+    {
+      "rsid": "rs738409",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs738409",
+      "chromosome": "22",
+      "position": "44324727"
+    },
+    {
+      "rsid": "rs4242382",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4242382",
+      "chromosome": "8",
+      "position": "128517573"
+    },
+    {
+      "rsid": "rs2305480",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2305480",
+      "chromosome": "17",
+      "position": "38062196"
+    },
+    {
+      "rsid": "rs6855911",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6855911",
+      "chromosome": "4",
+      "position": "9935910"
+    },
+    {
+      "rsid": "rs2856683",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2856683",
+      "chromosome": "6",
+      "position": "32655218"
+    },
+    {
+      "rsid": "rs6457617",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6457617",
+      "chromosome": "6",
+      "position": "32663851"
+    },
+    {
+      "rsid": "rs9275596",
+      "genotype": "TT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs9275596",
+      "chromosome": "6",
+      "position": "32681631"
+    },
+    {
+      "rsid": "rs1799990",
+      "genotype": "AG",
+      "genes": [
+        "PRNP"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1799990",
+      "chromosome": "20",
+      "position": "4680251"
+    },
+    {
+      "rsid": "rs1837253",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1837253",
+      "chromosome": "5",
+      "position": "110401872"
+    },
+    {
+      "rsid": "rs1333048",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1333048",
+      "chromosome": "9",
+      "position": "22125347"
+    },
+    {
+      "rsid": "rs1411478",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1411478",
+      "chromosome": "1",
+      "position": "180962282"
+    },
+    {
+      "rsid": "rs326",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs326",
+      "chromosome": "8",
+      "position": "19819439"
+    },
+    {
+      "rsid": "rs7837688",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs7837688",
+      "chromosome": "8",
+      "position": "128539360"
+    },
+    {
+      "rsid": "rs1024611",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1024611",
+      "chromosome": "17",
+      "position": "32579788"
+    },
+    {
+      "rsid": "rs4753426",
+      "genotype": "CT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4753426",
+      "chromosome": "11",
+      "position": "92701596"
+    },
+    {
+      "rsid": "rs2547231",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2547231",
+      "chromosome": "19",
+      "position": "48385057"
+    },
+    {
+      "rsid": "rs11190870",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11190870",
+      "chromosome": "10",
+      "position": "102979207"
+    },
+    {
+      "rsid": "rs11206244",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs11206244",
+      "chromosome": "1",
+      "position": "54375701"
+    },
+    {
+      "rsid": "rs1042838",
+      "genotype": "AC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1042838",
+      "chromosome": "11",
+      "position": "100933412"
+    },
+    {
+      "rsid": "rs6036025",
+      "genotype": "GG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6036025",
+      "chromosome": "20",
+      "position": "22039868"
+    },
+    {
+      "rsid": "rs10499194",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs10499194",
+      "chromosome": "6",
+      "position": "138002637"
+    },
+    {
+      "rsid": "rs4430796",
+      "genotype": "AA",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs4430796",
+      "chromosome": "17",
+      "position": "36098040"
+    },
+    {
+      "rsid": "rs10757281",
+      "genotype": "CT",
+      "genes": [
+        "CDKN2A"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs10757281",
+      "chromosome": "9",
+      "position": "22127613"
+    },
+    {
+      "rsid": "rs1333050",
+      "genotype": "CT",
+      "genes": [
+        "CDKN2A"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs1333050",
+      "chromosome": "9",
+      "position": "22125913"
+    },
+    {
+      "rsid": "rs2383208",
+      "genotype": "AA",
+      "genes": [
+        "CDKN2A"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2383208",
+      "chromosome": "9",
+      "position": "22132076"
+    },
+    {
+      "rsid": "rs1800567",
+      "genotype": "CC",
+      "genes": [
+        "NQO1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs1800567",
+      "chromosome": "8",
+      "position": "57353895"
+    },
+    {
+      "rsid": "rs1805088",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs1805088",
+      "chromosome": "20",
+      "position": "44637624"
+    },
+    {
+      "rsid": "rs2569191",
+      "genotype": "CT",
+      "genes": [
+        "TLR4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs2569191",
+      "chromosome": "5",
+      "position": "140013903"
+    },
+    {
+      "rsid": "rs10757282",
+      "genotype": "CT",
+      "genes": [
+        "CDKN2A"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs10757282",
+      "chromosome": "9",
+      "position": "22133984"
+    },
+    {
+      "rsid": "rs4939830",
+      "genotype": "AG",
+      "genes": [
+        "CCAT2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs4939830",
+      "chromosome": "18",
+      "position": "46463058"
+    },
+    {
+      "rsid": "rs564402",
+      "genotype": "CC",
+      "genes": [
+        "CDKN2A"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs564402",
+      "chromosome": "20",
+      "position": "1727964"
+    },
+    {
+      "rsid": "rs7578330",
+      "genotype": "TT",
+      "genes": [
+        "IRS1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs7578330",
+      "chromosome": "2",
+      "position": "176545579"
+    },
+    {
+      "rsid": "rs1042718",
+      "genotype": "AC",
+      "genes": [
+        "ADRB2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1042718",
+      "chromosome": "5",
+      "position": "148206917"
+    },
+    {
+      "rsid": "rs2070746",
+      "genotype": "GG",
+      "genes": [
+        "NOS3"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs2070746",
+      "chromosome": "19",
+      "position": "52249702"
+    },
+    {
+      "rsid": "rs1800783",
+      "genotype": "AT",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800783",
+      "chromosome": "7",
+      "position": "150689397"
+    },
+    {
+      "rsid": "rs4884",
+      "genotype": "AG",
+      "genes": [
+        "PON1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs4884",
+      "chromosome": "19",
+      "position": "45810035"
+    },
+    {
+      "rsid": "rs352143",
+      "genotype": "CT",
+      "genes": [
+        "TLR4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs352143",
+      "chromosome": "3",
+      "position": "52264907"
+    },
+    {
+      "rsid": "rs4775107",
+      "genotype": "GG",
+      "genes": [
+        "OCA2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs4775107",
+      "chromosome": "15",
+      "position": "59238415"
+    },
+    {
+      "rsid": "rs6161",
+      "genotype": "CC",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6161",
+      "chromosome": "15",
+      "position": "74635368"
+    },
+    {
+      "rsid": "rs6162",
+      "genotype": "AG",
+      "genes": [
+        "UNKNOWN"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs6162",
+      "chromosome": "10",
+      "position": "104596981"
+    },
+    {
+      "rsid": "rs4939832",
+      "genotype": "AG",
+      "genes": [
+        "CCAT2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs4939832",
+      "chromosome": "18",
+      "position": "46465665"
+    },
+    {
+      "rsid": "rs10946403",
+      "genotype": "AG",
+      "genes": [
+        "JAZF1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs10946403",
+      "chromosome": "6",
+      "position": "20717404"
+    },
+    {
+      "rsid": "rs10490075",
+      "genotype": "TT",
+      "genes": [
+        "IRS1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs10490075",
+      "chromosome": "2",
+      "position": "150598171"
+    },
+    {
+      "rsid": "rs1800571",
+      "genotype": "CC",
+      "genes": [
+        "NQO1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1800571",
+      "chromosome": "3",
+      "position": "12422848"
+    },
+    {
+      "rsid": "rs1800572",
+      "genotype": "CC",
+      "genes": [
+        "NQO1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs1800572",
+      "chromosome": "3",
+      "position": "170732328"
+    },
+    {
+      "rsid": "rs1801187",
+      "genotype": "C",
+      "genes": [
+        "NQO1"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1801187",
+      "chromosome": "X",
+      "position": "32380996"
+    },
+    {
+      "rsid": "rs2070429",
+      "genotype": "AA",
+      "genes": [
+        "ADRB2"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs2070429",
+      "chromosome": "21",
+      "position": "47980570"
+    },
+    {
+      "rsid": "rs1799986",
+      "genotype": "CC",
+      "genes": [
+        "NOS3"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Rs1799986",
+      "chromosome": "12",
+      "position": "57535266"
+    },
+    {
+      "rsid": "rs2569193",
+      "genotype": "AG",
+      "genes": [
+        "TLR4"
+      ],
+      "repute": "Not Set",
+      "magnitude": 0.0,
+      "summary": "Variante genética rs2569193",
+      "chromosome": "5",
+      "position": "140015495"
+    }
+  ]
+}
