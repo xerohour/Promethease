@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promethease 2026 UI2 Report - John Stinson</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {{ background: #0b1220; color: #e6edf5; }}
+    .card {{ background: #111a2a; border: 1px solid #263247; }}
+    .muted {{ color: #96a9c1; }}
+    .chip {{ padding: .2rem .55rem; border-radius: 999px; font-size: .75rem; }}
+    .rep-good {{ background:#163f2c; color:#9ce8c0; }}
+    .rep-bad {{ background:#4a1f2b; color:#ffb3c3; }}
+    .rep-na {{ background:#2a3448; color:#c8d6ea; }}
+    .table-wrap {{ max-height: 72vh; overflow: auto; }}
+    a {{ color: #8fc6ff; }}
+  </style>
+</head>
+<body>
+  <main class="container py-4">
+    <div class="card p-4 mb-3">
+      <h1 class="h4 mb-1">Promethease 2026 UI2 Report - John Stinson</h1>
+      <div class="muted">Generated on 2026-03-03 02:01:55 UTC · Genome: genome_John_Stinson_v4_Full_20260128201328.txt · Findings: 301</div>
+      <div class="row g-2 mt-2">
+        <div class="col-12 col-md-6">
+          <input id="q" class="form-control form-control-sm" placeholder="Search rsID, gene, summary..." />
+        </div>
+        <div class="col-6 col-md-3">
+          <select id="repute" class="form-select form-select-sm">
+            <option value="">All repute</option>
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+            <option value="Not Set">Not Set</option>
+          </select>
+        </div>
+        <div class="col-6 col-md-3">
+          <input id="minMag" type="number" step="0.1" min="0" class="form-control form-control-sm" placeholder="Min magnitude" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-3">
+      <div class="table-wrap">
+        <table class="table table-dark table-sm align-middle">
+          <thead style="position: sticky; top: 0; z-index: 2;">
+            <tr>
+              <th>rsID</th><th>Genotype</th><th>Gene(s)</th><th>Repute</th><th>Magnitude</th><th>Summary</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="muted mt-2" id="count"></div>
+    </div>
+  </main>
+
+  <script>
+    const rowsEl = document.getElementById("rows");
+    const qEl = document.getElementById("q");
+    const repEl = document.getElementById("repute");
+    const minMagEl = document.getElementById("minMag");
+    const countEl = document.getElementById("count");
+    let data = [];
+
+    function chipClass(rep) {{
+      if (rep === "Good") return "rep-good";
+      if (rep === "Bad") return "rep-bad";
+      return "rep-na";
+    }}
+
+    function safe(v) {{
+      if (v === null || v === undefined) return "";
+      return String(v).replace(/[&<>"]/g, c => ({{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}}[c]));
+    }}
+
+    function render() {{
+      const q = qEl.value.toLowerCase().trim();
+      const rep = repEl.value;
+      const minMag = Number(minMagEl.value || 0);
+
+      const filtered = data.filter(item => {{
+        if (rep && item.repute !== rep) return false;
+        if ((item.magnitude || 0) < minMag) return false;
+        if (q) {{
+          const hay = [
+            item.rsid, item.genotype, (item.genes || []).join(" "),
+            item.summary || "", item.repute || ""
+          ].join(" ").toLowerCase();
+          if (!hay.includes(q)) return false;
+        }}
+        return true;
+      }});
+
+      rowsEl.innerHTML = filtered.map(item => {{
+        const repText = item.repute || "Not Set";
+        const repChip = `<span class="chip ${chipClass(repText)}">${safe(repText)}</span>`;
+        const mag = item.magnitude !== null && item.magnitude !== undefined ? item.magnitude.toFixed(2) : "";
+        const snpUrl = `https://www.snpedia.com/index.php/${{encodeURIComponent(item.rsid)}}`;
+        return `<tr>
+          <td><a href="${snpUrl}" target="_blank" rel="noreferrer">${safe(item.rsid)}</a></td>
+          <td>${safe(item.genotype || "")}</td>
+          <td>${safe((item.genes || []).join(", "))}</td>
+          <td>${repChip}</td>
+          <td>${safe(mag)}</td>
+          <td>${safe(item.summary || "")}</td>
+        </tr>`;
+      }}).join("");
+      countEl.textContent = `Showing ${filtered.length.toLocaleString()} of ${data.length.toLocaleString()} findings`;
+    }}
+
+    fetch("promethease_data/Promethease_2026_03_03_genome_John_Stinson_Full_20260303020155_findings_2026.json")
+      .then(r => r.json())
+      .then(j => {{
+        data = Array.isArray(j.findings) ? j.findings : [];
+        render();
+      }})
+      .catch(() => {{
+        countEl.textContent = "Could not load findings JSON.";
+      }});
+
+    [qEl, repEl, minMagEl].forEach(el => el.addEventListener("input", render));
+  </script>
+</body>
+</html>
