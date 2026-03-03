@@ -1,0 +1,15 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb34f-e7da-7ec4-b2cf-c4c523fbc7a4
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Added a GitHub Actions CI workflow for static quality checks.
+- Added local HTML link/asset validation with template placeholder exceptions.
+- Added Python syntax check for genome_ops.py.
+<!-- git-memento-session:end -->
