@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  static-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate local HTML links and assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          root = Path(".").resolve()
+          skip_dirs = {".git", "node_modules", ".npm-cache", ".uv-cache"}
+          html_files = [
+              p for p in root.rglob("*.html")
+              if not any(part in skip_dirs for part in p.parts)
+          ]
+
+          if not html_files:
+              print("No HTML files found.")
+              sys.exit(0)
+
+          pattern = re.compile(r"""(?:href|src)=['"]([^'"]+)['"]""", re.IGNORECASE)
+          errors = []
+          checked = 0
+
+          for html in html_files:
+              text = html.read_text(encoding="utf-8", errors="ignore")
+              for ref in pattern.findall(text):
+                  # Skip absolute/external/special refs.
+                  if (
+                      ref.startswith(("http://", "https://", "mailto:", "tel:", "data:", "javascript:", "#"))
+                      or ref.startswith("//")
+                  ):
+                      continue
+
+                  local = ref.split("#", 1)[0].split("?", 1)[0].strip()
+                  if not local:
+                      continue
+                  if "${" in local or "{{" in local:
+                      # Ignore JS/template placeholders resolved at runtime.
+                      continue
+
+                  target = (html.parent / local).resolve()
+                  checked += 1
+                  if not target.exists():
+                      errors.append(f"{html.relative_to(root)} -> missing: {local}")
+
+          print(f"Scanned {len(html_files)} HTML files; checked {checked} local refs.")
+          if errors:
+              print("Broken local refs found:")
+              for line in errors[:200]:
+                  print(f"- {line}")
+              if len(errors) > 200:
+                  print(f"... and {len(errors) - 200} more")
+              sys.exit(1)
+          print("All local HTML refs resolved.")
+          PY
+
+      - name: Check Python syntax
+        shell: bash
+        run: |
+          if [ -f genome_ops.py ]; then
+            python -m py_compile genome_ops.py
+            echo "Python syntax check passed for genome_ops.py"
+          else
+            echo "genome_ops.py not found, skipping."
+          fi

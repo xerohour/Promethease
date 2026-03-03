@@ -9,7 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Placeholder for upcoming changes.
+- Added a right-side Search + Filters panel for 2026 UI2 report pages.
+- Added guided help steps for filter usage in 2026 UI2 pages.
+
+### Changed
+
+- Refreshed index, all-reports, and 2026 UI2 pages with shared OpenAI-branded styling.
+- Improved 2026 UI2 filter interactions to better match classic Promethease behavior.
+
+### Fixed
+
+- Removed Intro.js runtime-only classes from static filter markup to avoid overlay/tooltip render conflicts.
 
 ## [1.1.0] - 2026-03-02
 
