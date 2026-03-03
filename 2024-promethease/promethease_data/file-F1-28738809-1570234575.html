@@ -1,0 +1,1398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>Promethease F1 C:\Users\xerohour\Downloads\genome_Trina_Toohey_Full_20150207073527.zip vs C:\Users\xerohour\Downloads\genome_John_Stinson_Full_20150207073317.zip</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<style type="text/css">
+body {
+font-family: arial, helvetica, sans-serif;
+color: black;
+}
+button {
+border: 1px solid #000000;
+padding: 0px;
+font-size: 4px;
+margin-left: 1px;
+}
+button:hover {
+cursor: pointer;
+color: #ffffff;
+}
+#navmenu {
+background-color: #F0F0F0;
+position:fixed;
+right:5px;
+top:5px;
+border:1px solid black;
+z-index:2;
+}
+#navbox {
+border:1px solid black;
+padding-left: 170px;
+float: right;
+clear: none;
+padding: 0px;
+min-width: 50%;
+max-width: 69%;
+}
+#treeDiv1 {
+max-height:300px;
+overflow: auto;
+background-color: #F0F0F0;
+float:left;
+right:5px;
+top:5px;
+border:1px solid black;
+clear: none;
+min-width: 20%;
+max-width: 30%;
+padding: 0px;
+}
+#expandcontractdiv {
+border:1px dotted #dedede;
+background-color:#EBE4F2;
+margin:0 0 .5em 0;
+padding:0.4em;
+}
+.majorsection {
+float:left;
+width:95%;
+border:1px solid black;
+clear:both;
+margin: 5px 0px;
+padding: 0px 10px;
+}
+.sectiontext {
+clear:both;
+font-size: x-large;
+}
+.boxresult {
+width: inherit;
+margin: 10px auto;
+border: 2px solid grey;
+}
+.boxgoodresult {
+width: inherit;
+margin: 10px auto;
+border: 2px solid #80FF90;
+}
+.boxbadresult {
+width: inherit;
+margin: 10px auto;
+border: 2px solid #FF8080;
+}
+.boxresultcol1 {
+background-color: #FFFFFF;
+float: left;
+width: 190px;
+margin: 0;
+word-wrap: break-word;
+}
+.boxresultcol2 {
+margin-left: 190px;
+}
+.boxlink {
+float:left;
+width:130px;
+}
+.boxfreq {
+float:left;
+width:170px;
+clear:both;
+}
+.boxmag {
+float:left;
+width:170px;
+clear:both;
+}
+.boxrep {
+float:left;
+width:170px;
+clear:both;
+}
+.boxeffect {
+float:left;
+}
+.gsboxeffect {
+float:left;
+clear: none;
+}
+.boxshow {
+float:left;
+width:100px;
+}
+.rstext {
+float:left;
+clear: left;
+background-color: #D0D0FF;
+}
+.diseasebutton {
+margin-left: 20px;
+float:left;
+clear: both;
+}
+.member-Topic {
+margin-left: 40px;
+border:1px solid black;
+clear: both;
+}
+.member-is-a-medical-condition {
+margin-left: 40px;
+border:1px solid black;
+clear: both;
+}
+.member-is-a-medicine {
+margin-left: 40px;
+border:1px solid black;
+clear: both;
+}
+.adiseasebox {
+width: 90%;
+float:left;
+margin-left: 40px;
+clear: both;
+}
+.diseaselink {
+margin-left: 240px;
+FONT-SIZE: 18pt;
+}
+.diseaseinfo {
+margin-left: 650px;
+}
+.boxfooter {
+clear: both;
+margin: 0;
+border-top: 1px solid gray;
+}
+.majorboxfooter {
+clear: both;
+margin: 0;
+border-top: 1px solid gray;
+}
+</style>
+
+<script type="text/javascript">
+function toggle(element) {
+if (document.getElementById(element).style.display == "none") {
+   document.getElementById(element).style.display = "";
+} else {
+   document.getElementById(element).style.display = "none";
+}
+}
+function toggle2(element) {
+if (document.getElementById(element).style.display == "none") {
+   document.getElementById(element).style.display = "";
+   document.getElementById('show-'+element).style.display = "none";
+} else {
+   document.getElementById(element).style.display = "none";
+   document.getElementById('show-'+element).style.display = "";
+}
+}
+function toggle3(name) {
+var e=getElementsByClassName(name);
+for ( var i=0; i < e.length; i++ ) {
+   if (e[i].style.display == "none") {
+       e[i].style.display = "";
+       document.getElementById('show-'+e[i].id).style.display = "none";
+   } else {
+       e[i].style.display = "none";
+       document.getElementById('show-'+e[i].id).style.display = "";
+   }
+}
+}
+
+/*
+
+Need to switch to this cleaner method
+Crockford walkTheDOM http://javascript.crockford.com/hackday.ppt
+
+function walkTheDOM(node, func) {
+
+func(node);
+node = node.firstChild;
+while (node) {
+    walkTheDOM(node, func);
+    node = node.nextSibling;
+}
+
+}
+
+
+function getElementsByClassName(className, node) {
+ var results = [];
+ walkTheDOM(node || document.body, function (node) {
+     var a, c = node.className, i;
+     if (c) {
+         a = c.split(' ');
+         for (i = 0; i < a.length; i += 1) {
+             if (a[i] === className) {
+                  results.push(node);
+                  break;
+              }
+         }
+     }
+ });
+ return results;
+}
+
+
+By now there is a more efficient method, but once upon a time this javascript served well enough
+
+    BEGIN:http://www.robertnyman.com
+    http://www.robertnyman.com/2008/05/27/the-ultimate-getelementsbyclassname-anno-2008/
+    cross platform 'getElementsByClassName'
+    Developed by Robert Nyman, http://www.robertnyman.com
+    Code/licensing: http://code.google.com/p/getelementsbyclassname/
+*/
+var getElementsByClassName = function (className, tag, elm){
+    if (document.getElementsByClassName) {
+            getElementsByClassName = function (className, tag, elm) {
+                    elm = elm || document;
+                    var elements = elm.getElementsByClassName(className),
+                            nodeName = (tag)? new RegExp("\b" + tag + "\b", "i") : null,
+                            returnElements = [],
+                            current;
+                    for(var i=0, il=elements.length; i<il; i+=1){
+                            current = elements[i];
+                            if(!nodeName || nodeName.test(current.nodeName)) {
+                                    returnElements.push(current);
+                            }
+                    }
+                    return returnElements;
+            };
+    }
+    else if (document.evaluate) {
+            getElementsByClassName = function (className, tag, elm) {
+                    tag = tag || "*";
+                    elm = elm || document;
+                    var classes = className.split(" "),
+                            classesToCheck = "",
+                            xhtmlNamespace = "http://www.w3.org/1999/xhtml",
+                            namespaceResolver = (document.documentElement.namespaceURI === xhtmlNamespace)? xhtmlNamespace : null,
+                            returnElements = [],
+                            elements,
+                            node;
+                    for(var j=0, jl=classes.length; j<jl; j+=1){
+                            classesToCheck += "[contains(concat(' ', @class, ' '), ' " + classes[j] + " ')]";
+                    }
+                    try     {
+                            elements = document.evaluate(".//" + tag + classesToCheck, elm, namespaceResolver, 0, null);
+                    }
+                    catch (e) {
+                            elements = document.evaluate(".//" + tag + classesToCheck, elm, null, 0, null);
+                    }
+                    while ((node = elements.iterateNext())) {
+                            returnElements.push(node);
+                    }
+                    return returnElements;
+            };
+    }
+    else {
+            getElementsByClassName = function (className, tag, elm) {
+                    tag = tag || "*";
+                    elm = elm || document;
+                    var classes = className.split(" "),
+                            classesToCheck = [],
+                            elements = (tag === "*" && elm.all)? elm.all : elm.getElementsByTagName(tag),
+                            current,
+                            returnElements = [],
+                            match;
+                    for(var k=0, kl=classes.length; k<kl; k+=1){
+                            classesToCheck.push(new RegExp("(^|\s)" + classes[k] + "(\s|$)"));
+                    }
+                    for(var l=0, ll=elements.length; l<ll; l+=1){
+                            current = elements[l];
+                            match = false;
+                            for(var m=0, ml=classesToCheck.length; m<ml; m+=1){
+                                    match = classesToCheck[
+                                        m].test(current.className);
+                                    if (!match) {
+                                            break;
+                                    }
+                            }
+                            if (match) {
+                                    returnElements.push(current);
+                            }
+                    }
+                    return returnElements;
+            };
+    }
+    return getElementsByClassName(className, tag, elm);
+};
+/*      END:http://www.robertnyman.com */
+
+function ShowEverything(){//we open all of them
+
+var sections = new Array('diseasebox',
+                     'member-is-a-Topic',
+                     'member-is-a-medical-condition',
+                     'member-is-a-medicine',
+                     'rstext',
+                     'boxrstext',
+                     'boxshow',
+                     'boxsection'
+                     );
+
+for ( var i_sect=0; i_sect < sections.length; i_sect++ ) {
+    var e=getElementsByClassName(sections[i_sect]);
+    for ( var i=0; i < e.length; i++ ) {
+        e[i].style.display = '';
+    }
+}
+
+}
+</script>
+</head>
+<body><p>
+<a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527_ui2.html">main page</a><hr><h1>F1 Report</h1>
+C:\Users\xerohour\Downloads\genome_Trina_Toohey_Full_20150207073527.zip<br/>
+<b>vs</b><br/>
+C:\Users\xerohour\Downloads\genome_John_Stinson_Full_20150207073317.zip<br/>
+<div class="majorsection">
+     <div class='sectiontext'> </div>
+
+        <div class='boxshow' id="show-newpw-1842069271--1361337853-withMag" style="display: none;"><a href="javascript:toggle2('newpw-1842069271--1361337853-withMag')">...more...</a></div>
+        <div class="boxsection" id="newpw-1842069271--1361337853-withMag" style="display: inline;"><a href="javascript:toggle2('newpw-1842069271--1361337853-withMag')">(hide)</a>
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1393350'>rs1393350</a><a href='http://www.snpedia.com/index.php/rs1393350(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 3<br/>Frequency: <span style='background-color: #FF9D9D;'>8.0%</span><br/>References:11<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>more sensitive to sunlight, higher risk of melanoma, more likely to have blue eyes and numerous other features common to light skinned caucasians</div>
+        <div class='boxshow' id="show-sec-0.111547385347" style="display: inline;"><a href="javascript:toggle2('sec-0.111547385347')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.111547385347" style="display: none;"><a href="javascript:toggle2('sec-0.111547385347')">(hide)</a>
+        <div class='rstext'>23andMe blog rs1393350	A	1.29	Melanoma rs1393350 increases susceptibility to Blond rather than brown hair 1.29 times for carriers of the A allele rs1393350 increases susceptibility to Blue rather than green eyes 1.52 times for carriers of the A allele rs1393350 increases susceptibility to Skin sensitivity to sun 1.26 times for carriers of the A allele A genome-wide association study identifies novel alleles associated with hair color and skin pigmentation. Genetic variants in pigmentation genes, pigmentary phenotypes, and risk of skin cancer in Caucasians. Digital quantification of human eye color highlights genetic association of three new loci.  [OMIM:TYROSINASE; TYR] [GWAS:Tanning]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs72921001'>rs72921001</a><a href='http://www.snpedia.com/index.php/rs72921001(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 3<br/>References:0<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>More likely to think cilantro tastes like soap</div>
+        <div class='boxshow' id="show-sec-0.469363102383" style="display: inline;"><a href="javascript:toggle2('sec-0.469363102383')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.469363102383" style="display: none;"><a href="javascript:toggle2('sec-0.469363102383')">(hide)</a>
+        <div class='rstext'>A allele associated with lower chance of thinking cilantro tastes like soap. OR=.81 per A allele. http://arxiv.org/abs/1209.2096 http://blog.23andme.com/23andme-research/cilantro-love-hate-genetic-trait/ http://haldanessieve.org/2012/09/11/a-genetic-variant-near-olfactory-receptor-genes-influences-cilantro-preference/ rs7107418 G allele is a proxy for rs72921001 A allele. http://blog.23andme.com/23andme-research/cilantro-love-hate-genetic-trait/</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs762551'>rs762551</a><a href='http://www.snpedia.com/index.php/rs762551(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2.5<br/>Frequency: <span style='background-color: #FFA0A0;'>8.8%</span><br/>References:38<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>CYP1A2 slow caffeine metabolizer.  More strongly affected by drinking coffee, because caffeine is broken down slower in your liver. Supposedly this increases risk of heart attacks, although other studies show caffeine is generally good for your heart. This also makes caffeine more effective at preventing Breast Cancer, Alzheimer's Disease, and Parkinson's disease. But too much caffeine will shrink your breasts.</div>
+        <div class='boxshow' id="show-sec-0.00533420677295" style="display: inline;"><a href="javascript:toggle2('sec-0.00533420677295')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.00533420677295" style="display: none;"><a href="javascript:toggle2('sec-0.00533420677295')">(hide)</a>
+        <div class='rstext'>rs762551, also known as -164A&gt;C or -163C&gt;A, is a SNP encoding the CYP1A2*1F allele of the CYP1A2 gene. For historic reasons, the rs762551(C) allele is considered the wild-type, even though it is the rarer allele in most populations. The rs762551(A) allele is the 'fast metabolizer' allele known as CYP1A2*1F; the (C) allele is by comparison a slower metabolizer of certain substrates (including caffeine). In terms of genotypes, only rs762551(A;A) individuals are considered fast metabolizers. Individuals who are rs762551(A;C) heterozygotes or rs762551(C;C) homozygotes are both considered slow metabolizers. The CYP1A2 gene encodes a member of the cytochrome p450 family of proteins, which metabolize nutrients and drugs. One well known substrate of CYP1A2 is caffeine; individuals who are ca...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4570625'>rs4570625</a><a href='http://www.snpedia.com/index.php/rs4570625(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 2.5<br/>Frequency: <span style='background-color: #FFEAEA;'>64.6%</span><br/>References:16<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>higher scores on anxiety-related personality traits; greater placebo response  One study of 25 people shows this genotype was a significant predictor of clinical placebo response, being associated with greater improvement in anxiety symptoms. This SNP has been linked to several psychiatric and/or behavioral phenomena, including: *higher scores on anxiety-related personality traits *obsessive compulsive disorder *panic disorder with a possible gender-dependent effect</div>
+        <div class='boxshow' id="show-sec-0.653295089974" style="display: inline;"><a href="javascript:toggle2('sec-0.653295089974')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.653295089974" style="display: none;"><a href="javascript:toggle2('sec-0.653295089974')">(hide)</a>
+        <div class='rstext'>rs4570625, also known as G-703T, is a SNP in the tryptophan hydroxylase 2 TPH2 gene. This SNP has been linked to several psychiatric and/or behavioural phenomena, including: * rs4570625 and rs4565946 linked to the pathogenesis of early-onset obsessive compulsive disorder * rs4570625 and rs11178997 in TPH2's regulatory region display preferential transmission * rs4570625(G;G) homozygosity was a significant predictor of clinical placebo response, being associated with greater improvement in anxiety symptoms. g2b2mh is rs4570625(G;G) is a significant predictor of clinical placebo response? maybe not panic disorder with a possible gender-dependent effect Transmission disequilibrium of polymorphic variants in the tryptophan hydroxylase-2 gene in attention-deficit/hyperactivity disorder. Associa...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs708272'>rs708272</a><a href='http://www.snpedia.com/index.php/rs708272(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2.1<br/>References:35<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>No benefit to alcohol consumption</div>
+        <div class='boxshow' id="show-sec-0.640464402537" style="display: inline;"><a href="javascript:toggle2('sec-0.640464402537')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.640464402537" style="display: none;"><a href="javascript:toggle2('sec-0.640464402537')">(hide)</a>
+        <div class='rstext'>rs708272, also known as the TaqIB polymorphism of the CETP gene, may influence the levels of the 'good' cholesterols, the high density lipoprotein (HDL) cholesterols. Generally, the B2 allele is considered to lead to higher HDL levels. However, high HDL cholesterol, at least when combined with another HDL raising SNP (rs1800588), doesn't appear to actually protect individuals from coronary artery disease, at least based on one study of ~800 Caucasian male patients. A similarly confusing picture emerges from a study of two populations of 10,000+ individuals each. The distribution of the CETP genotype was observed to be different in population-based studies compared with studies in populations selected by high cardiovascular risk, and contradictory results were seen when trying to figure out...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs8050894'>rs8050894</a><a href='http://www.snpedia.com/index.php/rs8050894(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2.1<br/>Frequency: <span style='background-color: #F0D0F0;'>44.6%</span><br/>References:6<br/><a href='http://www.snpedia.com/index.php/Ambiguous_flip'>ambig</a><br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>warfarin sensitivity (~2.5 mg/day)</div>
+        <div class='boxshow' id="show-sec-0.598506139995" style="display: inline;"><a href="javascript:toggle2('sec-0.598506139995')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.598506139995" style="display: none;"><a href="javascript:toggle2('sec-0.598506139995')">(hide)</a>
+        <div class='rstext'>rs8050894, is located on chromosome 16 in the gene VKORC1. VKORC1 is the primary target of the drug warfarin (Coumadin), a commonly used oral anticoagulant. rs8050894 is one of several polymorphisms found in VKORC1 that is associated with specific warfarin doses (). Other polymorphisms in VKORC1 (rs7196161, rs9923231, rs9934438, rs2359612) are equally predictive of warfarin dose requirement in both European and Asian-descent individuals. Other polymorphisms found in the gene cytochrome P450 2C9 (CYP2C9) influence the metabolism of warfarin and have a smaller effect on warfarin dose. These polymorphisms are rs1799853 (CYP2C9*2) and rs1057910 (CYP2C9*3). In several hundred Europeans, no association was found between rs8050894 and risk for ischemic stroke. Genetic-based dosing in orthopedic p...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs12248560'>rs12248560</a><a href='http://www.snpedia.com/index.php/rs12248560(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FF7373;'>1.5%</span><br/>References:13<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>CYP2C19*17 ultra fast metabolizer; drug metabolism effects; also 0.77x decreased breast cancer risk</div>
+        <div class='boxshow' id="show-sec-0.87110685946" style="display: inline;"><a href="javascript:toggle2('sec-0.87110685946')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.87110685946" style="display: none;"><a href="javascript:toggle2('sec-0.87110685946')">(hide)</a>
+        <div class='rstext'>rs12248560(T) defines the CYP2C19*17 allele, an ultra fast metabolizer phenotype of the CYP2C19 gene. CYP2C19*17 is likely to lead to less effective drug treatment by, for example, proton pump inhibitors (such as omeprazole) and antidepressants. On the other hand, cancer patients who are CYP2C19*17 carriers are more likely to benefit from tamoxifen treatment, presumably because they break it down more rapidly into the antiestrogenic metabolites endoxifen and 4-hydroxytamoxifen. A study of 1,000+ breast cancer patients showed a 0.77x decreased risk of breast cancer for carriers of a CYP2C19*17 allele (CI: 0.65-0.93, p = 0.005). Analysis of a subgroup of such carriers who were using hormone therapy for ten years or longer showed an even stronger effect (odds ratio 0.57, CI: 0.39-0.83, p = 0....</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1676486'>rs1676486</a><a href='http://www.snpedia.com/index.php/rs1676486(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FF7777;'>1.8%</span><br/>References:5<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>>1.4x risk for LDH  increased risk of Lumbar Disk Herniation</div>
+        <div class='boxshow' id="show-sec-0.342186526484" style="display: inline;"><a href="javascript:toggle2('sec-0.342186526484')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.342186526484" style="display: none;"><a href="javascript:toggle2('sec-0.342186526484')">(hide)</a>
+        <div class='rstext'>Lumbar disc herniation (LDH), a form of lumbar disc disease, is one of the most common musculoskeletal diseases. rs1676486, a SNP also known as c.4603C--&gt;T in the COLL11A1 gene (one of 3 Type XI collagen genes), has been implicated in a study of ~800 Japanese patients as being associated with LDH. The risk allele in dbSNP orientation is (A), and the odds ratio associated with the allele is 1.42 (CI: 1.23 - 1.65).  [PharmGKB:Curated In independent Japanese populations, the T allele was shown to be associated with Lumbar Disc Herniation.] [OMIM:COLLAGEN, TYPE XI, ALPHA-1; COL11A1]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1554973'>rs1554973</a><a href='http://www.snpedia.com/index.php/rs1554973(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FF8D8D;'>4.4%</span><br/>References:4<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>increased risk for chorionic plate inflammation</div>
+        <div class='boxshow' id="show-sec-0.591249582252" style="display: inline;"><a href="javascript:toggle2('sec-0.591249582252')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.591249582252" style="display: none;"><a href="javascript:toggle2('sec-0.591249582252')">(hide)</a>
+        <div class='rstext'>rs1554973 is a SNP near the toll-like receptor 4 TLR4 gene. A study of 109 pregnant women focusing on TLR4 SNPs associated with chorionic plate inflammation concluded that rs1554973 was associated with increased risk when present in the fetal genome. The risk allele's increased odds ratio for clinically significant inflammation was 4.95 (CI: 3.0-5.6, p = .005). No evidence of major effects in several Toll-like receptor gene polymorphisms in rheumatoid arthritis. Traffic-related air pollution, oxidative stress genes, and asthma (ECHRS). Sequence variants in the TLR4 and TLR6-1-10 genes and prostate cancer risk. Results based on pooled analysis from three independent studies. Role of polymorphic variants as genetic modulators of infection in neonatal sepsis. Interaction between interleukin-1...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs7076156'>rs7076156</a><a href='http://www.snpedia.com/index.php/rs7076156(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FF9292;'>5.3%</span><br/>References:3<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>associated with Crohn's disease</div>
+        <div class='boxshow' id="show-sec-0.261797753049" style="display: inline;"><a href="javascript:toggle2('sec-0.261797753049')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.261797753049" style="display: none;"><a href="javascript:toggle2('sec-0.261797753049')">(hide)</a>
+        <div class='rstext'>[OMIM:URIC ACID NEPHROLITHIASIS, SUSCEPTIBILITY TO] [GWAS:None]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4410790'>rs4410790</a><a href='http://www.snpedia.com/index.php/rs4410790(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFB7B7;'>17.7%</span><br/>References:3<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>drank about a third of a cup of coffee less each day than those without any copies.</div>
+        <div class='boxshow' id="show-sec-0.0330993567152" style="display: inline;"><a href="javascript:toggle2('sec-0.0330993567152')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.0330993567152" style="display: none;"><a href="javascript:toggle2('sec-0.0330993567152')">(hide)</a>
+        <div class='rstext'>rs4410790 and rs2470893 influences habitual caffeine consumption  [GWAS:None]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs6495306'>rs6495306</a><a href='http://www.snpedia.com/index.php/rs6495306(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFBDBD;'>21.2%</span><br/>References:4<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'></div>
+        <div class='boxshow' id="show-sec-0.319946561129" style="display: inline;"><a href="javascript:toggle2('sec-0.319946561129')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.319946561129" style="display: none;"><a href="javascript:toggle2('sec-0.319946561129')">(hide)</a>
+        <div class='rstext'>rs6495306 increases susceptibility to Substance dependence, Alcohol 1.43 times for carriers of the G allele</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2710102'>rs2710102</a><a href='http://www.snpedia.com/index.php/rs2710102(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFC2C2;'>23.9%</span><br/>References:7<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Delayed childhood speech.</div>
+        <div class='boxshow' id="show-sec-0.588083205522" style="display: inline;"><a href="javascript:toggle2('sec-0.588083205522')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.588083205522" style="display: none;"><a href="javascript:toggle2('sec-0.588083205522')">(hide)</a>
+        <div class='rstext'>rs2710102, a common SNP in the CNTNAP2 gene, was found to be significantly associated (p&lt;0.028) with a delayed onset of speech, as measured by the age at which a child speaks their first words, in children with autism. This effect is primarily seen in males, perhaps correlated with the 4-5x overrepresentation of males with autism compared with females. The confirmatory Stage 2 study was performed on 304 independent parent-child trios. However, the risk allele and the degree to which speech is delayed per genotype is unclear as published and awaits clarification by the authors. Speech development rs4431523, rs17236239 and significant associations (with P values from 0.01 to 5.0x10&#8211;5) between nonsense-word repetition and nine intronic SNPs (rs851715, rs10246256, rs2710102, rs759178,...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1042725'>rs1042725</a><a href='http://www.snpedia.com/index.php/rs1042725(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFC8C8;'>28.3%</span><br/>References:23<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>~0.8cm taller</div>
+        <div class='boxshow' id="show-sec-0.931830146288" style="display: inline;"><a href="javascript:toggle2('sec-0.931830146288')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.931830146288" style="display: none;"><a href="javascript:toggle2('sec-0.931830146288')">(hide)</a>
+        <div class='rstext'>nature SNP rs1042725 is associated with height (P = 4E-8) in a study involving over 20,000 individuals. The gene harboring this SNP, HMGA2, is a strong biological candidate for having an influence on height, since rare, severe mutations in this gene are known to alter body size in mice and humans. rs1042725 is estimated to explain approx 0.3% of population variation in height in both adults and children (approx 0.4 cm increased adult height per C allele). rs1042725 is associated with increased height (0.36 cm 95% IC[0.12-0.61] per C allele, P=0.004). in men rs1042725 may explain 3% of height variability  [PharmGKB:Non-Curated GWAS Results: A common variant of HMGA2 is associated with adult and childhood height in the general population (Initial Sample Size: 4,921 individuals; Replication S...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs7089814'>rs7089814</a><a href='http://www.snpedia.com/index.php/rs7089814(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFCDCD;'>32.7%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>smaller breast size (normal in European female)</div>
+        <div class='boxshow' id="show-sec-0.907433310089" style="display: inline;"><a href="javascript:toggle2('sec-0.907433310089')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.907433310089" style="display: none;"><a href="javascript:toggle2('sec-0.907433310089')">(hide)</a>
+        <div class='rstext'>breast size</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs3124314'>rs3124314</a><a href='http://www.snpedia.com/index.php/rs3124314(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFCECE;'>32.8%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>straighter hair</div>
+        <div class='boxshow' id="show-sec-0.693240561052" style="display: inline;"><a href="javascript:toggle2('sec-0.693240561052')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.693240561052" style="display: none;"><a href="javascript:toggle2('sec-0.693240561052')">(hide)</a>
+        <div class='rstext'>[GWAS:Hair morphology]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2832407'>rs2832407</a><a href='http://www.snpedia.com/index.php/rs2832407(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFD1D1;'>35.4%</span><br/>References:4<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>topiramate may work to reduce heavy drinking best for this genotype   Research by Dr. H. Kranzler's group has found that the drug topiramate was more effective in reducing heavy drinking in individuals with this rs2832407(C;C) genotype.</div>
+        <div class='boxshow' id="show-sec-0.217143239491" style="display: inline;"><a href="javascript:toggle2('sec-0.217143239491')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.217143239491" style="display: none;"><a href="javascript:toggle2('sec-0.217143239491')">(hide)</a>
+        <div class='rstext'>The rs2832407(C) allele has inconsistently been linked to alcoholism and its treatment. Nonetheless, a 2014 report based on 138 patients concludes that rs2832407(C;C) individuals show a greater decrease than non-carriers (of a rs2832407(C) allele) in the number of heavy drinking days per week when taking topiramate at a dose of 200 mg/daily. A follow-up study done 3 and 6 months after treatment seemed to mostly confirm the topiramate benefit preferentially to rs2832407(C;C) individuals.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1801260'>rs1801260</a><a href='http://www.snpedia.com/index.php/rs1801260(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFD5D5;'>39.8%</span><br/>References:7<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Normal (higher) risk of ADHD symptoms.  This is one normal and one rare form of the CLOCK gene. In addition to possibly affecting evening preference, it has been linked to normal Attention Deficit Hyperactivity Disorder symptom scores.</div>
+        <div class='boxshow' id="show-sec-0.260623710318" style="display: inline;"><a href="javascript:toggle2('sec-0.260623710318')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.260623710318" style="display: none;"><a href="javascript:toggle2('sec-0.260623710318')">(hide)</a>
+        <div class='rstext'>rs1801260, a SNP in the CLOCK gene known as 3111 T/C, has been reported to influence sleep and activity patterns in patients affected by bipolar depression. From this article's abstract: 'Compared to T/T homozygotes, carriers of the C allele had a similar degree of severity of depression, but showed higher activity levels in the evening, a delayed sleep onset (mean 79 min later), and a reduced amount of sleep during the night (mean 75 min less).' Allele frequencies of T3111C SNP of hClock were significantly different between schizophrenics and controls (chi(2) = 19.738, P &lt; 0.05). Schizophrenics had a significantly higher frequency of the C allele compared with controls (OR = 2.613, 95% CI = 1.693-4.034). (Han Chinese population.) There was a strong, significant association (P &lt; 0.00...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2298566'>rs2298566</a><a href='http://www.snpedia.com/index.php/rs2298566(A;C)'>(A;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFD8D8;'>42.5%</span><br/>References:3<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>increased risk of coronary heart disease; better response to statins</div>
+        <div class='boxshow' id="show-sec-0.191983648322" style="display: inline;"><a href="javascript:toggle2('sec-0.191983648322')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.191983648322" style="display: none;"><a href="javascript:toggle2('sec-0.191983648322')">(hide)</a>
+        <div class='rstext'>rs2298566 is a SNP in the MYH15 gene. The risk allele in terms of heart disease is rs2298566(C). This SNP is one of the 5 used by Celera's genetic risk score (GRS) for coronary heart disease (CHD). *rs20455, in the KIF6 gene *rs3900940, in the MYH15 gene *rs7439293, in the PALLD gene *rs2298566, in the SNX19 gene *rs1010, in the VAMP8 gene For each of the five variants, the GRS was increased by 1 if the subject was homozygous for the risk variant, unchanged if heterozygous, and decreased by 1 if the individual did not carry the variant. Therefore, individuals carrying all 10 possible risk variants (two copies of each of the five SNPs) were assigned a GRS of 5 and those carrying no risk variants a GRS of -5. A high GRS was defined as 3 or higher. Approximately 4% of the white cohort in ARIC...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4481887'>rs4481887</a><a href='http://www.snpedia.com/index.php/rs4481887(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFDADA;'>44.2%</span><br/>References:2<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>more likely to be able to smell asparagus metabolites in urine  1.67x more likely than people with (G;G) to be able to smell the methanethiol produced after eating asparagus.</div>
+        <div class='boxshow' id="show-sec-0.335371775214" style="display: inline;"><a href="javascript:toggle2('sec-0.335371775214')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.335371775214" style="display: none;"><a href="javascript:toggle2('sec-0.335371775214')">(hide)</a>
+        <div class='rstext'>Asparagus anosmia research was performed by 23andMe and presented at the 2009 ASHG according to geneticfuture. Asparagus anosmia Asparagus Metabolite Detection  [GWAS:Common traits (Other)]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs806380'>rs806380</a><a href='http://www.snpedia.com/index.php/rs806380(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFDCDC;'>46.8%</span><br/>References:5<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Normal genotype. slightly higher odds of cannabis dependence</div>
+        <div class='boxshow' id="show-sec-0.479700591925" style="display: inline;"><a href="javascript:toggle2('sec-0.479700591925')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.479700591925" style="display: none;"><a href="javascript:toggle2('sec-0.479700591925')">(hide)</a>
+        <div class='rstext'>This snp, located in intron 2 of the central cannabinoid receptor CNR1 gene, has been linked to cannabis dependence. The (G) allele is reported to have a protective effect, and is a defining part of a haplotype that is associated with lower odds of developing cannabis dependence. The (A) allele is more common in all populations studied. Variation in the human cannabinoid receptor CNR1 gene modulates gaze duration for happy faces. (G;G) is also associated with the longest gaze duration for happy faces.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs7221412'>rs7221412</a><a href='http://www.snpedia.com/index.php/rs7221412(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFDEDE;'>49.6%</span><br/>References:0<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Intermediate riser. Wakes up at a time between the AA and GG genotypes.   Research also suggests, then you are also more likely to die on a morning, shortly before 11am. http://www.theatlantic.com/health/archive/2012/11/you-are-most-likely-to-die-at-11-am/265427/</div>
+        <div class='boxshow' id="show-sec-0.976164857987" style="display: inline;"><a href="javascript:toggle2('sec-0.976164857987')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.976164857987" style="display: none;"><a href="javascript:toggle2('sec-0.976164857987')">(hide)</a>
+        <div class='rstext'>A common polymorphism near PER1 and the timing of human behavioral rhythms. Study showed that it had influence on wake-up times, as well as time of day that death occurs. Suggests that common (but unidentified) polymorphisms may be associated with a preference for daytime or nighttime activity. rs7221412 is not presently covered by 23andMe, but this SNP appears to sit in a haplotype block and is flanked by rs9914077 and rs2585408</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs499697'>rs499697</a><a href='http://www.snpedia.com/index.php/rs499697(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFE1E1;'>53.1%</span><br/>References:1<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>straighter hair</div>
+        <div class='boxshow' id="show-sec-0.702216946265" style="display: inline;"><a href="javascript:toggle2('sec-0.702216946265')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.702216946265" style="display: none;"><a href="javascript:toggle2('sec-0.702216946265')">(hide)</a>
+        <div class='rstext'>rs499697 the minor, derived allele is associated with curlier hair curl, 0.13 points per G.  [GWAS:Common traits (Other)]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4585'>rs4585</a><a href='http://www.snpedia.com/index.php/rs4585(G;T)'>(G;T)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFE2E2;'>54.0%</span><br/>Repute:Neutral<br/>References:3<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>average response to metformin in type 2 diabetics</div>
+        <div class='boxshow' id="show-sec-0.898637345606" style="display: inline;"><a href="javascript:toggle2('sec-0.898637345606')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.898637345606" style="display: none;"><a href="javascript:toggle2('sec-0.898637345606')">(hide)</a>
+        <div class='rstext'>rs4585 has been found to modify the metformin response in patients with type 2 diabetes. Metformin Response</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs189798'>rs189798</a><a href='http://www.snpedia.com/index.php/rs189798(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFE6E6;'>59.3%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>normal high myopia risk  Normal (higher) risk of high myopia (in French people).(table)</div>
+        <div class='boxshow' id="show-sec-0.388737992634" style="display: inline;"><a href="javascript:toggle2('sec-0.388737992634')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.388737992634" style="display: none;"><a href="javascript:toggle2('sec-0.388737992634')">(hide)</a>
+        <div class='rstext'></div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2108622'>rs2108622</a><a href='http://www.snpedia.com/index.php/rs2108622(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>Frequency: <span style='background-color: #FFE7E7;'>60.7%</span><br/>References:50<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>lower warfarin dosing</div>
+        <div class='boxshow' id="show-sec-0.683457771969" style="display: inline;"><a href="javascript:toggle2('sec-0.683457771969')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.683457771969" style="display: none;"><a href="javascript:toggle2('sec-0.683457771969')">(hide)</a>
+        <div class='rstext'>rs2108622 is a SNP in the cytochrome P450, family 4, subfamily F, polypeptide 2 CYP4F2 gene. In the males rs2108622(G) was significantly higher in cerebral infarction patients (P = 0.025) A study of Italian patients concluded that rs2108622(T;T) patients require 5.49 mg/day of warfarin versus 2.93 mg/day for (C;C) patients. Analysis of variance indicates that about 7% of mean weekly warfarin dose variance is explained by CYP4F2 genotype. A study of 370 Brazilian ('admixed') patients concludes that prospective CYP4F2 genotyping is of little value to these patients, presumably due to ethnic-based differences.  [PharmGKB:Curated Risk or phenotype-associated allele: no allelic association. Phenotype: Improved pharmacogenetic algorithm-based warfarin dosing. Study size: 370. Study population/et...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1800955'>rs1800955</a><a href='http://www.snpedia.com/index.php/rs1800955(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 2<br/>References:8<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>increased susceptibility to novelty seeking</div>
+        <div class='boxshow' id="show-sec-0.735937149943" style="display: inline;"><a href="javascript:toggle2('sec-0.735937149943')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.735937149943" style="display: none;"><a href="javascript:toggle2('sec-0.735937149943')">(hide)</a>
+        <div class='rstext'>g2b2mh blog C allele of rs1800955 DRD4 gene survives an analysis of several dozen studies on genetics and personality. Although small, The evidence from our final meta-analysis indicates that the C-521T may account for up to 3% of phenotypic variance. rs1800955 and rs1800443 are discussed in this article as influencing personality Association and synergistic interaction between promoter variants of the DRD4 gene in Japanese schizophrenics. Genetic associations with schizophrenia: meta-analyses of 12 candidate genes. Now or Later? An fMRI study of the effects of endogenous opioid blockade on a decision-making network. Persistence criteria for susceptibility genes for schizophrenia: a discussion from an evolutionary viewpoint. The Genetics of Anorexia Nervosa: Current Findings and Future Per...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4794067'>rs4794067</a><a href='http://www.snpedia.com/index.php/rs4794067(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.9<br/>Frequency: <span style='background-color: #FFD4D4;'>38.9%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>2.1x risk for Aspirin Induced Asthma. But possibly lower risk of intractible Grave's disease.  Only tested in Japanese people. Might not be true for other races. May also be slightly protective against lupus (in Chinese people).</div>
+        <div class='boxshow' id="show-sec-0.367095058297" style="display: inline;"><a href="javascript:toggle2('sec-0.367095058297')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.367095058297" style="display: none;"><a href="javascript:toggle2('sec-0.367095058297')">(hide)</a>
+        <div class='rstext'>rs4794067(C;C) and rs4794067(C;T) genotypes for the TBX21 gene are calculated to be at 2.15 fold higher risk (CI: 1.26-3.64) for aspirin-induced asthma (AIA) compared to rs4794067(T;T) homozygotes, based on a study of 72 patients vs 640 controls in a study of a Japanese population. Note that in this population, but perhaps not others, linkage disequilibrium exists between this SNP located upstream of the gene, rs4794067, and a common synonymous SNP located in the first exon, rs2074190, with a predictive accuracy of 92%. On the other hand, rs4794067(C;C) may greatly decrease the risk of lupus if rs17250932(C;C) is also present (at least in Chinese people). And those 2 SNPs also reduce the risk of intractable Graves' disease (at least in Japanese people).</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs5400'>rs5400</a><a href='http://www.snpedia.com/index.php/rs5400(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.8<br/>Frequency: <span style='background-color: #FF8D8D;'>4.5%</span><br/>References:5<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>significantly higher sugar consumption</div>
+        <div class='boxshow' id="show-sec-0.901260909883" style="display: inline;"><a href="javascript:toggle2('sec-0.901260909883')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.901260909883" style="display: none;"><a href="javascript:toggle2('sec-0.901260909883')">(hide)</a>
+        <div class='rstext'>rs5400(T;T) carriers had a significantly higher intake of sugars blog discussion Food Preference</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2024513'>rs2024513</a><a href='http://www.snpedia.com/index.php/rs2024513(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 1.7<br/>Frequency: <span style='background-color: #FFCBCB;'>31.0%</span><br/>References:0<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>1.7x higher risk for schizophrenia (among Han Chinese)</div>
+        <div class='boxshow' id="show-sec-0.782045148975" style="display: inline;"><a href="javascript:toggle2('sec-0.782045148975')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.782045148975" style="display: none;"><a href="javascript:toggle2('sec-0.782045148975')">(hide)</a>
+        <div class='rstext'>rs2024513 is a SNP in the neurexin-1 NRXN1 gene on chromosome 2p16.3. Based on a case-control study of 700+ Han Chinese patients with schizophrenia, rs2024513(A) was associated with higher risk, at an odds ratio of 1.3 (CI: 1.07 - 1.56, p=0.006).</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs6471482'>rs6471482</a><a href='http://www.snpedia.com/index.php/rs6471482(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 1.5<br/>Frequency: <span style='background-color: #FF6969;'>0.9%</span><br/>References:0<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>you have a rare genotype in a gene linked to color blindness but others have confirmed that they are not color blind.</div>
+        <div class='boxshow' id="show-sec-0.718884612151" style="display: inline;"><a href="javascript:toggle2('sec-0.718884612151')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.718884612151" style="display: none;"><a href="javascript:toggle2('sec-0.718884612151')">(hide)</a>
+        <div class='rstext'></div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1799941'>rs1799941</a><a href='http://www.snpedia.com/index.php/rs1799941(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 1.5<br/>Frequency: <span style='background-color: #FF9292;'>5.3%</span><br/>References:20<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Sex Hormone-Binding Globulin levels are 0.4 standard deviations higher</div>
+        <div class='boxshow' id="show-sec-0.181073787783" style="display: inline;"><a href="javascript:toggle2('sec-0.181073787783')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.181073787783" style="display: none;"><a href="javascript:toggle2('sec-0.181073787783')">(hide)</a>
+        <div class='rstext'>Sex Hormone Regulation  [OMIM:SEX HORMONE-BINDING GLOBULIN; SHBG]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs6591536'>rs6591536</a><a href='http://www.snpedia.com/index.php/rs6591536(A;A)'>(A;A)</a></div>
+        <div class='boxmag'>Magnitude: 1.5<br/>Frequency: <span style='background-color: #FFD7D7;'>41.6%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>less able to detect &#946;-ionone (floral) fragrance</div>
+        <div class='boxshow' id="show-sec-0.454181954292" style="display: inline;"><a href="javascript:toggle2('sec-0.454181954292')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.454181954292" style="display: none;"><a href="javascript:toggle2('sec-0.454181954292')">(hide)</a>
+        <div class='rstext'>rs6591536, also known as N183D or Asn183Asp, is a SNP in the olfactory receptor, family 5, subfamily A, member 1 OR5A1 gene. The rs6591536(A) allele encodes the asparagine (N). Individuals vary in their ability to smell various odors, largely due to variations in their olfactory receptors. Carriers of one or two rs6591536(G) alleles can detect a particular compound, &#946;-ionone, at levels two orders of magnitude lower than rs6591536(A;A) individuals. In fact, this study reports that 96% of the observed phenotypic variation is determined by this single SNP, making it nearly a completely Mendelian trait. People with high or low &#946;-ionone sensitivity are found in all populations, and based on this SNP, variability was seen even in Neanderthal populations. Since rs6591536 determines &#94...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2007153'>rs2007153</a><a href='http://www.snpedia.com/index.php/rs2007153(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 1.5<br/>Frequency: <span style='background-color: #FFD9D9;'>43.4%</span><br/>References:0<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>increased risk of schizophrenia in limited study</div>
+        <div class='boxshow' id="show-sec-0.331571841576" style="display: inline;"><a href="javascript:toggle2('sec-0.331571841576')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.331571841576" style="display: none;"><a href="javascript:toggle2('sec-0.331571841576')">(hide)</a>
+        <div class='rstext'>Associated with schizophrenia in a study of Croatians. Due to the limited number and diversity of the studied population, more study is needed to confirm any link. The G allele was associated with an increased risk of schizophrenia.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs464049'>rs464049</a><a href='http://www.snpedia.com/index.php/rs464049(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.5<br/>Frequency: <span style='background-color: #FFDFDF;'>50.4%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>increased risk of schizophrenia in limited study</div>
+        <div class='boxshow' id="show-sec-0.98039531904" style="display: inline;"><a href="javascript:toggle2('sec-0.98039531904')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.98039531904" style="display: none;"><a href="javascript:toggle2('sec-0.98039531904')">(hide)</a>
+        <div class='rstext'>Associated with schizophrenia in a study of Croatians. Due to the limited number and diversity of the studied population, more study is needed to confirm any link. The T allele was associated with an increased risk of schizophrenia. A network of dopaminergic gene variations implicated as risk factors for schizophrenia. Family based association study of pediatric bipolar disorder and the dopamine transporter gene (SLC6A3). Genome-wide and candidate gene association study of cigarette smoking behaviors. Financial and psychological risk attitudes associated with two single nucleotide polymorphisms in the nicotine receptor (CHRNA4) gene. Two loci control tuberculin skin test reactivity in an area hyperendemic for tuberculosis.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1042713'>rs1042713</a><a href='http://www.snpedia.com/index.php/rs1042713(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 1.3<br/>Frequency: <span style='background-color: #FFDCDC;'>46.9%</span><br/>References:63<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>1.3x increased risk that pediatric inhaler use may make asthma worse</div>
+        <div class='boxshow' id="show-sec-0.639839513046" style="display: inline;"><a href="javascript:toggle2('sec-0.639839513046')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.639839513046" style="display: none;"><a href="javascript:toggle2('sec-0.639839513046')">(hide)</a>
+        <div class='rstext'>rs1042713, also known as Arg16, G16R, and 16Arg&gt;Gly, is a SNP in the adrenergic, beta-2-, surface receptor ADRB2 gene. The rs1042713(G) allele encodes the G/glycine form that is the more common one in most populations, while rs1042713(A) encodes the R/arginine residue at this position of the ADRB2 protein. A study of 1,182 young Scottish asthma patients (age, 3-22 years) concluded that rs1042713(A) alleles are significantly associated with 'exacerbations' of their condition, regardless of treatment regimens (odds ratio 1.30, CI: 1.09-1.55, p=0.003). This didn't hold true for patients using inhalers less than once per day; and it was particularly true for those receiving daily inhaled long- or short-acting beta(2)-agonist treatment (OR, 1.64, CI: 1.22-2.20, p=.001). This may therefore in...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs10513789'>rs10513789</a><a href='http://www.snpedia.com/index.php/rs10513789(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.25<br/>Frequency: <span style='background-color: #FFE4E4;'>55.8%</span><br/>References:0<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Very common. Normal risk of Parkinson's disease.  Approximately 55% of non-asian people have this genotype which is associated with slightly higher risk of Parkinson's disease when compared to genotype (G;G). It is notable because it is the first SNP patented by 23andMe rs10513789(T) increased risk of developing Parkinson's Disease GenomicsLawReport</div>
+        <div class='boxshow' id="show-sec-0.662343894461" style="display: inline;"><a href="javascript:toggle2('sec-0.662343894461')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.662343894461" style="display: none;"><a href="javascript:toggle2('sec-0.662343894461')">(hide)</a>
+        <div class='rstext'>23andMe reports that the G allele of rs10513789 is associated with 0.8 times lower odds of Parkinson's disease. 23andMe has a patent covering this snp. http://blog.23andme.com/2012/05/28/announcing-23andmes-first-patent/ See also gs249 and gs248</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2472297'>rs2472297</a><a href='http://www.snpedia.com/index.php/rs2472297(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.2<br/>Frequency: <span style='background-color: #FF9292;'>5.3%</span><br/>References:5<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Associated with (slightly) increased coffee consumption</div>
+        <div class='boxshow' id="show-sec-0.401236338652" style="display: inline;"><a href="javascript:toggle2('sec-0.401236338652')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.401236338652" style="display: none;"><a href="javascript:toggle2('sec-0.401236338652')">(hide)</a>
+        <div class='rstext'>rs2472297 is a SNP located between the CYP1A1 and CYP1A2 genes on ch 15q24. A meta-analysis of four GWAS studies of coffee consumption among a total of ~8,000 coffee drinkers of European ancestry found that the rs2472297(T) was strongly associated with increased consumption (p = 5.4 x 10e-14). The estimated effect was an increase of 0.2 cups a day per allele for both this SNP and one other (rs6968865).</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2651899'>rs2651899</a><a href='http://www.snpedia.com/index.php/rs2651899(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 1.2<br/>Frequency: <span style='background-color: #FFBABA;'>19.5%</span><br/>References:7<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>1.2x higher risk for migraines</div>
+        <div class='boxshow' id="show-sec-0.98575058388" style="display: inline;"><a href="javascript:toggle2('sec-0.98575058388')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.98575058388" style="display: none;"><a href="javascript:toggle2('sec-0.98575058388')">(hide)</a>
+        <div class='rstext'>rs2651899 is a SNP on ch 1p36.32 in the PRDM16 gene. A large GWAS study of over 5,000 patients with migraines and a meta-analysis concluded that this SNP was one of three influencing the condition, albeit with only slight risk increases on its own. The odds ratio for the slightly rarer rs2651899(G) allele was 1.11 (CI: 1.07 - 1.15, p = 3.8 x 10e-9). A 2013 study published by the American Headache Society reports significant influence of rs1835740, LRP1 rs11172113 and PRDM16 rs2651899 polymorphisms on migraine susceptibility in the Northern Indian population. Genome-wide-associated variants in migraine susceptibility: a replication study from North India.  [GWAS:None]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs9306160'>rs9306160</a><a href='http://www.snpedia.com/index.php/rs9306160(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.2<br/>Frequency: <span style='background-color: #FFDDDD;'>47.7%</span><br/>References:0<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>0.75x (reduced) risk for metastasis in LN-/ER+ breast cancer patients</div>
+        <div class='boxshow' id="show-sec-0.0747638431552" style="display: inline;"><a href="javascript:toggle2('sec-0.0747638431552')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.0747638431552" style="display: none;"><a href="javascript:toggle2('sec-0.0747638431552')">(hide)</a>
+        <div class='rstext'>rs9306160, also known as Pro436Leu, is a SNP in the ribosomal RNA processing 1 homolog B RRP1B gene. In a study of 1,725 LN=/ER+ breast cancer patients, carriers of a rs9306160(T) allele showed a reduced metastasis risk compared to rs9306160(C;C) patients. This association was statistically significant for both disease-free survival (DFS) and metastasis-free survival (MFS) in multivariate analysis [DFS hazard ratio 0.75, CI: 0.60&#8211;0.94, p=0.013), MFS HR 0.70, CI: 0.54&#8211;0.91, p=0.009) and overall survival (HR 0.78, CI:0.59&#8211;1.03, p=0.082)]. This study also found that rs9306160 can be combined with an independent predictor of metastasis free survival, rs2448490, to yield an even stronger prognostic. Specifically, the risk for developing distant metastasis was about 2.5-fold lo...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1049296'>rs1049296</a><a href='http://www.snpedia.com/index.php/rs1049296(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.1<br/>Frequency: <span style='background-color: #FFC2C2;'>23.9%</span><br/>References:16<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Heterozygote carrying both C1 and C2 transferrin subtypes; very slightly higher risk for Alzheimers</div>
+        <div class='boxshow' id="show-sec-0.386942292398" style="display: inline;"><a href="javascript:toggle2('sec-0.386942292398')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.386942292398" style="display: none;"><a href="javascript:toggle2('sec-0.386942292398')">(hide)</a>
+        <div class='rstext'>rs1049296, also known as Pro570Ser, is best known as the basis for the C1/C2 subtypes of the transferrin TF gene. The rs1049296(C) allele encodes the C1 subtype, and the rarer rs1049296(T) allele encodes the C2 subtype. Involved in the transport of iron, transferrin and its subtypes have been linked at times to various conditions, perhaps most notably Alzheimer's disease. One meta-analyis of 19 studies with 6310 cases and 13661 controls concluded that the C2 allele, rs1049296(T), was associated with slightly increased risk for Alzheimer's, with odds ratios around 1.1-1.2. Pathogens may scavenge iron, and the body's attempts to sequester it from such pathogens are a form of defense termed nutritional immunity. One explanation for the presence of the C2 TF subtype in humans is that it may re...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4880'>rs4880</a><a href='http://www.snpedia.com/index.php/rs4880(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.1<br/>Frequency: <span style='background-color: #FFDADA;'>45.1%</span><br/>References:82<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>complex! see rs4880</div>
+        <div class='boxshow' id="show-sec-0.0911658929529" style="display: inline;"><a href="javascript:toggle2('sec-0.0911658929529')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.0911658929529" style="display: none;"><a href="javascript:toggle2('sec-0.0911658929529')">(hide)</a>
+        <div class='rstext'>The rs4880(T) allele, part of the codon for amino acid valine at codon 16 of the antioxidant protein from the mitochrondrial superoxide dismutase 2 SOD2 gene, is the most common in most populations studied. The rs4880(C) allele gives rise to an alanine at this position is it also known as Val16Ala manganese superoxide dismutase, or A16V. There appears to be some conflict in the literature over the effect of this SNP. Having a valine at codon 16 is said to reduce enzyme activity , and thus lead to increased oxidative stress, yet in at least one study of the actual enzyme levels measured in people, SOD2 activity was 33% higher in (C;T) or (T;T) individuals compared to (C;C) individuals . Regardless of how this resolves, several phenotypic associations have been reported for this SNP, includi...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs363050'>rs363050</a><a href='http://www.snpedia.com/index.php/rs363050(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 1.1<br/>Frequency: <span style='background-color: #FFDBDB;'>46.0%</span><br/>References:2<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>The (A;G) genotype averages 2.8 PIQ points higher than the (G;G), but averages 2.84 PIQ points lower than (A;A) genotype</div>
+        <div class='boxshow' id="show-sec-0.808553722451" style="display: inline;"><a href="javascript:toggle2('sec-0.808553722451')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.808553722451" style="display: none;"><a href="javascript:toggle2('sec-0.808553722451')">(hide)</a>
+        <div class='rstext'>SNPs in the SNAP25 gene were initially linked to intelligence but have failed to replicate . While now suspect, the original work can be found in . The (A;A) genotype averaged 2.84 PIQ points higher than the (A;G) genotype, which averages 2.8 PIQ points higher than the (G;G) genotype (p=0.0002). Variance in this SNP may account for 3.4% of the phenotypic variance in PIQ. rs363050 is in close linkage with rs353016, with r2 = 0.98, such that the rs363050(A) allele typically is linked to the rs353016(T) allele. For SNPs rs363039 - rs363043 - rs353016, respectively, the haplotype C-T-T is most associated with higher intelligence in children, whereas the haplotype C-C-T is most associated in adults (SNPs oriented as in dbSNP). Measures of Intelligence</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs4496877'>rs4496877</a><a href='http://www.snpedia.com/index.php/rs4496877(G;T)'>(G;T)</a></div>
+        <div class='boxmag'>Magnitude: 1.1<br/>Frequency: <span style='background-color: #FFDDDD;'>47.8%</span><br/>References:2<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>For type-1 diabetics, 1.3x increased nephropathy risk</div>
+        <div class='boxshow' id="show-sec-0.496263571012" style="display: inline;"><a href="javascript:toggle2('sec-0.496263571012')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.496263571012" style="display: none;"><a href="javascript:toggle2('sec-0.496263571012')">(hide)</a>
+        <div class='rstext'>rs4496877 is a SNP near the NOS3 gene. Several Type-1 diabetes patients pools, totaling over 2,000 patients, plus a meta-analysis were involved in a study concluding that in such patients, the rs4496877 was associated with higher risk for nephropathy. The odds ratio associated with rs4496877(T) was 1.26 (p = 0.002, CI: 1.08-1.47). A proxy for this SNP (pairwise linkage of 0.96) is rs1800783.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1892534'>rs1892534</a><a href='http://www.snpedia.com/index.php/rs1892534(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 1.05<br/>Frequency: <span style='background-color: #FFD9D9;'>43.8%</span><br/>References:12<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Normal C-Reactive Protein levels. Very slight (x1.05) increase in overall risk for cancers.  This causes a median hsCRP Level of 1.88 mg/L in women. Strangely this was associated with a slightly higher overall cancer risk (in Finnish people).</div>
+        <div class='boxshow' id="show-sec-0.228229932979" style="display: inline;"><a href="javascript:toggle2('sec-0.228229932979')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.228229932979" style="display: none;"><a href="javascript:toggle2('sec-0.228229932979')">(hide)</a>
+        <div class='rstext'>rs1892534 is a SNP that was originally associated with C-reactive protein levels, and given other findings that suggest C-reactive protein levels may be predictive of cancer risk, was thought to be linked to cancer risk. A large study pooling data from 3 Finnish studies totaling over 18,000 individuals concluded that while the rs1892534(A) allele was not likely to be causative (relative to cancer), it is associated with increased risk for cancer overall. The odds ratio for 1 or 2 such alleles was 1.05 (CI: 0.90 - 1.23) and 1.2 (CI: 1.01 - 1.42) overall. Two other CRP SNPs (rs1169300 and rs2464196) were specifically associated with increased lung cancer risk. CRP SNPs were not associated with colorectal, prostate or breast cancer risk.  [PharmGKB:Curated GWAS Results: Loci Related to Metabo...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs6583817'>rs6583817</a><a href='http://www.snpedia.com/index.php/rs6583817(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FF8080;'>2.7%</span><br/>References:3<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>~0.80x (lower) risk for late onset Alzheimer's disease</div>
+        <div class='boxshow' id="show-sec-0.0251187862567" style="display: inline;"><a href="javascript:toggle2('sec-0.0251187862567')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.0251187862567" style="display: none;"><a href="javascript:toggle2('sec-0.0251187862567')">(hide)</a>
+        <div class='rstext'>rs6583817, also known as v311, is a SNP within an intron of the IDE gene, which encodes the insulin-degrading enzyme. Late onset Alzheimer's disease is a neurodegenerative condition in which the brain develops large numbers of extracellular senile plaques composed primarily of aggregated amyloid-B proteins as well as intraneuronal neurofibrillary tangles composed mainly of aggregated tau protein. One notable function of insulin-degrading enzyme is its ability to degrade amyloid-B and therefore to influence the amount of amyloid-B found in the brain. A study of ~3,000 patients (and an equal number of matched controls) found that carriers of one or two minor alleles, i.e. rs6583817(T), had ~2x higher levels of insulin-degrading enzyme (p &lt; 10e-8), lower levels of amyloid-B, and a (slightl...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs7910977'>rs7910977</a><a href='http://www.snpedia.com/index.php/rs7910977(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FF8080;'>2.7%</span><br/>References:4<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>~0.80x (lower) risk for late onset Alzheimer's disease</div>
+        <div class='boxshow' id="show-sec-0.0037438652272" style="display: inline;"><a href="javascript:toggle2('sec-0.0037438652272')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.0037438652272" style="display: none;"><a href="javascript:toggle2('sec-0.0037438652272')">(hide)</a>
+        <div class='rstext'>rs7910977 is a SNP of the IDE gene, which encodes the insulin-degrading enzyme. Late onset Alzheimer's disease is a neurodegenerative condition in which the brain develops large numbers of extracellular senile plaques composed primarily of aggregated amyloid-B proteins as well as intraneuronal neurofibrillary tangles composed mainly of aggregated tau protein. One notable function of insulin-degrading enzyme is its ability to degrade amyloid-B and therefore to influence the amount of amyloid-B found in the brain. The rs7910977(T) allele is associated with reduced risk of Alzheimer's disease in one study of ~3,000 patients, and in this study, the conclusion was that it was most likely due to near perfect linkage with rs6583817, a nearby functional variant. rs6583817(T) allele carriers had an...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs3807153'>rs3807153</a><a href='http://www.snpedia.com/index.php/rs3807153(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FF9292;'>5.3%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>carrier of a benign change</div>
+        <div class='boxshow' id="show-sec-0.905408133484" style="display: inline;"><a href="javascript:toggle2('sec-0.905408133484')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.905408133484" style="display: none;"><a href="javascript:toggle2('sec-0.905408133484')">(hide)</a>
+        <div class='rstext'>[OMIM:RENAL TUBULAR ACIDOSIS, DISTAL, AUTOSOMAL RECESSIVE]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs12571093'>rs12571093</a><a href='http://www.snpedia.com/index.php/rs12571093(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFBCBC;'>20.4%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>ancestral Neanderthal allele (heterozygote)</div>
+        <div class='boxshow' id="show-sec-0.639933995785" style="display: inline;"><a href="javascript:toggle2('sec-0.639933995785')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.639933995785" style="display: none;"><a href="javascript:toggle2('sec-0.639933995785')">(hide)</a>
+        <div class='rstext'>[GWAS:Optic disc size (disc)]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs7171755'>rs7171755</a><a href='http://www.snpedia.com/index.php/rs7171755(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFC3C3;'>24.8%</span><br/>References:0<br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>common/normal</div>
+        <div class='boxshow' id="show-sec-0.883634123402" style="display: inline;"><a href="javascript:toggle2('sec-0.883634123402')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.883634123402" style="display: none;"><a href="javascript:toggle2('sec-0.883634123402')">(hide)</a>
+        <div class='rstext'>rs7171755 is a SNP near the synaptic cell adhesion glycoprotein-encoding NPTN gene. A study of ~1,500 adolescents determined that the rs7171755(A) allele is associated with a slightly thinner left hemisphere cortex and also a slight decrease in verbal and nonverbal intelligence (IQ). The differences were really quite slight; each copy of the risk allele decreased cortical thickness by 0.7%, and decreased verbal and nonverbal IQ by 1.8 and 1.4 points, respectively. This study awaits independent replication. Also, note that eight SNPs in the NPTN locus were reported as jointly showing significant association with cortical thickness in addition to rs7171755: rs7176637, rs11854138, rs8028749, rs12185108, rs1564492, rs899981, rs7178269 and rs4075802.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1800255'>rs1800255</a><a href='http://www.snpedia.com/index.php/rs1800255(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFD2D2;'>36.9%</span><br/>References:9<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>benign  In heterozygous form, this is considered a benign (or 'likely benign') SNP.</div>
+        <div class='boxshow' id="show-sec-0.819725556735" style="display: inline;"><a href="javascript:toggle2('sec-0.819725556735')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.819725556735" style="display: none;"><a href="javascript:toggle2('sec-0.819725556735')">(hide)</a>
+        <div class='rstext'>rs1800255 is a SNP in the alpha I chain of the type III collagen protein-encoding COL3A1 gene. A relatively small study (200 patients) reported an odds ratio of 5 (CI: 1.4-17.1) between rs1800255(A;A) homozygotes and risk for pelvic organ prolapse. No significance was found for the heterozygous genotype.  [OMIM:?]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs11362'>rs11362</a><a href='http://www.snpedia.com/index.php/rs11362(A;G)'>(A;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFDADA;'>45.1%</span><br/>References:12<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'></div>
+        <div class='boxshow' id="show-sec-0.704266588606" style="display: inline;"><a href="javascript:toggle2('sec-0.704266588606')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.704266588606" style="display: none;"><a href="javascript:toggle2('sec-0.704266588606')">(hide)</a>
+        <div class='rstext'>Heterozygotes for SNP rs11362, located in the DEFB1 gene, are reported to be at increased risk for colonic Crohn's disease - but not the ileal or ileocolonic forms of the disease - based on a study of 190 Caucasians. The odds ratio is 2.393 (CI: 1.18-4.87, p=0.02). G-20A rs11362(A;G) 2.4x risk colonic and ileocolonic Crohn's disease but no association was detected for the ileal localization</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs187116'>rs187116</a><a href='http://www.snpedia.com/index.php/rs187116(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFDBDB;'>46.0%</span><br/>References:2<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>among patients with gastric cancer, risk for more aggressive form?</div>
+        <div class='boxshow' id="show-sec-0.857202199027" style="display: inline;"><a href="javascript:toggle2('sec-0.857202199027')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.857202199027" style="display: none;"><a href="javascript:toggle2('sec-0.857202199027')">(hide)</a>
+        <div class='rstext'>rs187116, also known as +4883G&gt;A, is a SNP in the CD44 gene. A presentation at the 2010 American Society of Clinical Oncology meeting based on ~100 patients reported this SNP as being significantly associated with more aggressive gastric cancer. In dbSNP orientation, the risk allele is rs187116(C); patients carrying at least one rs187116(C) had a significantly shorter median time-to-recurrence (TTR) of 2.1 years compared to 7.0 years TTR for rs187116(T;T) patients (p = 0.036, log-rank test).[http://www.asco.org/ASCOv2/Meetings/Abstracts?&vmview=abst_detail_view&confID=72&abstractID=1689]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs6807362'>rs6807362</a><a href='http://www.snpedia.com/index.php/rs6807362(C;G)'>(C;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFDEDE;'>49.2%</span><br/>References:0<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>normal autism risk</div>
+        <div class='boxshow' id="show-sec-0.891890335785" style="display: inline;"><a href="javascript:toggle2('sec-0.891890335785')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.891890335785" style="display: none;"><a href="javascript:toggle2('sec-0.891890335785')">(hide)</a>
+        <div class='rstext'>rs6807362 is a SNP in the 5-hydroxytryptamine (serotonin) receptor 3, family member C HTR3C gene. In a study of 97 familes with at least one individual with autism, rs6807362 was significantly associated with the disorder (p = 0.0012).</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1601012'>rs1601012</a><a href='http://www.snpedia.com/index.php/rs1601012(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFE9E9;'>63.3%</span><br/>References:2<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>normal suicide risk  See Genetic polymorphisms in the SCN8A gene are associated with suicidal behavior in psychiatric disorders in the Chinese population</div>
+        <div class='boxshow' id="show-sec-0.37899764567" style="display: inline;"><a href="javascript:toggle2('sec-0.37899764567')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.37899764567" style="display: none;"><a href="javascript:toggle2('sec-0.37899764567')">(hide)</a>
+        <div class='rstext'>Genetic polymorphisms in the SCN8A gene are associated with suicidal behavior in psychiatric disorders in the Chinese population.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2351299'>rs2351299</a><a href='http://www.snpedia.com/index.php/rs2351299(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFEEEE;'>70.3%</span><br/>References:1<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>normal risk of autism</div>
+        <div class='boxshow' id="show-sec-0.850858281099" style="display: inline;"><a href="javascript:toggle2('sec-0.850858281099')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.850858281099" style="display: none;"><a href="javascript:toggle2('sec-0.850858281099')">(hide)</a>
+        <div class='rstext'>Investigation of autism and GABA receptor subunit genes in multiple ethnic groups.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2283123'>rs2283123</a><a href='http://www.snpedia.com/index.php/rs2283123(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFF1F1;'>75.5%</span><br/>References:0<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>normal risk of schizophrenia in limited study</div>
+        <div class='boxshow' id="show-sec-0.60387371016" style="display: inline;"><a href="javascript:toggle2('sec-0.60387371016')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.60387371016" style="display: none;"><a href="javascript:toggle2('sec-0.60387371016')">(hide)</a>
+        <div class='rstext'>Associated with schizophrenia in a study of Croatians. Due to the limited number and diversity of the studied population, more study is needed to confirm any link. The T allele was associated with a decreased risk of schizophrenia.</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs2854747'>rs2854747</a><a href='http://www.snpedia.com/index.php/rs2854747(C;C)'>(C;C)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #FFFFFF;'>100.0%</span><br/>References:2<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>2326.08ng/mL of IGFBP-3 in plasma  Lowest Insulin-like Growth Factor Binding Protein 3 (IGFBP-3) levels in plasma. The geometric mean (average) amount of IGFBP-3 in blood plasma for people with this SNP is 2326.08 ng/mL (for all races). 95% of people with this are in the range 2205.86ng/mL to 2452.85ng/mL, meaning even someone with the highest levels is still lower in IGFBP3 than the lowest individual with other versions of this SNP.</div>
+        <div class='boxshow' id="show-sec-0.52917037808" style="display: inline;"><a href="javascript:toggle2('sec-0.52917037808')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.52917037808" style="display: none;"><a href="javascript:toggle2('sec-0.52917037808')">(hide)</a>
+        <div class='rstext'>Genetic determinants of circulating insulin-like growth factor (IGF)-I, IGF binding protein (BP)-1, and IGFBP-3 levels in a multiethnic population. Altered transmission of HOX and apoptotic SNPs identify a potential common pathway for clubfoot.  [OMIM:INSULIN-LIKE GROWTH FACTOR-BINDING PROTEIN 3; IGFBP3]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs1048661'>rs1048661</a><a href='http://www.snpedia.com/index.php/rs1048661(G;G)'>(G;G)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>References:44<br/>Probability:50%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>possibly higher glaucoma risk?  glaucoma risk likely to actually be based on nearby rs3825942</div>
+        <div class='boxshow' id="show-sec-0.405011160484" style="display: inline;"><a href="javascript:toggle2('sec-0.405011160484')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.405011160484" style="display: none;"><a href="javascript:toggle2('sec-0.405011160484')">(hide)</a>
+        <div class='rstext'>rs1048661, also known as R141L, a SNP causing an amino acid change in the lysyl oxidase 1 LOXL1 gene, has been linked to exfoliation glaucoma. This form of glaucoma causes up to 10% of the cases of blindness in many countries, including the US. [Science DOI: 10.1126/science.1146554] From the abstract of this study: 'Approximately 25% of the general population is homozygous for the highest risk haplotype and their risk of suffering XFG (exfoliation glaucoma) is over 100 times that of those only carrying low-risk haplotypes.' The risk allele for this SNP is rs1048661(G), and it confers a estimated relative risk (by itself) of 3.04. The odds ratio is 2.46 (CI 1.91-3.16). [Note that the (G) allele is actually quite common in most European populations.] However, a meta-analysis published in 201...</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs6994992'>rs6994992</a><a href='http://www.snpedia.com/index.php/rs6994992(C;T)'>(C;T)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>References:14<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Carrier for rs6994992(T;T) which one report has associated with both creativity and schizophrenia</div>
+        <div class='boxshow' id="show-sec-0.878799130876" style="display: inline;"><a href="javascript:toggle2('sec-0.878799130876')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.878799130876" style="display: none;"><a href="javascript:toggle2('sec-0.878799130876')">(hide)</a>
+        <div class='rstext'>also known as SNP8NRG243177 Initial reports of a link to schizophrenia remain inconclusive. paper implicated in schizophrenia effects white matter density and integrity schizophrenia risk-associated The neuregulin 1 promoter polymorphism rs6994992 is '''not''' associated with neurocognition or chronic schizophrenia in a study of 738 patients T allele (in a per allele fashion) significantly associated with lateral ventricle volume in 95 first-episode schizophrenics points out that their result is that (T) was weakly associated with schizophrenia, however this is the opposite of the original association study where the C allele.  [OMIM:NEUREGULIN 1; NRG1]</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+
+
+  <div  class='boxresult'>
+      <div class='boxresultcol1'>
+        <div class='boxlink'><a href='http://www.snpedia.com/index.php/rs12934922'>rs12934922</a><a href='http://www.snpedia.com/index.php/rs12934922(T;T)'>(T;T)</a></div>
+        <div class='boxmag'>Magnitude: 1<br/>Frequency: <span style='background-color: #F0AFF0;'>19.0%</span><br/>References:4<br/><a href='http://www.snpedia.com/index.php/Ambiguous_flip'>ambig</a><br/>Probability:25%<br/></div>
+      </div>
+      <div class='boxresultcol2'>
+        <div class='boxeffect'>Reduced conversion of beta-carotene to retinol  Associated with Rs7501331 and reduced BCMO1, lower ability to convert beta-carotene to retinyl esters and higher serum beta-carotene levels. See also Rs7501331</div>
+        <div class='boxshow' id="show-sec-0.61067564224" style="display: inline;"><a href="javascript:toggle2('sec-0.61067564224')">...more...</a></div>
+        <div class='boxrstext' id="sec-0.61067564224" style="display: none;"><a href="javascript:toggle2('sec-0.61067564224')">(hide)</a>
+        <div class='rstext'>rs12934922 (R267S) and rs7501331 (A379V) double mutant have a reduced catalytic activity of beta-carotene by 57%. Female volunteers carrying the T variant of rs7501331 (379V) had a 32% lower ability to convert Beta-carotene, and those carrying at least one T in both SNPs show a 69% lower ability to convert Beta-carotene into retinyl esters. rs7501331: the frequency of the wild-type C allele and variant T allele was 76 and 24%, respectively; 56% of the population was CC wild-type genotype, and 39% was heterozygote CT with the TT variant present in 5% of the population. rs12934922: the frequency of the wild-type A allele and variant T allele was 58 and 42%, respectively; 38% of the population was AA wild-type genotype, 40% was heterozygote AT, and 22% was TT homozygote</div>
+      </div>
+      </div>
+      <div class="boxfooter"></div>
+  </div>
+
+</div>
+     <div class="majorboxfooter"></div>
+     </div>
+     <div class="majorboxfooter"></div>
+     </div>
+<p><br/></p>elapsed time 38 seconds</body></html>

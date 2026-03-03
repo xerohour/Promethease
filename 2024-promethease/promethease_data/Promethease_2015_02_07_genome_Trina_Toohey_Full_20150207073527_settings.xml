@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<promethease>
+<!-- For more information visit http://www.snpedia.com/index.php/Promethease/xml -->
+    <run>
+      <infile>C:\Users\xerohour\Downloads\genome_Trina_Toohey_Full_20150207073527.zip</infile>
+      <f1file>C:\Users\xerohour\Downloads\genome_John_Stinson_Full_20150207073317.zip</f1file>
+
+      <ethnicity>CEU</ethnicity>
+      <outfile>
+        C:\Users\xerohour\Documents\Promethease\Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527.html
+      </outfile>
+    </run>
+
+</promethease>
