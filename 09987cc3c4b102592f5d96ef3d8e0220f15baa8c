@@ -1,0 +1,15 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb2de-8126-7c67-a04d-0679f2c8cf67
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Ran browser-based comparison of report variants via All Reports page.
+- Documented preview auth gate and public-site fallback validation.
+- Captured missing 2026 variants and validated 2026 UI2 filter/search features.
+<!-- git-memento-session:end -->
