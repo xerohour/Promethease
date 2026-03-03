@@ -1,7 +1,6 @@
 name: memento-note-comments
 
 on:
-  push:
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
 
