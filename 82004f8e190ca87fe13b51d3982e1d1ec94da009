@@ -1,0 +1,2 @@
+Session: ci-fix
+Summary: limit memento note comments workflow to pull_request trigger to avoid invalid revision range on force-push
