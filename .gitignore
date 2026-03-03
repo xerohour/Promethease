@@ -11,3 +11,19 @@ typed-history-all.txt
 
 # Local Codex/memento scratch data
 memento-full*.md
+
+# Local personal growth notes
+*.nd
+developer-growth-report.md
+
+# Node/npm local artifacts
+.npm-cache/
+node_modules/
+npm-debug.log*
+
+# Local test screenshots/artifacts
+render-*.png
+2026-promethease-trina/render-test-*
+
+# Local Codex instruction file
+AGENTS.md
