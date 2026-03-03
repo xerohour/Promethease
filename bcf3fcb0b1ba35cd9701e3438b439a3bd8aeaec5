@@ -1,0 +1,14 @@
+<!-- git-memento-sessions:v1 -->
+<!-- git-memento-note-version:1 -->
+<!-- git-memento-session:start -->
+- Provider: codex
+- Session ID: 019cb539-4b56-7d6f-b4e5-8932f06927e4
+
+# Codex Session Transcript
+
+Session metadata note attached for CI audit compliance.
+
+Summary:
+- Added memento documenting PR #4 cleanup, CI remediation, and successful merge.
+- Captured final merge commit and verification checks for auditability.
+<!-- git-memento-session:end -->
