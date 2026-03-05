@@ -33,11 +33,32 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Build publish artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+
+          # Publish only site assets and report bundles needed by GitHub Pages.
+          rsync -a \
+            --include='/index.html' \
+            --include='/all-reports.html' \
+            --include='/openai-brand.css' \
+            --include='/matrix-soundtrack.mp3' \
+            --include='/matrix-theme.mid' \
+            --include='/Promethease_*' \
+            --include='/2018-promethease/***' \
+            --include='/2024-promethease/***' \
+            --include='/2026-promethease-john/***' \
+            --include='/2026-promethease-trina/***' \
+            --exclude='*' \
+            ./ _site/
+
+          du -sh _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
