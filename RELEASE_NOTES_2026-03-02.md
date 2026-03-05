@@ -1,17 +1,21 @@
-# Release Notes (2026-03-02)
+# Release Notes - 2026-03-02
 
-## Highlights
+## Summary
 
-- Added 2026 Promethease report bundles for John and Trina
-- Added aggregated report index navigation
-- Added offline report archives and setup documentation
-- Added vaporwave/Matrix-themed landing experience
+Major report and experience refresh, including new 2026 bundles, improved navigation, and offline usage improvements.
 
-## Improvements
+## Added
 
-- Reorganized report assets and UI2 viewer bundle layout
-- Improved deployment flow with GitHub Actions and Vercel trigger commits
+- Added 2026 Promethease report bundles for John and Trina.
+- Added aggregated report index navigation.
+- Added offline report archives and setup documentation.
+- Added a vaporwave/Matrix-themed landing experience.
 
-## Fixes
+## Improved
 
-- Fixed 2026 UI2 JavaScript/CSS brace syntax issues that could prevent proper rendering
+- Reorganized report assets and UI2 viewer bundle layout.
+- Improved deployment flow with GitHub Actions and Vercel trigger commits.
+
+## Fixed
+
+- Fixed 2026 UI2 JavaScript/CSS brace syntax issues that could prevent proper rendering.

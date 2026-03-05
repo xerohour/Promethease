@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+No changes yet.
+
+## [1.2.0] - 2026-03-03
+
 ### Added
 
 - Added a right-side Search + Filters panel for 2026 UI2 report pages.
@@ -39,5 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fixed 2026 UI2 page JavaScript/CSS brace syntax issues affecting rendering.
 
-[Unreleased]: https://github.com/xerohour/Promethease/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/xerohour/Promethease/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/xerohour/Promethease/releases/tag/v1.2.0
 [1.1.0]: https://github.com/xerohour/Promethease/releases/tag/v1.1.0
