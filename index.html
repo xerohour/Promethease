@@ -51,6 +51,7 @@
       font-weight: 600;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
 </head>
 <body>
   <canvas id="dna-bg"></canvas>
@@ -79,9 +80,13 @@
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
   <script>
     (function initDNAHelix() {
+      if (typeof THREE === 'undefined') {
+        console.error('Three.js failed to load. Retrying in 100ms...');
+        setTimeout(initDNAHelix, 100);
+        return;
+      }
       const canvas = document.getElementById('dna-bg');
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setPixelRatio(window.devicePixelRatio);
