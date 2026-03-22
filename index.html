@@ -79,14 +79,10 @@
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.161.0/three.min.js"></script>
-  <script>
+  <script type="module" src="./three.module.js"></script>
+  <script type="module">
+    import * as THREE from './three.module.js';
     (function initDNAHelix() {
-      if (typeof THREE === 'undefined') {
-        console.warn('Three.js still loading...');
-        setTimeout(initDNAHelix, 50);
-        return;
-      }
       const canvas = document.getElementById('dna-bg');
       const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
       renderer.setPixelRatio(window.devicePixelRatio);
