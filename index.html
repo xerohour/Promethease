@@ -83,60 +83,141 @@
     import * as THREE from './three.module.js';
 
     let camera, scene, renderer;
-    let particles;
+    const streams = [];
+    const numStreams = 50;
 
-    init();
-    animate();
+    // Mutation Textures
+    function createCharTexture(char, size = 64) {
+        const canvas = document.createElement('canvas');
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `bold ${size * 0.8}px monospace`;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(char, size / 2, size / 2);
+        return new THREE.CanvasTexture(canvas);
+    }
 
-    function init() {
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-        camera.position.z = 1000;
+    const textures = {
+        star: createCharTexture('*'),
+        zero: createCharTexture('0'),
+        one: createCharTexture('1'),
+        A: createCharTexture('A'),
+        C: createCharTexture('C'),
+        G: createCharTexture('G'),
+        T: createCharTexture('T')
+    };
 
-        scene = new THREE.Scene();
+    function createMutatedDNA() {
+        const group = new THREE.Group();
+        const dnaType = Math.floor(Math.random() * 4); // 0: Star, 1: Binary, 2: ACGT, 3: Ribbon-like
+        const isRainbow = Math.random() > 0.3;
+        
+        const numPoints = 120 + Math.floor(Math.random() * 100);
+        const radius = 25 + Math.random() * 15;
+        const heightStep = 15 + Math.random() * 10;
+        const twistStep = 0.1 + Math.random() * 0.2;
 
-        const particleCount = 5000;
-        const particlesGeometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
+        const positions = [];
+        const colors = [];
 
-        for (let i = 0; i < particleCount * 3; i++) {
-            positions[i] = (Math.random() * 2 - 1) * 3000;
+        for (let i = 0; i < numPoints; i++) {
+            const y = (i - numPoints / 2) * heightStep;
+            const angle = i * twistStep;
+            
+            const color = isRainbow ? new THREE.Color().setHSL((i / 15) % 1.0, 1.0, 0.5) : new THREE.Color(0x00ff41);
+
+            // Strand 1
+            positions.push(radius * Math.cos(angle), y, radius * Math.sin(angle));
+            colors.push(color.r, color.g, color.b);
+            
+            // Strand 2
+            positions.push(radius * Math.cos(angle + Math.PI), y, radius * Math.sin(angle + Math.PI));
+            colors.push(color.r, color.g, color.b);
+
+            // Connecting rungs
+            if (i % 6 === 0) {
+                const lineMat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.3 });
+                const lineGeom = new THREE.BufferGeometry().setFromPoints([
+                    new THREE.Vector3(radius * Math.cos(angle), y, radius * Math.sin(angle)),
+                    new THREE.Vector3(radius * Math.cos(angle + Math.PI), y, radius * Math.sin(angle + Math.PI))
+                ]);
+                group.add(new THREE.Line(lineGeom, lineMat));
+            }
         }
 
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        
+        let map;
+        if (dnaType === 0) map = textures.star;
+        else if (dnaType === 1) map = Math.random() > 0.5 ? textures.zero : textures.one;
+        else if (dnaType === 2) map = textures[['A','C','G','T'][Math.floor(Math.random()*4)]];
+        else map = textures.star; // Fallback
 
-        const particleMaterial = new THREE.PointsMaterial({
-            color: 0x888888,
-            size: 2,
+        const material = new THREE.PointsMaterial({
+            size: dnaType === 3 ? 15 : 45,
+            map: map,
+            vertexColors: true,
             transparent: true,
+            opacity: 0.9,
             blending: THREE.AdditiveBlending,
             depthWrite: false
         });
 
-        particles = new THREE.Points(particlesGeometry, particleMaterial);
-        scene.add(particles);
+        const points = new THREE.Points(geometry, material);
+        group.add(points);
 
-        renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-bg'), antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-
-        window.addEventListener('resize', onWindowResize, false);
+        return group;
     }
 
-    function onWindowResize() {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
+    function init() {
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 15000);
+        camera.position.z = 1800;
+
+        scene = new THREE.Scene();
+
+        for (let i = 0; i < numStreams; i++) {
+            const dna = createMutatedDNA();
+            dna.position.set(
+                (Math.random() - 0.5) * 6000,
+                (Math.random() * 8000) - 4000,
+                (Math.random() - 0.5) * 3000
+            );
+            dna.userData.speed = 1.0 + Math.random() * 5;
+            dna.userData.rotSpeed = 0.005 + Math.random() * 0.02;
+            scene.add(dna);
+            streams.push(dna);
+        }
+
+        const canvas = document.getElementById('three-bg');
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }, false);
     }
 
     function animate() {
         requestAnimationFrame(animate);
-
-        const time = Date.now() * 0.00005;
-
-        particles.rotation.x = time * 0.25;
-        particles.rotation.y = time * 0.5;
-
+        streams.forEach(dna => {
+            dna.position.y -= dna.userData.speed;
+            dna.rotation.y += dna.userData.rotSpeed;
+            if (dna.position.y < -4000) {
+                dna.position.y = 4000;
+                dna.position.x = (Math.random() - 0.5) * 6000;
+            }
+        });
         renderer.render(scene, camera);
     }
+
+    init();
+    animate();
   </script>
 </body>
 </html>
