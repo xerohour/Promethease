@@ -17,7 +17,7 @@
       margin: 0;
       overflow-x: hidden;
     }
-    #dna-bg {
+    #three-bg {
       position: fixed;
       top: 0;
       left: 0;
@@ -53,7 +53,7 @@
   </style>
 </head>
 <body>
-  <canvas id="dna-bg"></canvas>
+  <canvas id="three-bg"></canvas>
   <main class="container py-5">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
@@ -79,79 +79,64 @@
     </div>
   </main>
 
-  <script type="module" src="./three.module.js"></script>
   <script type="module">
     import * as THREE from './three.module.js';
-    (function initDNAHelix() {
-      const canvas = document.getElementById('dna-bg');
-      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-      renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(window.innerWidth, window.innerHeight);
 
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 100;
+    let camera, scene, renderer;
+    let particles;
 
-      const group = new THREE.Group();
-      scene.add(group);
+    init();
+    animate();
 
-      const material1 = new THREE.MeshBasicMaterial({ color: 0x10a37f }); // oa-green
-      const material2 = new THREE.MeshBasicMaterial({ color: 0x2b8fff }); // oa-azure
-      const lineMaterial = new THREE.LineBasicMaterial({ color: 0x40434a, opacity: 0.5, transparent: true });
+    function init() {
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+        camera.position.z = 1000;
 
-      const spheres = [];
-      const lines = [];
-      const numPoints = 40;
-      const radius = 15;
-      const heightStep = 4;
-      const twistStep = 0.4;
+        scene = new THREE.Scene();
 
-      for (let i = 0; i < numPoints; i++) {
-        const y = (i - numPoints / 2) * heightStep;
-        const angle = i * twistStep;
+        const particleCount = 5000;
+        const particlesGeometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
 
-        // Strand 1
-        const s1 = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 16), material1);
-        s1.position.set(radius * Math.cos(angle), y, radius * Math.sin(angle));
-        group.add(s1);
-        spheres.push(s1);
-
-        // Strand 2
-        const s2 = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 16), material2);
-        s2.position.set(radius * Math.cos(angle + Math.PI), y, radius * Math.sin(angle + Math.PI));
-        group.add(s2);
-        spheres.push(s2);
-
-        // Connect them
-        if (i % 2 === 0) {
-          const geo = new THREE.BufferGeometry().setFromPoints([s1.position, s2.position]);
-          const line = new THREE.Line(geo, lineMaterial);
-          group.add(line);
-          lines.push({ line, s1, s2 });
+        for (let i = 0; i < particleCount * 3; i++) {
+            positions[i] = (Math.random() * 2 - 1) * 3000;
         }
-      }
 
-      function animate() {
-        requestAnimationFrame(animate);
-        group.rotation.y += 0.01;
-        group.rotation.x += 0.005;
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-        // Update lines
-        lines.forEach(l => {
-          l.line.geometry.setFromPoints([l.s1.position, l.s2.position]);
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0x888888,
+            size: 2,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
         });
 
-        renderer.render(scene, camera);
-      }
+        particles = new THREE.Points(particlesGeometry, particleMaterial);
+        scene.add(particles);
 
-      window.addEventListener('resize', () => {
+        renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-bg'), antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        window.addEventListener('resize', onWindowResize, false);
+    }
+
+    function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-      });
+    }
 
-      animate();
-    })();
+    function animate() {
+        requestAnimationFrame(animate);
+
+        const time = Date.now() * 0.00005;
+
+        particles.rotation.x = time * 0.25;
+        particles.rotation.y = time * 0.5;
+
+        renderer.render(scene, camera);
+    }
   </script>
 </body>
 </html>
