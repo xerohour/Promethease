@@ -44,12 +44,14 @@
 <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
 <script>
     // Enable dark mode by default
+    DarkReader.setFetchMethod(window.fetch);
     DarkReader.enable({
         brightness: 100,
         contrast: 90,
         sepia: 10
     });
 </script>
+  <link rel="stylesheet" href="../openai-brand.css" />
 </head>
 <body>
   <div id="controls" class="navmenu navmenu-default navmenu-fixed-right offcanvas col-lg-3 col-md-4 col-sm-5 col-xs-12 in canvas-slid">
@@ -214,4 +216,7 @@
   </script>
 </body>
 </html>
+
+
+
 

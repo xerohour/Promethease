@@ -346,12 +346,14 @@ for ( var i_sect=0; i_sect < sections.length; i_sect++ ) {
 <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
 <script>
     // Enable dark mode by default
+    DarkReader.setFetchMethod(window.fetch);
     DarkReader.enable({
         brightness: 100,
         contrast: 90,
         sepia: 10
     });
 </script>
+  <link rel="stylesheet" href="openai-brand.css" />
 </head>
 <body><p>
 <a href="Promethease_2024_04_28_genome_Trina_Toohey_Full_20150207073527.html">main page</a><a name='top'></a>
@@ -373,4 +375,8 @@ for ( var i_sect=0; i_sect < sections.length; i_sect++ ) {
 
         <div class='boxshow' id="show-complicated" style="display: none;"><a href="javascript:toggle2('complicated')">...more...</a></div>
         <div class="boxsection" id="complicated" style="display: inline;"><a href="javascript:toggle2('complicated')">(hide)</a>
+
+
+
+
 

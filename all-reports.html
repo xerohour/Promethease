@@ -9,10 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="openai-brand.css" />
   <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
   <script>
     // Enable dark mode by default
+    DarkReader.setFetchMethod(window.fetch);
     DarkReader.enable({
         brightness: 100,
         contrast: 90,
@@ -51,6 +51,7 @@
       background: rgba(43, 143, 255, 0.1);
     }
   </style>
+  <link rel="stylesheet" href="openai-brand.css" />
 </head>
 <body>
   <main class="container py-5">
@@ -142,3 +143,6 @@
   </main>
 </body>
 </html>
+
+
+
