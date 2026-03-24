@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="color-scheme" content="dark" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promethease 2026 Report Tools - John Stinson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: var(--oa-charcoal);
+      --panel: var(--oa-slate);
+      --line: var(--oa-graphite);
+      --text: var(--oa-mist);
+      --muted: var(--oa-steel);
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+    .page {
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 0.9rem;
+    }
+    .muted { color: var(--muted); }
+    .chip {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      display: inline-block;
+      min-width: 3.5rem;
+      text-align: center;
+    }
+    .rep-good { background: rgba(16, 163, 127, 0.22); color: #70ebcc; }
+    .rep-bad { background: rgba(212, 84, 100, 0.28); color: #ffccd4; }
+    .rep-na { background: rgba(158, 161, 170, 0.2); color: #d3d6dc; }
+    .bucket { background: rgba(43, 143, 255, 0.18); color: #cfe4ff; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+    a { color: var(--oa-azure); }
+    a:hover { color: var(--oa-green); }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+  <script>
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 });
+  </script>
+  <link rel="stylesheet" href="../openai-brand.css" />
+</head>
+<body>
+  <main class="page">
+    <div class="card p-4 mb-4">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+        <div>
+          <h1 class="h4 mb-1">2026 Report Tools - John Stinson</h1>
+          <div class="muted">Quick insights from the Promethease findings dataset.</div>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-outline-light" href="Promethease_2026_03_03_genome_John_Stinson_Full_20260303020155_ui2.html">Back to Report</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-lg-4">
+        <div class="card p-3 h-100">
+          <h2 class="h6">Overview</h2>
+          <div class="mt-2">
+            <div class="d-flex justify-content-between"><span>Total findings</span><span class="mono" id="total">-</span></div>
+            <div class="d-flex justify-content-between"><span>Unique rsIDs</span><span class="mono" id="uniqueRsid">-</span></div>
+            <div class="d-flex justify-content-between"><span>Genes referenced</span><span class="mono" id="geneCount">-</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-3 h-100">
+          <h2 class="h6">Repute Breakdown</h2>
+          <div class="mt-2 d-flex flex-column gap-2" id="reputeList"></div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card p-3 h-100">
+          <h2 class="h6">Magnitude Buckets</h2>
+          <div class="mt-2 d-flex flex-column gap-2" id="magnitudeList"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-3 mt-4">
+      <h2 class="h6">Top Genes by Findings</h2>
+      <div class="muted mb-3">Genes with the most findings in this dataset.</div>
+      <div class="table-responsive">
+        <table class="table table-dark table-sm align-middle">
+          <thead>
+            <tr>
+              <th>Gene</th>
+              <th>Findings</th>
+            </tr>
+          </thead>
+          <tbody id="geneRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const dataUrl = "promethease_data/Promethease_2026_03_03_genome_John_Stinson_Full_20260303020155_findings_2026.json";
+
+    const totalEl = document.getElementById("total");
+    const uniqueRsidEl = document.getElementById("uniqueRsid");
+    const geneCountEl = document.getElementById("geneCount");
+    const reputeListEl = document.getElementById("reputeList");
+    const magnitudeListEl = document.getElementById("magnitudeList");
+    const geneRowsEl = document.getElementById("geneRows");
+
+    function makeRow(label, value, cls) {
+      const row = document.createElement("div");
+      row.className = "d-flex justify-content-between align-items-center";
+      row.innerHTML = `<span>${label}</span><span class="chip ${cls}">${value}</span>`;
+      return row;
+    }
+
+    function normalizeGenes(genes) {
+      if (!genes) return [];
+      if (Array.isArray(genes)) return genes.filter(Boolean);
+      return String(genes)
+        .split(/[;,]/)
+        .map(g => g.trim())
+        .filter(Boolean);
+    }
+
+    fetch(dataUrl)
+      .then(resp => resp.json())
+      .then(data => {
+        const findings = Array.isArray(data.findings) ? data.findings : [];
+        const rsids = new Set();
+        const geneCounts = new Map();
+        const reputeCounts = { "Good": 0, "Bad": 0, "Not Set": 0 };
+        const magnitudeBuckets = [
+          { label: ">= 4", key: "gte4", count: 0 },
+          { label: "2 - 3.9", key: "gte2", count: 0 },
+          { label: "1 - 1.9", key: "gte1", count: 0 },
+          { label: "< 1", key: "lt1", count: 0 }
+        ];
+
+        for (const item of findings) {
+          if (item.rsid) rsids.add(item.rsid);
+          const rep = item.repute || "Not Set";
+          if (reputeCounts[rep] === undefined) reputeCounts[rep] = 0;
+          reputeCounts[rep] += 1;
+
+          const magnitude = Number(item.magnitude || 0);
+          if (magnitude >= 4) magnitudeBuckets[0].count += 1;
+          else if (magnitude >= 2) magnitudeBuckets[1].count += 1;
+          else if (magnitude >= 1) magnitudeBuckets[2].count += 1;
+          else magnitudeBuckets[3].count += 1;
+
+          for (const gene of normalizeGenes(item.genes)) {
+            geneCounts.set(gene, (geneCounts.get(gene) || 0) + 1);
+          }
+        }
+
+        totalEl.textContent = findings.length.toString();
+        uniqueRsidEl.textContent = rsids.size.toString();
+        geneCountEl.textContent = geneCounts.size.toString();
+
+        reputeListEl.appendChild(makeRow("Good", reputeCounts["Good"], "rep-good"));
+        reputeListEl.appendChild(makeRow("Bad", reputeCounts["Bad"], "rep-bad"));
+        reputeListEl.appendChild(makeRow("Not Set", reputeCounts["Not Set"] || 0, "rep-na"));
+
+        for (const bucket of magnitudeBuckets) {
+          magnitudeListEl.appendChild(makeRow(bucket.label, bucket.count, "bucket"));
+        }
+
+        const sortedGenes = Array.from(geneCounts.entries())
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 15);
+
+        geneRowsEl.innerHTML = sortedGenes
+          .map(([gene, count]) => `<tr><td class="mono">${gene}</td><td class="mono">${count}</td></tr>`)
+          .join("");
+      })
+      .catch(err => {
+        totalEl.textContent = "Error";
+        uniqueRsidEl.textContent = "-";
+        geneCountEl.textContent = "-";
+        reputeListEl.innerHTML = `<div class="muted">Failed to load findings data: ${err}</div>`;
+      });
+  </script>
+</body>
+</html>
