@@ -46,6 +46,11 @@ Needs:
 
 ## Core Outcomes (What "Good" Looks Like)
 
+### Outcome A0: Complete SNP Inventory Access
+- Users can access complete SNP inventory (all ~600K SNPs)
+- Full genome data exports available even for SNPs without SNPedia interpretations
+- JSON-based reports with complete genotype data
+
 ### Outcome A: Reliable Offline Viewing
 - Report bundles remain self-contained.
 - Critical local paths (e.g., `ui2libs/`, `promethease_data/`) are preserved.

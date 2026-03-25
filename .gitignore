@@ -30,3 +30,14 @@ AGENTS.md
 
 # Local Conductor artifacts
 conductor/
+
+# Large genome report files (generate locally with scripts)
+2025-promethease-john/
+2025-promethease-trina/
+2018-promethease-john.json
+2024-promethease-trina.json
+
+# SNPedia data (download separately or generate with scripts)
+snpedia_data/
+snpedia_data.db
+*.zip
