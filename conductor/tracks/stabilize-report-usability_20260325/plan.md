@@ -8,7 +8,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Baseline and UX Gap Audit' (Protocol in workflow.md)
 
 ## Phase 2: Navigation and Entry-Point Improvements
-- [ ] Task: Improve top-level navigation clarity on index.html and ll-reports.html.
+- [x] Task: Improve top-level navigation clarity on index.html and all-reports.html.
 - [ ] Update labels/grouping to reduce ambiguity across versions and subjects.
 - [ ] Ensure entry links are prominent and consistent across desktop/mobile layouts.
 - [ ] Keep compatibility-safe styling changes in shared CSS where possible.
@@ -27,6 +27,7 @@
 - [ ] Prepare user-impact-first release summary and maintainer technical notes.
 - [ ] Capture residual risks and follow-up tasks.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Validation, Documentation, and Release Readiness' (Protocol in workflow.md)
+
 
 
 

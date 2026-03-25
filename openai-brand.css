@@ -192,3 +192,44 @@ h1, h2, h3, h4, h5, h6 {
 code, pre, kbd, samp {
   font-family: "IBM Plex Mono", Menlo, monospace;
 }
+
+/* Shared navigation helpers for top-level report pages */
+.oa-quickgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.oa-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--oa-graphite);
+  border-radius: 999px;
+  background: rgba(32, 33, 35, 0.85);
+  color: var(--oa-mist) !important;
+  text-decoration: none !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.oa-chip:hover {
+  border-color: var(--oa-azure);
+  color: #fff !important;
+  background: rgba(43, 143, 255, 0.18);
+}
+
+.oa-mobile-stack {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .oa-mobile-stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
