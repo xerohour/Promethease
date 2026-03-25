@@ -2,7 +2,7 @@
 
 ## Phase 1: Baseline and UX Gap Audit
 - [x] Task: Establish baseline usability checks for current navigation and report entry flows.
-- [ ] Gather representative pages from 2018, 2024, and 2026 bundles for comparison.
+- [x] Gather representative pages from 2018, 2024, and 2026 bundles for comparison.
 - [ ] Record desktop and mobile pain points affecting open/find/filter workflows.
 - [ ] Define measurable before/after criteria for usability validation.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Baseline and UX Gap Audit' (Protocol in workflow.md)
@@ -27,4 +27,5 @@
 - [ ] Prepare user-impact-first release summary and maintainer technical notes.
 - [ ] Capture residual risks and follow-up tasks.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Validation, Documentation, and Release Readiness' (Protocol in workflow.md)
+
 
