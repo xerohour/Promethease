@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="color-scheme" content="dark" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Genetic Genie Panels - Trina Toohey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: var(--oa-charcoal);
+      --panel: var(--oa-slate);
+      --line: var(--oa-graphite);
+      --text: var(--oa-mist);
+      --muted: var(--oa-steel);
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+    .page { min-height: 100vh; padding: 1.5rem; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 0.9rem; }
+    .muted { color: var(--muted); }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+    .chip {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      display: inline-block;
+      min-width: 5.5rem;
+      text-align: center;
+    }
+    .zy-homo { background: rgba(16, 163, 127, 0.22); color: #70ebcc; }
+    .zy-hetero { background: rgba(255, 193, 7, 0.2); color: #ffe39a; }
+    .zy-missing { background: rgba(158, 161, 170, 0.2); color: #d3d6dc; }
+    .zy-unknown { background: rgba(43, 143, 255, 0.18); color: #cfe4ff; }
+    .nav-pills .nav-link { color: var(--oa-mist); }
+    .nav-pills .nav-link.active { background: rgba(43, 143, 255, 0.2); color: #fff; }
+    a { color: var(--oa-azure); }
+    a:hover { color: var(--oa-green); }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+  <script>
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 });
+  </script>
+  <link rel="stylesheet" href="../openai-brand.css" />
+</head>
+<body>
+  <main class="page">
+    <div class="card p-4 mb-4">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+        <div>
+          <h1 class="h4 mb-1">Genetic Genie Style Panels - Trina Toohey</h1>
+          <div class="muted">Detox and methylation panel views derived from the Promethease findings dataset.</div>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-outline-light" href="Promethease_2026_03_03_genome_Trina_Toohey_Full_20260303020155_ui2.html">Back to Report</a>
+          <a class="btn btn-sm btn-outline-info" href="report-tools.html">Report Tools</a>
+        </div>
+      </div>
+      <div class="muted mt-3">Not medical advice. Zygosity is computed from the displayed genotype only.</div>
+    </div>
+
+    <div class="card p-3 mb-3">
+      <ul class="nav nav-pills" id="panelTabs"></ul>
+    </div>
+
+    <div class="row g-3" id="summaryRow"></div>
+
+    <div class="card p-3 mt-3">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div>
+          <h2 class="h6 mb-0" id="panelTitle">Panel</h2>
+          <div class="muted" id="panelDesc"></div>
+        </div>
+        <div class="muted" id="panelCount">0 entries</div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-dark table-sm align-middle">
+          <thead>
+            <tr>
+              <th>Gene</th>
+              <th>Variation</th>
+              <th>rsID</th>
+              <th>Genotype</th>
+              <th>Zygosity</th>
+            </tr>
+          </thead>
+          <tbody id="panelRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const dataUrl = "promethease_data/Promethease_2026_03_03_genome_Trina_Toohey_Full_20260303020155_findings_2026.json";
+    const panelUrl = "panel_definitions.json";
+
+    const panelTabsEl = document.getElementById("panelTabs");
+    const panelRowsEl = document.getElementById("panelRows");
+    const panelTitleEl = document.getElementById("panelTitle");
+    const panelDescEl = document.getElementById("panelDesc");
+    const panelCountEl = document.getElementById("panelCount");
+    const summaryRowEl = document.getElementById("summaryRow");
+
+    function zygosity(genotype) {
+      if (!genotype || genotype === "--") return { label: "Not found", cls: "zy-missing" };
+      const g = String(genotype).replace(/[^ACGT]/gi, "");
+      if (g.length === 2 && g[0] === g[1]) return { label: "Homozygous", cls: "zy-homo" };
+      if (g.length === 2 && g[0] !== g[1]) return { label: "Heterozygous", cls: "zy-hetero" };
+      return { label: "Unknown", cls: "zy-unknown" };
+    }
+
+    function buildSummary(stats) {
+      summaryRowEl.innerHTML = "";
+      const items = [
+        { label: "Total entries", value: stats.total },
+        { label: "Homozygous", value: stats.homo },
+        { label: "Heterozygous", value: stats.hetero },
+        { label: "Not found", value: stats.missing }
+      ];
+      for (const item of items) {
+        const col = document.createElement("div");
+        col.className = "col-md-3";
+        col.innerHTML = `<div class="card p-3 h-100"><div class="muted">${item.label}</div><div class="mono h5 mb-0">${item.value}</div></div>`;
+        summaryRowEl.appendChild(col);
+      }
+    }
+
+    function renderPanel(panel, findingsMap) {
+      panelTitleEl.textContent = panel.name;
+      panelDescEl.textContent = panel.description || "";
+      panelCountEl.textContent = `${panel.entries.length} entries`;
+
+      let stats = { total: panel.entries.length, homo: 0, hetero: 0, missing: 0 };
+
+      panelRowsEl.innerHTML = panel.entries.map(entry => {
+        const found = findingsMap.get(entry.rsid);
+        const genotype = found ? (found.genotype || "") : "";
+        const zy = zygosity(genotype);
+        if (zy.label === "Homozygous") stats.homo += 1;
+        else if (zy.label === "Heterozygous") stats.hetero += 1;
+        else if (zy.label === "Not found") stats.missing += 1;
+
+        const rsLink = entry.rsid ? `<a href="https://www.snpedia.com/index.php/${entry.rsid}" target="_blank" rel="noreferrer">${entry.rsid}</a>` : "";
+        const genotypeText = genotype || "Not in findings";
+        return `
+          <tr>
+            <td class="mono">${entry.gene || ""}</td>
+            <td>${entry.label || ""}</td>
+            <td class="mono">${rsLink}</td>
+            <td class="mono">${genotypeText}</td>
+            <td><span class="chip ${zy.cls}">${zy.label}</span></td>
+          </tr>
+        `;
+      }).join("");
+
+      buildSummary(stats);
+    }
+
+    Promise.all([
+      fetch(panelUrl).then(r => r.json()),
+      fetch(dataUrl).then(r => r.json())
+    ])
+      .then(([panelData, findingsData]) => {
+        const findings = Array.isArray(findingsData.findings) ? findingsData.findings : [];
+        const findingsMap = new Map(findings.map(item => [item.rsid, item]));
+        const panels = Array.isArray(panelData.panels) ? panelData.panels : [];
+        if (!panels.length) return;
+
+        panelTabsEl.innerHTML = panels.map((panel, index) => {
+          const active = index === 0 ? "active" : "";
+          return `<li class="nav-item"><button class="nav-link ${active}" type="button" data-panel="${panel.id}">${panel.name}</button></li>`;
+        }).join("");
+
+        panelTabsEl.addEventListener("click", (event) => {
+          const btn = event.target.closest("button[data-panel]");
+          if (!btn) return;
+          const panelId = btn.getAttribute("data-panel");
+          panelTabsEl.querySelectorAll(".nav-link").forEach(el => el.classList.remove("active"));
+          btn.classList.add("active");
+          const panel = panels.find(p => p.id === panelId) || panels[0];
+          renderPanel(panel, findingsMap);
+        });
+
+        renderPanel(panels[0], findingsMap);
+      })
+      .catch(err => {
+        panelRowsEl.innerHTML = `<tr><td colspan="5">Failed to load panel data: ${err}</td></tr>`;
+      });
+  </script>
+</body>
+</html>

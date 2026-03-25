@@ -3,22 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
   <title>Promethease Reports</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="openai-brand.css" />
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+  <script>
+    // Enable dark mode by default
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({
+        brightness: 100,
+        contrast: 90,
+        sepia: 10
+    });
+  </script>
   <style>
     body {
       min-height: 100vh;
-      background: linear-gradient(140deg, var(--oa-charcoal) 0%, #17181d 55%, var(--oa-slate) 100%);
+      background: #0e0f12; /* Match --oa-charcoal */
       color: var(--oa-mist);
+      margin: 0;
+      overflow-x: hidden;
+    }
+    #three-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
     }
     .brand-card {
-      background: rgba(32, 33, 35, 0.86);
+      background: rgba(32, 33, 35, 0.82);
       border: 1px solid var(--oa-graphite);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
     }
     .brand-subtitle {
       color: var(--oa-steel);
@@ -39,8 +61,10 @@
       font-weight: 600;
     }
   </style>
+  <link rel="stylesheet" href="openai-brand.css" />
 </head>
 <body>
+  <canvas id="three-bg"></canvas>
   <main class="container py-5">
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
@@ -65,5 +89,149 @@
       </div>
     </div>
   </main>
+
+  <script type="module">
+    import * as THREE from './three.module.js';
+
+    let camera, scene, renderer;
+    const streams = [];
+    const numStreams = 50;
+
+    // Mutation Textures
+    function createCharTexture(char, size = 64) {
+        const canvas = document.createElement('canvas');
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `bold ${size * 0.8}px monospace`;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(char, size / 2, size / 2);
+        return new THREE.CanvasTexture(canvas);
+    }
+
+    const textures = {
+        star: createCharTexture('*'),
+        zero: createCharTexture('0'),
+        one: createCharTexture('1'),
+        A: createCharTexture('A'),
+        C: createCharTexture('C'),
+        G: createCharTexture('G'),
+        T: createCharTexture('T')
+    };
+
+    function createMutatedDNA() {
+        const group = new THREE.Group();
+        const dnaType = Math.floor(Math.random() * 4); // 0: Star, 1: Binary, 2: ACGT, 3: Ribbon-like
+        const isRainbow = Math.random() > 0.3;
+        
+        const numPoints = 120 + Math.floor(Math.random() * 100);
+        const radius = 25 + Math.random() * 15;
+        const heightStep = 15 + Math.random() * 10;
+        const twistStep = 0.1 + Math.random() * 0.2;
+
+        const positions = [];
+        const colors = [];
+
+        for (let i = 0; i < numPoints; i++) {
+            const y = (i - numPoints / 2) * heightStep;
+            const angle = i * twistStep;
+            
+            const color = isRainbow ? new THREE.Color().setHSL((i / 15) % 1.0, 1.0, 0.5) : new THREE.Color(0x00ff41);
+
+            // Strand 1
+            positions.push(radius * Math.cos(angle), y, radius * Math.sin(angle));
+            colors.push(color.r, color.g, color.b);
+            
+            // Strand 2
+            positions.push(radius * Math.cos(angle + Math.PI), y, radius * Math.sin(angle + Math.PI));
+            colors.push(color.r, color.g, color.b);
+
+            // Connecting rungs
+            if (i % 6 === 0) {
+                const lineMat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.3 });
+                const lineGeom = new THREE.BufferGeometry().setFromPoints([
+                    new THREE.Vector3(radius * Math.cos(angle), y, radius * Math.sin(angle)),
+                    new THREE.Vector3(radius * Math.cos(angle + Math.PI), y, radius * Math.sin(angle + Math.PI))
+                ]);
+                group.add(new THREE.Line(lineGeom, lineMat));
+            }
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        
+        let map;
+        if (dnaType === 0) map = textures.star;
+        else if (dnaType === 1) map = Math.random() > 0.5 ? textures.zero : textures.one;
+        else if (dnaType === 2) map = textures[['A','C','G','T'][Math.floor(Math.random()*4)]];
+        else map = textures.star; // Fallback
+
+        const material = new THREE.PointsMaterial({
+            size: dnaType === 3 ? 15 : 45,
+            map: map,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.9,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        const points = new THREE.Points(geometry, material);
+        group.add(points);
+
+        return group;
+    }
+
+    function init() {
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 15000);
+        camera.position.z = 1800;
+
+        scene = new THREE.Scene();
+
+        for (let i = 0; i < numStreams; i++) {
+            const dna = createMutatedDNA();
+            dna.position.set(
+                (Math.random() - 0.5) * 6000,
+                (Math.random() * 8000) - 4000,
+                (Math.random() - 0.5) * 3000
+            );
+            dna.userData.speed = 1.0 + Math.random() * 5;
+            dna.userData.rotSpeed = 0.005 + Math.random() * 0.02;
+            scene.add(dna);
+            streams.push(dna);
+        }
+
+        const canvas = document.getElementById('three-bg');
+        renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }, false);
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        streams.forEach(dna => {
+            dna.position.y -= dna.userData.speed;
+            dna.rotation.y += dna.userData.rotSpeed;
+            if (dna.position.y < -4000) {
+                dna.position.y = 4000;
+                dna.position.x = (Math.random() - 0.5) * 6000;
+            }
+        });
+        renderer.render(scene, camera);
+    }
+
+    init();
+    animate();
+  </script>
 </body>
 </html>
+
+
+

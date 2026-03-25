@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta name="color-scheme" content="dark" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Promethease 2026 UI2 Report - Trina Toohey</title>
@@ -40,6 +41,17 @@
     .close { color: var(--oa-mist); opacity: 0.75; }
     .close:hover { color: #fff; opacity: 1; }
   </style>
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+<script>
+    // Enable dark mode by default
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({
+        brightness: 100,
+        contrast: 90,
+        sepia: 10
+    });
+</script>
+  <link rel="stylesheet" href="../openai-brand.css" />
 </head>
 <body>
   <div id="controls" class="navmenu navmenu-default navmenu-fixed-right offcanvas col-lg-3 col-md-4 col-sm-5 col-xs-12 in canvas-slid">
@@ -77,6 +89,8 @@
         </div>
         <div class="nav navbar-nav navbar-right" style="padding:8px 15px;">
           <button id="controls-button-desktop" type="button" class="btn btn-default btn-sm" data-toggle="offcanvas" data-target="#controls" data-canvas="#pagecontent">Filters</button>
+          <a class="btn btn-default btn-sm" href="report-tools.html">Report Tools</a>
+          <a class="btn btn-default btn-sm" href="genetic-genie.html">Genetic Genie Panels</a>
         </div>
       </div>
     </nav>
@@ -204,3 +218,7 @@
   </script>
 </body>
 </html>
+
+
+
+

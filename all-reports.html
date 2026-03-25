@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
   <title>All Genome Report Versions</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="openai-brand.css" />
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+  <script>
+    // Enable dark mode by default
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({
+        brightness: 100,
+        contrast: 90,
+        sepia: 10
+    });
+  </script>
   <style>
     body {
       background: linear-gradient(160deg, var(--oa-charcoal) 0%, #17181d 50%, var(--oa-slate) 100%);
@@ -41,6 +51,7 @@
       background: rgba(43, 143, 255, 0.1);
     }
   </style>
+  <link rel="stylesheet" href="openai-brand.css" />
 </head>
 <body>
   <main class="container py-5">
@@ -54,6 +65,7 @@
       <p class="muted mb-3">Primary 2015 report set.</p>
       <ul class="mb-0">
         <li><a href="Promethease_2015_02_07_genome_John_Stinson_Full_20150207073317_ui2.html">Full (UI2)</a></li>
+        <li><a href="Promethease_2015_02_07_genome_John_Stinson_Full_20150207073317.html">Full (Legacy Redirect)</a></li>
         <li><a href="Promethease_2015_02_07_genome_John_Stinson_Full_20150207073317_Topic.html">Topic</a></li>
         <li><a href="Promethease_2015_02_07_genome_John_Stinson_Full_20150207073317_complicated.html">Complicated</a></li>
         <li><a href="Promethease_2015_02_07_genome_John_Stinson_Full_20150207073317_is-a-medical-condition.html">Is A Medical Condition</a></li>
@@ -68,6 +80,7 @@
       <p class="muted mb-3">Primary set plus generated 2024 set.</p>
       <ul class="mb-0">
         <li><a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527_ui2.html">2015 Full (UI2)</a></li>
+        <li><a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527.html">2015 Full (Legacy Redirect)</a></li>
         <li><a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527_Topic.html">2015 Topic</a></li>
         <li><a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527_complicated.html">2015 Complicated</a></li>
         <li><a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527_is-a-medical-condition.html">2015 Is A Medical Condition</a></li>
@@ -86,6 +99,8 @@
       <h2 class="h5">Promethease Wrapper Versions</h2>
       <p class="muted mb-3">Viewer pages bundled with each alternate version folder.</p>
       <ul class="mb-0">
+        <li><a href="Promethease_2015_02_07_genome_John_Stinson_Full_20150207073317.html">2015 Viewer (John, Redirect)</a></li>
+        <li><a href="Promethease_2015_02_07_genome_Trina_Toohey_Full_20150207073527.html">2015 Viewer (Trina, Redirect)</a></li>
         <li><a href="2018-promethease/promethease.html">2018 Viewer (John)</a></li>
         <li><a href="2024-promethease/promethease.html">2024 Viewer (Trina)</a></li>
         <li><a href="2026-promethease-john/promethease.html">2026 Viewer (John, UI2)</a></li>
@@ -94,6 +109,40 @@
         <li><a href="2026-promethease-trina/Promethease_2026_03_03_genome_Trina_Toohey_Full_20260303020155_ui2.html">2026 Trina Generated UI2 (Direct)</a></li>
       </ul>
     </section>
+
+    <section class="panel rounded p-4 mt-4">
+      <h2 class="h5">Comparisons & Extras</h2>
+      <p class="muted mb-3">Multi-genome comparison reports and additional metadata.</p>
+      <ul class="mb-0">
+        <li><a href="file-F1-1570234575-28738809.html">F1 Comparison: John (2015) vs Trina (2015)</a></li>
+        <li><a href="file-F1-28738809-1570234575.html">F1 Comparison: Trina (2015) vs John (2015) [Reverse]</a></li>
+      </ul>
+    </section>
+
+    <section class="panel rounded p-4 mt-4">
+      <h2 class="h5">Offline Download Packages</h2>
+      <p class="muted mb-3">Complete report bundles for local offline viewing.</p>
+      <ul class="mb-0">
+        <li><a href="promethease-2018-offline.zip">2018 John Offline Bundle (.zip)</a></li>
+        <li><a href="promethease-2024-offline.zip">2024 Trina Offline Bundle (.zip)</a></li>
+        <li><a href="genome_John_Stinson_Full_20150207073317.zip">2015 John Genome Bundle (.zip)</a></li>
+        <li><a href="genome_John_Stinson_v4_Full_20260126192308.zip">2026 John Genome Bundle (.zip)</a></li>
+        <li><a href="genome_Trina_Toohey_v4_Full_20230323104327.zip">2023 Trina Genome Bundle (.zip)</a></li>
+        <li><a href="genome_Trina_Toohey_v4_Full_20241212123012.zip">2024 Trina Genome Bundle (.zip)</a></li>
+      </ul>
+    </section>
+
+    <section class="panel rounded p-4 mt-4">
+      <h2 class="h5">Raw Genome Data</h2>
+      <p class="muted mb-3">Original DNA data files in text format.</p>
+      <ul class="mb-0">
+        <li><a href="genome_John_Stinson_Full_20150207073317.txt">John Stinson (2015) Raw (.txt)</a></li>
+        <li><a href="genome_Trina_Toohey_Full_20150207073527.txt">Trina Toohey (2015) Raw (.txt)</a></li>
+      </ul>
+    </section>
   </main>
 </body>
 </html>
+
+
+
