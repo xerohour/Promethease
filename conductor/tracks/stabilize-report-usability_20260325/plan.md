@@ -16,7 +16,7 @@
 
 ## Phase 3: UI2 Usability and Mobile Responsiveness Hardening
 - [x] Task: Harden UI2 usability for core filter/search interactions on representative pages.
-- [ ] Verify control discoverability and readability at narrow viewport widths.
+- [x] Verify control discoverability and readability at narrow viewport widths.
 - [ ] Address layout/interaction issues that block core tasks on mobile.
 - [ ] Preserve Bootstrap 3/Jasny/Intro.js compatibility constraints during edits.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: UI2 Usability and Mobile Responsiveness Hardening' (Protocol in workflow.md)
@@ -27,6 +27,7 @@
 - [ ] Prepare user-impact-first release summary and maintainer technical notes.
 - [ ] Capture residual risks and follow-up tasks.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Validation, Documentation, and Release Readiness' (Protocol in workflow.md)
+
 
 
 
