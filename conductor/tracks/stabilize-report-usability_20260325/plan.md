@@ -11,7 +11,7 @@
 - [x] Task: Improve top-level navigation clarity on index.html and all-reports.html.
 - [x] Update labels/grouping to reduce ambiguity across versions and subjects.
 - [x] Ensure entry links are prominent and consistent across desktop/mobile layouts.
-- [ ] Keep compatibility-safe styling changes in shared CSS where possible.
+- [x] Keep compatibility-safe styling changes in shared CSS where possible.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Navigation and Entry-Point Improvements' (Protocol in workflow.md)
 
 ## Phase 3: UI2 Usability and Mobile Responsiveness Hardening
@@ -27,6 +27,7 @@
 - [ ] Prepare user-impact-first release summary and maintainer technical notes.
 - [ ] Capture residual risks and follow-up tasks.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Validation, Documentation, and Release Readiness' (Protocol in workflow.md)
+
 
 
 
