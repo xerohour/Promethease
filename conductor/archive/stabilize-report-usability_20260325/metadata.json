@@ -1,0 +1,8 @@
+{
+  "track_id": "stabilize-report-usability_20260325",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-03-25T11:04:42Z",
+  "updated_at": "2026-03-25T11:04:42Z",
+  "description": "Stabilize and improve report usability across all bundles (desktop + mobile) while preserving legacy UI2 compatibility and offline behavior."
+}
