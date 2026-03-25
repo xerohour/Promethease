@@ -40,6 +40,27 @@
     }
     .close { color: var(--oa-mist); opacity: 0.75; }
     .close:hover { color: #fff; opacity: 1; }
+    @media (max-width: 991px) {
+      #controls {
+        width: 100%;
+        max-height: 18rem;
+      }
+      #pagecontent {
+        padding: 10px;
+      }
+      .nav.navbar-nav.navbar-right {
+        float: none !important;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .nav.navbar-nav.navbar-right .btn {
+        flex: 1 1 calc(50% - 6px);
+      }
+      .table-wrap {
+        max-height: none;
+      }
+    }
   </style>
 <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
 <script>
@@ -218,6 +239,7 @@
   </script>
 </body>
 </html>
+
 
 
 

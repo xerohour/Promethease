@@ -95,6 +95,12 @@
       .page {
         padding-right: 1rem;
         padding-bottom: 20rem;
+      .toolbar .btn {
+        flex: 1 1 calc(50% - 0.5rem);
+      }
+      .table-wrap {
+        max-height: none;
+      }
       }
       .navmenu-fixed-right.offcanvas {
         width: 100%;
@@ -121,6 +127,7 @@
       <h1 class="h4 mb-1">Promethease 2026 UI2 Report - John Stinson</h1>
       <div class="muted">Generated on 2026-03-03 02:01:55 UTC · Genome: genome_John_Stinson_v4_Full_20260128201328.txt · Findings: 301</div>
       <div class="toolbar mt-3">
+        <button id="openFilters" class="btn btn-sm btn-outline-light" type="button">Open Filters</button>
         <button id="focusSearch" class="btn btn-sm btn-outline-light" type="button">Focus Search</button>
         <button id="clearAll" class="btn btn-sm btn-outline-secondary" type="button">Reset Filters</button>
         <a class="btn btn-sm btn-outline-info" href="report-tools.html">Report Tools</a>
@@ -191,6 +198,7 @@
     const countEl = document.getElementById("count");
     const clearAllEl = document.getElementById("clearAll");
     const focusSearchEl = document.getElementById("focusSearch");
+    const openFiltersEl = document.getElementById("openFilters");
     let data = [];
 
     function chipClass(rep) {
@@ -308,7 +316,10 @@
     [qEl, geneEl, repEl, minMagEl, sortByEl].forEach(el => el.addEventListener("input", render));
     clearAllEl.addEventListener("click", resetFilters);
     focusSearchEl.addEventListener("click", () => qEl.focus());
-
+    openFiltersEl.addEventListener("click", () => {
+      document.getElementById("rightFilters").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      qEl.focus();
+    });
     document.addEventListener("keydown", evt => {
       if (evt.key === "/" && document.activeElement !== qEl) {
         evt.preventDefault();
@@ -318,6 +329,8 @@
   </script>
 </body>
 </html>
+
+
 
 
 
