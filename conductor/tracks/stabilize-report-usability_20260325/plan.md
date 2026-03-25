@@ -26,7 +26,8 @@
 - [x] Confirm no regressions in local pathing and bundled dependencies.
 - [x] Prepare user-impact-first release summary and maintainer technical notes.
 - [x] Capture residual risks and follow-up tasks.
-- [ ] Task: Conductor - User Manual Verification 'Phase 4: Validation, Documentation, and Release Readiness' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Validation, Documentation, and Release Readiness' (Protocol in workflow.md)
+
 
 
 
