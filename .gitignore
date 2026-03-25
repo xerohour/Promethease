@@ -27,3 +27,6 @@ render-*.png
 
 # Local Codex instruction file
 AGENTS.md
+
+# Local Conductor artifacts
+conductor/
