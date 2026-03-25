@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="color-scheme" content="dark" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promethease 2025 Report - John Stinson (Enriched SNPs)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+  <script>
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 });
+  </script>
+  <style>
+    :root {
+      --bg: #1a1b1e;
+      --panel: #25262b;
+      --line: #373a40;
+      --text: #c1c2c5;
+      --muted: #909296;
+      --oa-charcoal: #1a1b1e;
+      --oa-slate: #25262b;
+      --oa-graphite: #373a40;
+      --oa-mist: #c1c2c5;
+      --oa-steel: #909296;
+      --oa-azure: #339af0;
+    }
+    body { background: var(--bg); color: var(--text); margin: 0; font-family: 'Inter', sans-serif; }
+    .page { min-height: 100vh; padding: 1rem; padding-right: min(32vw, 420px); }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 0.75rem; }
+    .muted { color: var(--muted); }
+    .chip { padding: 0.2rem 0.55rem; border-radius: 999px; font-size: 0.75rem; }
+    .rep-good { background: rgba(16, 163, 127, 0.22); color: #70ebcc; }
+    .rep-bad { background: rgba(212, 84, 100, 0.28); color: #ffccd4; }
+    .rep-na { background: rgba(158, 161, 170, 0.2); color: #d3d6dc; }
+    .table-wrap { max-height: 76vh; overflow: auto; }
+    .table-dark { --bs-table-bg: transparent; }
+    a { color: var(--oa-azure); }
+    a:hover { color: #5cb3ff; }
+    .sticky { position: sticky; top: 0; background: var(--panel); z-index: 100; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
+    input, select { background: var(--bg); border: 1px solid var(--line); color: var(--text); padding: 0.5rem; border-radius: 0.375rem; }
+    input:focus, select:focus { outline: 2px solid var(--oa-azure); border-color: transparent; }
+    .btn { display: inline-block; background: var(--oa-azure); color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; text-decoration: none; }
+    .btn:hover { background: #228be6; }
+    .sidebar { position: fixed; right: 0; top: 0; width: min(32vw, 420px); height: 100vh; background: var(--panel); border-left: 1px solid var(--line); padding: 1rem; overflow-y: auto; }
+    .snp-card { background: var(--bg); border: 1px solid var(--line); border-radius: 0.5rem; padding: 1rem; margin-bottom: 0.75rem; }
+    .snp-title { font-family: 'IBM Plex Mono', monospace; font-weight: 500; color: var(--oa-azure); }
+    .snp-meta { font-size: 0.85rem; color: var(--muted); margin: 0.25rem 0; }
+    .hidden { display: none; }
+    .pagination { display: flex; gap: 0.5rem; align-items: center; }
+    .page-info { color: var(--muted); font-size: 0.85rem; min-width: 120px; text-align: center; }
+    .load-more-btn { display: block; width: 100%; padding: 0.75rem; margin-top: 1rem; background: var(--panel); border: 1px solid var(--line); color: var(--oa-azure); border-radius: 0.5rem; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+    .load-more-btn:hover { background: rgba(51, 154, 240, 0.1); border-color: var(--oa-azure); }
+    .load-more-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .load-more-btn.hidden { display: none; }
+    @media (max-width: 768px) {
+      .page { padding-right: 1rem; }
+      .sidebar { position: static; width: auto; height: auto; border-left: none; border-top: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="sticky">
+      <div class="d-flex align-items-center gap-3 flex-wrap">
+        <h1 class="h5 mb-0">Promethease 2025</h1>
+        <span class="muted">John Stinson</span>
+        <span class="chip rep-na">Enriched SNPs</span>
+        <a href="../all-reports.html" class="btn btn-sm ms-auto">Back to Reports</a>
+      </div>
+      <div class="d-flex gap-2 mt-2 flex-wrap">
+        <input type="text" id="search" placeholder="Search rsID, gene..." style="width: 200px;" />
+        <select id="filter">
+          <option value="">All Magnitudes</option>
+          <option value="5">Magnitude 5</option>
+          <option value="4">Magnitude 4</option>
+          <option value="3">Magnitude 3</option>
+          <option value="2">Magnitude 2</option>
+          <option value="1">Magnitude 1</option>
+        </select>
+        <span class="muted ms-2" id="count">Loading...</span>
+        <div class="pagination ms-3">
+          <span class="page-info" id="pageInfo">Showing 0</span>
+          <button class="load-more-btn hidden" id="loadMoreBtn">Load More ↓</button>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="table table-dark table-sm" id="table">
+        <thead><tr><th>rsID</th><th>Magnitude</th><th>Gene</th><th>Summary</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="sidebar" id="sidebar">
+    <div class="text-muted text-center py-5">Click a row to view details</div>
+  </div>
+  <script>
+    const JSON_PATH = 'promethease_data/John_Stinson_2025_enriched_small.json';
+    let allData = [];
+    let filtered = [];
+    let displayedCount = 0;
+    const PAGE_SIZE = 100;
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char]));
+    }
+
+    function geneText(snp) {
+      return Array.isArray(snp.genes) && snp.genes.length ? snp.genes.join(', ') : '-';
+    }
+
+    function normalizedMagnitudeValue(snp) {
+      const raw = Number(snp.magnitude);
+      return Number.isFinite(raw) && raw >= 0 && raw <= 10 ? raw : null;
+    }
+
+    function magnitudeDisplay(snp) {
+      const mag = normalizedMagnitudeValue(snp);
+      return mag === null ? '-' : mag.toString();
+    }
+
+    function snpediaUrl(snp) {
+      const target = snp.remoteid || snp.rsid;
+      return target ? `https://www.snpedia.com/index.php/${encodeURIComponent(target)}` : '';
+    }
+    
+    async function loadData() {
+      try {
+        const resp = await fetch(JSON_PATH);
+        const data = await resp.json();
+        allData = data.findings || [];
+        document.getElementById('count').textContent = `${allData.length.toLocaleString()} enriched SNPs`;
+        applyFilter();
+      } catch (e) {
+        document.getElementById('count').textContent = 'Error loading data';
+        console.error(e);
+      }
+    }
+    
+    function applyFilter() {
+      const search = document.getElementById('search').value.toLowerCase();
+      const mag = document.getElementById('filter').value;
+      filtered = allData.filter(snp => {
+        const matchSearch = !search || 
+          (snp.rsid && snp.rsid.toLowerCase().includes(search)) ||
+          geneText(snp).toLowerCase().includes(search) ||
+          (snp.summary && snp.summary.toLowerCase().includes(search));
+        const normalizedMag = normalizedMagnitudeValue(snp);
+        const matchMag = !mag || (normalizedMag !== null && normalizedMag === Number(mag));
+        return matchSearch && matchMag;
+      });
+      displayedCount = Math.min(PAGE_SIZE, filtered.length);
+      renderTable();
+    }
+    
+    function renderTable() {
+      const tbody = document.getElementById('tbody');
+      const pageData = filtered.slice(0, displayedCount);
+      if (!pageData.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center muted py-4">No SNPs match the current filters.</td></tr>';
+      } else {
+      tbody.innerHTML = pageData.map((snp, i) => `
+        <tr class="snp-row" data-index="${i}">
+          <td class="snp-title">${escapeHtml(snp.rsid || '')}</td>
+          <td>${escapeHtml(magnitudeDisplay(snp))}</td>
+          <td>${escapeHtml(geneText(snp))}</td>
+          <td class="text-truncate" style="max-width: 200px;">${escapeHtml(snp.summary || '')}</td>
+        </tr>
+      `).join('');
+      }
+      document.getElementById('count').textContent = `${filtered.length.toLocaleString()} / ${allData.length.toLocaleString()} SNPs`;
+      document.getElementById('pageInfo').textContent = `Showing ${displayedCount.toLocaleString()} / ${filtered.length.toLocaleString()}`;
+      
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      const hasMore = displayedCount < filtered.length;
+      loadMoreBtn.classList.toggle('hidden', !hasMore);
+      loadMoreBtn.textContent = hasMore ? `Load More (${filtered.length - displayedCount} remaining) ↓` : 'No more items';
+    }
+    
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+      displayedCount = Math.min(displayedCount + PAGE_SIZE, filtered.length);
+      renderTable();
+    });
+    
+    document.getElementById('search').addEventListener('input', applyFilter);
+    document.getElementById('filter').addEventListener('change', applyFilter);
+    
+    document.getElementById('table').addEventListener('click', e => {
+      const row = e.target.closest('tr');
+      if (!row) return;
+      const idx = parseInt(row.dataset.index);
+      showDetail(filtered[idx]);
+    });
+    
+    function showDetail(snp) {
+      const sb = document.getElementById('sidebar');
+      if (!snp) { sb.innerHTML = '<div class="text-muted">Select a SNP</div>'; return; }
+      sb.innerHTML = `
+        <h5 class="snp-title mb-3">${escapeHtml(snp.rsid || 'N/A')}</h5>
+        <div class="snp-card">
+          <div class="snp-meta"><strong>Magnitude:</strong> ${escapeHtml(magnitudeDisplay(snp))}</div>
+          <div class="snp-meta"><strong>Gene:</strong> ${escapeHtml(geneText(snp))}</div>
+          <div class="snp-meta"><strong>Genotype:</strong> ${escapeHtml(snp.genotype || '-')}</div>
+          <div class="snp-meta"><strong>Chromosome:</strong> ${escapeHtml(snp.chromosome || '-')}</div>
+          <div class="snp-meta"><strong>Position:</strong> ${escapeHtml(snp.position || '-')}</div>
+        </div>
+        <h6 class="mt-3">Summary</h6>
+        <p class="small">${escapeHtml(snp.summary || 'No summary available.')}</p>
+        ${snpediaUrl(snp) ? `<a href="${snpediaUrl(snp)}" target="_blank" rel="noreferrer" class="btn btn-sm mt-2">View on SNPedia →</a>` : ''}
+      `;
+    }
+    
+    // Load data on page load
+    loadData();
+  </script>
+</body>
+</html>

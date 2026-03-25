@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="color-scheme" content="dark" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Promethease 2025 Combined Report - John Stinson & Trina Toohey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+  <script>
+    DarkReader.setFetchMethod(window.fetch);
+    DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 });
+  </script>
+  <style>
+    :root {
+      --bg: #1a1b1e;
+      --panel: #25262b;
+      --line: #373a40;
+      --text: #c1c2c5;
+      --muted: #909296;
+      --oa-charcoal: #1a1b1e;
+      --oa-slate: #25262b;
+      --oa-graphite: #373a40;
+      --oa-mist: #c1c2c5;
+      --oa-steel: #909296;
+      --oa-azure: #339af0;
+      --john-color: #4dabf7;
+      --trina-color: #da77f2;
+    }
+    body { background: var(--bg); color: var(--text); margin: 0; font-family: 'Inter', sans-serif; }
+    .header { background: var(--panel); border-bottom: 1px solid var(--line); padding: 1rem; position: sticky; top: 0; z-index: 100; }
+    .title-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .person-badge { padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 500; }
+    .john-badge { background: rgba(77, 171, 247, 0.2); color: var(--john-color); }
+    .trina-badge { background: rgba(218, 119, 242, 0.2); color: var(--trina-color); }
+    .controls { display: flex; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; align-items: center; }
+    input, select { background: var(--bg); border: 1px solid var(--line); color: var(--text); padding: 0.4rem 0.75rem; border-radius: 0.375rem; font-size: 0.9rem; }
+    input:focus, select:focus { outline: 2px solid var(--oa-azure); border-color: transparent; }
+    .main-content { display: flex; height: calc(100vh - 130px); }
+    .panel { flex: 1; overflow: hidden; display: flex; flex-direction: column; border-right: 1px solid var(--line); }
+    .panel:last-child { border-right: none; }
+    .panel-header { padding: 0.75rem 1rem; background: rgba(37, 38, 43, 0.8); border-bottom: 1px solid var(--line); font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+    .john-header { border-left: 3px solid var(--john-color); }
+    .trina-header { border-left: 3px solid var(--trina-color); }
+    .table-container { flex: 1; overflow: auto; }
+    .table-dark { --bs-table-bg: transparent; --bs-table-color: var(--text); }
+    .table-dark th { position: sticky; top: 0; background: var(--panel); z-index: 10; }
+    .snp-row { cursor: pointer; transition: background 0.15s; }
+    .snp-row:hover { background: rgba(51, 154, 240, 0.1); }
+    .snp-row.selected { background: rgba(51, 154, 240, 0.2); }
+    .rsid { font-family: 'IBM Plex Mono', monospace; color: var(--oa-azure); font-weight: 500; }
+    .gene { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+    .summary-cell { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .magnitude-5 { color: #ff6b6b; font-weight: 600; }
+    .magnitude-4 { color: #ffa94d; font-weight: 600; }
+    .magnitude-3 { color: #ffe066; }
+    .magnitude-2 { color: #8ce99a; }
+    .magnitude-1 { color: var(--muted); }
+    .detail-panel { position: fixed; right: 0; top: 130px; width: 380px; height: calc(100vh - 130px); background: var(--panel); border-left: 1px solid var(--line); padding: 1.25rem; overflow-y: auto; }
+    .detail-title { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; color: var(--oa-azure); margin-bottom: 1rem; }
+    .detail-card { background: var(--bg); border: 1px solid var(--line); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
+    .detail-row { display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px solid var(--line); }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label { color: var(--muted); font-size: 0.85rem; }
+    .detail-value { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+    .genotype-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1rem; }
+    .genotype-box { padding: 0.75rem; border-radius: 0.5rem; text-align: center; }
+    .genotype-box.john { background: rgba(77, 171, 247, 0.15); border: 1px solid var(--john-color); }
+    .genotype-box.trina { background: rgba(218, 119, 242, 0.15); border: 1px solid var(--trina-color); }
+    .genotype-box .label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .genotype-box .value { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.1rem; }
+    .same-genotype { background: rgba(16, 163, 127, 0.2); border-color: #40c057 !important; }
+    .diff-genotype { background: rgba(255, 107, 107, 0.2); border-color: #ff6b6b !important; }
+    .match-badge { display: inline-block; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.7rem; margin-left: 0.5rem; }
+    .match-badge.same { background: rgba(16, 163, 127, 0.3); color: #40c057; }
+    .match-badge.diff { background: rgba(255, 107, 107, 0.3); color: #ff6b6b; }
+    .loading { text-align: center; padding: 2rem; color: var(--muted); }
+    .empty-state { text-align: center; padding: 3rem; color: var(--muted); }
+    .count-badge { font-size: 0.8rem; color: var(--muted); }
+    .pagination { display: flex; gap: 0.5rem; align-items: center; }
+    .page-info { color: var(--muted); font-size: 0.8rem; min-width: 120px; text-align: center; }
+    .load-more-btn { padding: 0.5rem 1rem; background: var(--bg); border: 1px solid var(--line); color: var(--oa-azure); border-radius: 0.375rem; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; }
+    .load-more-btn:hover { background: rgba(51, 154, 240, 0.1); border-color: var(--oa-azure); }
+    .load-more-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .load-more-btn.hidden { display: none; }
+    @media (max-width: 900px) {
+      .main-content { flex-direction: column; height: auto; }
+      .panel { border-right: none; border-bottom: 1px solid var(--line); min-height: 40vh; }
+      .detail-panel { position: static; width: auto; height: auto; border-left: none; border-top: 1px solid var(--line); display: block; }
+    }
+    @media (max-width: 600px) {
+      .title-row { flex-direction: column; align-items: flex-start; }
+      .controls { flex-direction: column; align-items: flex-start; }
+      input, select { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title-row">
+      <h1 class="h5 mb-0">Promethease 2025 Combined</h1>
+      <span class="person-badge john-badge">John Stinson</span>
+      <span class="person-badge trina-badge">Trina Toohey</span>
+      <a href="all-reports.html" class="btn btn-sm btn-outline-secondary ms-auto">← Back to Reports</a>
+    </div>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search rsID, gene, summary..." style="width: 220px;" />
+      <select id="filter">
+        <option value="">All Magnitudes</option>
+        <option value="5">Magnitude 5+</option>
+        <option value="4">Magnitude 4+</option>
+        <option value="3">Magnitude 3+</option>
+      </select>
+      <select id="compare">
+        <option value="">Show All SNPs</option>
+        <option value="both">Show SNPs in Both</option>
+        <option value="john-only">John Only</option>
+        <option value="trina-only">Trina Only</option>
+        <option value="different">Different Genotypes</option>
+      </select>
+      <span class="count-badge" id="count">Loading...</span>
+      <div class="pagination ms-3">
+        <span class="page-info" id="pageInfo">Showing 0</span>
+        <button class="load-more-btn hidden" id="loadMoreBtn">Load More ↓</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="panel">
+      <div class="panel-header john-header">
+        <span>John Stinson</span>
+        <span class="count-badge" id="john-count">-</span>
+      </div>
+      <div class="table-container">
+        <table class="table table-dark table-sm" id="john-table">
+          <thead><tr><th>rsID</th><th>Mag</th><th>Gene</th><th>Summary</th></tr></thead>
+          <tbody id="john-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header trina-header">
+        <span>Trina Toohey</span>
+        <span class="count-badge" id="trina-count">-</span>
+      </div>
+      <div class="table-container">
+        <table class="table table-dark table-sm" id="trina-table">
+          <thead><tr><th>rsID</th><th>Mag</th><th>Gene</th><th>Summary</th></tr></thead>
+          <tbody id="trina-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-panel" id="detail-panel">
+    <div class="empty-state">Click a row to view SNP details</div>
+  </div>
+
+  <script>
+    const JOHN_JSON = '2025-promethease-john/promethease_data/John_Stinson_2025_enriched_small.json';
+    const TRINA_JSON = '2025-promethease-trina/promethease_data/Trina_Toohey_2025_enriched_small.json';
+    
+    let johnData = [];
+    let trinaData = [];
+    let allEntries = [];
+    let displayedCount = 0;
+    const PAGE_SIZE = 100;
+    
+    async function loadData() {
+      try {
+        const [johnResp, trinaResp] = await Promise.all([
+          fetch(JOHN_JSON),
+          fetch(TRINA_JSON)
+        ]);
+        const [johnJson, trinaJson] = await Promise.all([johnResp.json(), trinaResp.json()]);
+        johnData = (johnJson.findings || []).map(s => ({ ...s, source: 'john' }));
+        trinaData = (trinaJson.findings || []).map(s => ({ ...s, source: 'trina' }));
+        
+        document.getElementById('john-count').textContent = `${johnData.length.toLocaleString()} SNPs`;
+        document.getElementById('trina-count').textContent = `${trinaData.length.toLocaleString()} SNPs`;
+        document.getElementById('count').textContent = `John: ${johnData.length.toLocaleString()} | Trina: ${trinaData.length.toLocaleString()}`;
+        
+        applyFilter();
+      } catch (e) {
+        document.getElementById('count').textContent = 'Error loading data';
+        console.error(e);
+      }
+    }
+    
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[char]));
+    }
+
+    function geneText(snp) {
+      return Array.isArray(snp.genes) && snp.genes.length ? snp.genes.join(', ') : '-';
+    }
+
+    function normalizedMagnitudeValue(snp) {
+      const raw = Number(snp.magnitude);
+      return Number.isFinite(raw) && raw >= 0 && raw <= 10 ? raw : null;
+    }
+
+    function magnitudeDisplay(snp) {
+      const mag = normalizedMagnitudeValue(snp);
+      return mag === null ? '-' : mag.toString();
+    }
+
+    function magnitudeClass(snp) {
+      const mag = normalizedMagnitudeValue(snp);
+      return `magnitude-${mag === null ? 1 : Math.max(1, Math.min(5, Math.floor(mag)))}`;
+    }
+
+    function snpediaUrl(snp) {
+      const target = snp.remoteid || snp.rsid;
+      return target ? `https://www.snpedia.com/index.php/${encodeURIComponent(target)}` : '';
+    }
+
+    function applyFilter() {
+      const search = document.getElementById('search').value.toLowerCase();
+      const mag = parseInt(document.getElementById('filter').value) || 0;
+      const compare = document.getElementById('compare').value;
+      
+      const snpMap = new Map();
+      
+      johnData.forEach(snp => {
+        const matchSearch = !search || 
+          (snp.rsid && snp.rsid.toLowerCase().includes(search)) ||
+          geneText(snp).toLowerCase().includes(search) ||
+          (snp.summary && snp.summary.toLowerCase().includes(search));
+        const normalizedMag = normalizedMagnitudeValue(snp);
+        const matchMag = !mag || (normalizedMag !== null && normalizedMag >= mag);
+        
+        if (matchSearch && matchMag) {
+          if (!snpMap.has(snp.rsid)) snpMap.set(snp.rsid, { john: null, trina: null });
+          snpMap.get(snp.rsid).john = snp;
+        }
+      });
+      
+      trinaData.forEach(snp => {
+        const matchSearch = !search || 
+          (snp.rsid && snp.rsid.toLowerCase().includes(search)) ||
+          geneText(snp).toLowerCase().includes(search) ||
+          (snp.summary && snp.summary.toLowerCase().includes(search));
+        const normalizedMag = normalizedMagnitudeValue(snp);
+        const matchMag = !mag || (normalizedMag !== null && normalizedMag >= mag);
+        
+        if (matchSearch && matchMag) {
+          if (!snpMap.has(snp.rsid)) snpMap.set(snp.rsid, { john: null, trina: null });
+          snpMap.get(snp.rsid).trina = snp;
+        }
+      });
+      
+      allEntries = Array.from(snpMap.entries());
+      
+      if (compare === 'both') {
+        allEntries = allEntries.filter(([_, v]) => v.john && v.trina);
+      } else if (compare === 'john-only') {
+        allEntries = allEntries.filter(([_, v]) => v.john && !v.trina);
+      } else if (compare === 'trina-only') {
+        allEntries = allEntries.filter(([_, v]) => !v.john && v.trina);
+      } else if (compare === 'different') {
+        allEntries = allEntries.filter(([_, v]) => v.john && v.trina && v.john.genotype !== v.trina.genotype);
+      }
+      
+      allEntries.sort((a, b) => {
+        const magA = Math.max(normalizedMagnitudeValue(a[1].john || {}) || 0, normalizedMagnitudeValue(a[1].trina || {}) || 0);
+        const magB = Math.max(normalizedMagnitudeValue(b[1].john || {}) || 0, normalizedMagnitudeValue(b[1].trina || {}) || 0);
+        return magB - magA;
+      });
+      
+      displayedCount = Math.min(PAGE_SIZE, allEntries.length);
+      renderVisibleEntries();
+    }
+    
+    function renderVisibleEntries() {
+      const visibleEntries = allEntries.slice(0, displayedCount);
+      
+      const johnFiltered = visibleEntries.map(([rsid, v]) => v.john).filter(Boolean);
+      const trinaFiltered = visibleEntries.map(([rsid, v]) => v.trina).filter(Boolean);
+      
+      const totalFiltered = allEntries.length;
+      
+      const johnMatchCount = allEntries.filter(e => e[1].john).length;
+      const trinaMatchCount = allEntries.filter(e => e[1].trina).length;
+      
+      document.getElementById('john-count').textContent = `${johnMatchCount.toLocaleString()} / ${johnData.length.toLocaleString()}`;
+      document.getElementById('trina-count').textContent = `${trinaMatchCount.toLocaleString()} / ${trinaData.length.toLocaleString()}`;
+      document.getElementById('count').textContent = `${totalFiltered.toLocaleString()} total SNPs`;
+      document.getElementById('pageInfo').textContent = `Showing ${displayedCount.toLocaleString()} / ${totalFiltered.toLocaleString()}`;
+      
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      const hasMore = displayedCount < allEntries.length;
+      loadMoreBtn.classList.toggle('hidden', !hasMore);
+      loadMoreBtn.textContent = hasMore ? `Load More (${allEntries.length - displayedCount} more) ↓` : 'No more items';
+      
+      renderTable('john', johnFiltered);
+      renderTable('trina', trinaFiltered);
+    }
+    
+    document.getElementById('loadMoreBtn').addEventListener('click', () => {
+      displayedCount = Math.min(displayedCount + PAGE_SIZE, allEntries.length);
+      renderVisibleEntries();
+    });
+    
+    function renderTable(person, data) {
+      const tbody = document.getElementById(`${person}-tbody`);
+      if (!data.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted py-4">No SNPs match the current filters.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = data.map(snp => `
+        <tr class="snp-row" data-rsid="${snp.rsid}" data-person="${person}">
+          <td class="rsid">${escapeHtml(snp.rsid || '')}</td>
+          <td class="${magnitudeClass(snp)}">${escapeHtml(magnitudeDisplay(snp))}</td>
+          <td class="gene">${escapeHtml(geneText(snp))}</td>
+          <td class="summary-cell">${escapeHtml(snp.summary || '')}</td>
+        </tr>
+      `).join('');
+    }
+    
+    document.getElementById('search').addEventListener('input', applyFilter);
+    document.getElementById('filter').addEventListener('change', applyFilter);
+    document.getElementById('compare').addEventListener('change', applyFilter);
+    
+    document.querySelector('.main-content').addEventListener('click', e => {
+      const row = e.target.closest('tr');
+      if (!row) return;
+      
+      document.querySelectorAll('.snp-row.selected').forEach(r => r.classList.remove('selected'));
+      row.classList.add('selected');
+      
+      const rsid = row.dataset.rsid;
+      
+      showDetail(rsid);
+    });
+    
+    function showDetail(rsid) {
+      const johnSnp = johnData.find(s => s.rsid === rsid);
+      const trinaSnp = trinaData.find(s => s.rsid === rsid);
+      const panel = document.getElementById('detail-panel');
+      
+      if (!johnSnp && !trinaSnp) {
+        panel.innerHTML = '<div class="empty-state">No data found</div>';
+        return;
+      }
+      
+      const snp = johnSnp || trinaSnp;
+      const sameGenotype = johnSnp && trinaSnp && johnSnp.genotype === trinaSnp.genotype;
+      const snpediaLink = snpediaUrl(snp);
+      
+      panel.innerHTML = `
+        <h4 class="detail-title">${escapeHtml(rsid)}${johnSnp && trinaSnp ? 
+          `<span class="match-badge ${sameGenotype ? 'same' : 'diff'}">${sameGenotype ? 'Same' : 'Different'}</span>` 
+          : ''}</h4>
+        
+        ${johnSnp ? `
+        <div class="detail-card">
+          <div class="detail-row"><span class="detail-label">John's Magnitude</span><span class="detail-value ${magnitudeClass(johnSnp)}">${escapeHtml(magnitudeDisplay(johnSnp))}</span></div>
+          <div class="detail-row"><span class="detail-label">John's Gene</span><span class="detail-value">${escapeHtml(geneText(johnSnp))}</span></div>
+          <div class="detail-row"><span class="detail-label">John's Genotype</span><span class="detail-value">${escapeHtml(johnSnp.genotype || '-')}</span></div>
+          <div class="detail-row"><span class="detail-label">Chromosome</span><span class="detail-value">${escapeHtml(johnSnp.chromosome || '-')}</span></div>
+          <div class="detail-row"><span class="detail-label">Position</span><span class="detail-value">${escapeHtml(johnSnp.position || '-')}</span></div>
+        </div>
+        ` : '<div class="detail-card"><div class="text-muted">John: No data for this SNP</div></div>'}
+        
+        ${trinaSnp ? `
+        <div class="detail-card">
+          <div class="detail-row"><span class="detail-label">Trina's Magnitude</span><span class="detail-value ${magnitudeClass(trinaSnp)}">${escapeHtml(magnitudeDisplay(trinaSnp))}</span></div>
+          <div class="detail-row"><span class="detail-label">Trina's Gene</span><span class="detail-value">${escapeHtml(geneText(trinaSnp))}</span></div>
+          <div class="detail-row"><span class="detail-label">Trina's Genotype</span><span class="detail-value">${escapeHtml(trinaSnp.genotype || '-')}</span></div>
+          <div class="detail-row"><span class="detail-label">Chromosome</span><span class="detail-value">${escapeHtml(trinaSnp.chromosome || '-')}</span></div>
+          <div class="detail-row"><span class="detail-label">Position</span><span class="detail-value">${escapeHtml(trinaSnp.position || '-')}</span></div>
+        </div>
+        ` : '<div class="detail-card"><div class="text-muted">Trina: No data for this SNP</div></div>'}
+        
+        ${johnSnp && trinaSnp ? `
+        <div class="genotype-compare">
+          <div class="genotype-box john ${sameGenotype ? 'same-genotype' : 'diff-genotype'}">
+            <div class="label">John's Genotype</div>
+            <div class="value">${escapeHtml(johnSnp.genotype || '-')}</div>
+          </div>
+          <div class="genotype-box trina ${sameGenotype ? 'same-genotype' : 'diff-genotype'}">
+            <div class="label">Trina's Genotype</div>
+            <div class="value">${escapeHtml(trinaSnp.genotype || '-')}</div>
+          </div>
+        </div>
+        ` : ''}
+        
+        <div class="detail-card mt-3">
+          <div class="detail-label mb-2">Summary</div>
+          <p class="small mb-0">${escapeHtml(snp.summary || 'No summary available.')}</p>
+        </div>
+        
+        ${snpediaLink ? `
+        <a href="${snpediaLink}" target="_blank" rel="noreferrer" class="btn btn-sm w-100 mt-2" style="background: var(--oa-azure); color: #fff;">
+          View on SNPedia →
+        </a>
+        ` : ''}
+      `;
+    }
+    
+    loadData();
+  </script>
+</body>
+</html>
