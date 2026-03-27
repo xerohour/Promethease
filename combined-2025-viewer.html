@@ -163,20 +163,59 @@
   <script>
     const JOHN_JSON = '2025-promethease-john/promethease_data/John_Stinson_2025_enriched_small.json';
     const TRINA_JSON = '2025-promethease-trina/promethease_data/Trina_Toohey_2025_enriched_small.json';
+    const JOHN_CACHE_KEY = 'promethease_2025_john_data';
+    const TRINA_CACHE_KEY = 'promethease_2025_trina_data';
+    const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours
     
     let johnData = [];
     let trinaData = [];
     let allEntries = [];
     let displayedCount = 0;
     const PAGE_SIZE = 100;
+
+    function getCachedData(key) {
+      try {
+        const cached = localStorage.getItem(key);
+        if (!cached) return null;
+        const { data, timestamp } = JSON.parse(cached);
+        if (Date.now() - timestamp > CACHE_DURATION_MS) {
+          localStorage.removeItem(key);
+          return null;
+        }
+        return data;
+      } catch (e) { return null; }
+    }
+
+    function setCachedData(key, data) {
+      try {
+        localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+      } catch (e) { /* quota may be exceeded */ }
+    }
     
     async function loadData() {
+      const johnCached = getCachedData(JOHN_CACHE_KEY);
+      const trinaCached = getCachedData(TRINA_CACHE_KEY);
+      
+      if (johnCached && trinaCached) {
+        johnData = (johnCached.findings || []).map(s => ({ ...s, source: 'john' }));
+        trinaData = (trinaCached.findings || []).map(s => ({ ...s, source: 'trina' }));
+        document.getElementById('john-count').textContent = `${johnData.length.toLocaleString()} SNPs (cached)`;
+        document.getElementById('trina-count').textContent = `${trinaData.length.toLocaleString()} SNPs (cached)`;
+        document.getElementById('count').textContent = `John: ${johnData.length.toLocaleString()} | Trina: ${trinaData.length.toLocaleString()} (cached)`;
+        applyFilter();
+        return;
+      }
+      
       try {
         const [johnResp, trinaResp] = await Promise.all([
           fetch(JOHN_JSON),
           fetch(TRINA_JSON)
         ]);
         const [johnJson, trinaJson] = await Promise.all([johnResp.json(), trinaResp.json()]);
+        
+        if (!johnCached) setCachedData(JOHN_CACHE_KEY, johnJson);
+        if (!trinaCached) setCachedData(TRINA_CACHE_KEY, trinaJson);
+        
         johnData = (johnJson.findings || []).map(s => ({ ...s, source: 'john' }));
         trinaData = (trinaJson.findings || []).map(s => ({ ...s, source: 'trina' }));
         
@@ -411,6 +450,15 @@
     }
     
     loadData();
+
+    // Add cache clear on Ctrl+Shift+Alt+C
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.shiftKey && e.altKey && e.key === 'C') {
+        localStorage.removeItem(JOHN_CACHE_KEY);
+        localStorage.removeItem(TRINA_CACHE_KEY);
+        location.reload();
+      }
+    });
   </script>
 </body>
 </html>

@@ -100,10 +100,53 @@
   </div>
   <script>
     const JSON_PATH = 'promethease_data/Trina_Toohey_2025_enriched_small.json';
+    const CACHE_KEY = 'promethease_2025_trina_data';
+    const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours
     let allData = [];
     let filtered = [];
     let displayedCount = 0;
     const PAGE_SIZE = 100;
+
+    function getCachedData() {
+      try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (!cached) return null;
+        const { data, timestamp } = JSON.parse(cached);
+        if (Date.now() - timestamp > CACHE_DURATION_MS) {
+          localStorage.removeItem(CACHE_KEY);
+          return null;
+        }
+        return data;
+      } catch (e) { return null; }
+    }
+
+    function setCachedData(data) {
+      try {
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }));
+      } catch (e) { /* quota may be exceeded */ }
+    }
+
+    async function loadData() {
+      const cached = getCachedData();
+      if (cached) {
+        allData = cached.findings || [];
+        document.getElementById('count').textContent = `${allData.length.toLocaleString()} enriched SNPs (cached)`;
+        applyFilter();
+        return;
+      }
+      
+      try {
+        const resp = await fetch(JSON_PATH);
+        const data = await resp.json();
+        allData = data.findings || [];
+        setCachedData(data);
+        document.getElementById('count').textContent = `${allData.length.toLocaleString()} enriched SNPs`;
+        applyFilter();
+      } catch (e) {
+        document.getElementById('count').textContent = 'Error loading data';
+        console.error(e);
+      }
+    }
 
     function escapeHtml(value) {
       return String(value ?? '').replace(/[&<>"']/g, char => ({
@@ -222,6 +265,14 @@
     
     // Load data on page load
     loadData();
+
+    // Add cache clear on Ctrl+Shift+Alt+C
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.shiftKey && e.altKey && e.key === 'C') {
+        localStorage.removeItem(CACHE_KEY);
+        location.reload();
+      }
+    });
   </script>
 </body>
 </html>
