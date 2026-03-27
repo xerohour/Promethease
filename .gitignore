@@ -32,8 +32,11 @@ AGENTS.md
 conductor/
 
 # Large genome report files (generate locally with scripts)
-2025-promethease-john/
-2025-promethease-trina/
+# Ignore large JSON files but keep small enriched reports
+2025-promethease-john/promethease_data/John_Stinson_2025_enriched.json
+2025-promethease-trina/promethease_data/Trina_Toohey_2025_enriched.json
+2025-promethease-john/promethease_data/John_Stinson_2025_findings.json
+2025-promethease-trina/promethease_data/Trina_Toohey_2025_findings.json
 2018-promethease-john.json
 2024-promethease-trina.json
 

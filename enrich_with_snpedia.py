@@ -37,45 +37,56 @@ def parse_snpedia_content(content):
         return result
     
     # Parse Rsnum template - extract parameters from {{Rsnum |...}}
-    rsnum_match = re.search(r'\{\{Rsnum\s*\|(.+?)\}\}', content, re.DOTALL | re.IGNORECASE)
+    rsnum_match = re.search(r'\{\{Rsnum\b(.*?)\}\}', content, re.DOTALL | re.IGNORECASE)
     if rsnum_match:
         template_content = rsnum_match.group(1)
-        
-        # Extract magnitude from template
-        mag_match = re.search(r'\|magnitude=(\d+)', template_content, re.IGNORECASE)
-        if mag_match:
-            result['magnitude'] = mag_match.group(1)
-        
-        # Extract repute from template
-        rep_match = re.search(r'\|repute=(\w+)', template_content, re.IGNORECASE)
-        if rep_match:
-            rep_val = rep_match.group(1).lower()
-            if rep_val in ['good', 'bad', 'neutral', 'mixed']:
-                result['repute'] = rep_val
-        
-        # Extract genes
-        gene_match = re.search(r'\|gene=([^|\n]+)', template_content, re.IGNORECASE)
-        if gene_match:
-            result['genes'] = [gene_match.group(1).strip()]
+        params = {}
+
+        for raw_line in template_content.splitlines():
+            line = raw_line.strip()
+            if not line.startswith('|'):
+                continue
+            key, sep, value = line[1:].partition('=')
+            if not sep:
+                continue
+            params[key.strip().lower()] = value.strip()
+
+        magnitude = params.get('magnitude')
+        if magnitude and re.fullmatch(r'\d+(?:\.\d+)?', magnitude):
+            result['magnitude'] = magnitude
+
+        repute = params.get('repute', '').lower()
+        if repute in ['good', 'bad', 'neutral', 'mixed']:
+            result['repute'] = repute
+
+        gene_value = params.get('gene') or params.get('gene_s')
+        if gene_value:
+            result['genes'] = [gene_value]
+
+        summary = params.get('summary')
+        if summary:
+            result['summary'] = summary[:200]
     
     # Also check for standalone magnitude patterns
     if result['magnitude'] == '0':
-        magnitude_match = re.search(r'M=(\d+)', content, re.IGNORECASE)
+        magnitude_match = re.search(r'(?<![\w])M=(\d+(?:\.\d+)?)', content)
         if magnitude_match:
             result['magnitude'] = magnitude_match.group(1)
     
     # Extract summary - first non-template line
-    lines = content.split('\n')
-    for line in lines:
-        line = line.strip()
-        # Skip templates, headers, empty lines
-        if line and not line.startswith('{{') and not line.startswith('|') and not line.startswith('='):
-            # Clean up wiki markup
-            line = re.sub(r'\[\[|\]\]', '', line)
-            line = re.sub(r'\{\{.*?\}\}', '', line)
-            if len(line) > 10:
-                result['summary'] = line[:200]
-                break
+    if not result['summary']:
+        lines = content.split('\n')
+        for line in lines:
+            line = line.strip()
+            # Skip templates, headers, empty lines
+            if line and not line.startswith('{{') and not line.startswith('|') and not line.startswith('='):
+                # Clean up wiki markup
+                line = re.sub(r'\[\[|\]\]', '', line)
+                line = re.sub(r'\{\{.*?\}\}', '', line)
+                line = line.lstrip('} ').strip()
+                if len(line) > 10:
+                    result['summary'] = line[:200]
+                    break
     
     return result
 
@@ -130,20 +141,20 @@ def enrich_report(input_file, output_file, snpedia_data):
         snp_data = snpedia_data.get(rsid) or snpedia_data.get(rsid_lower)
         
         if snp_data:
-            
-            # Only update if SNPedia has meaningful data
-            if snp_data['magnitude'] != '0' or snp_data['repute'] != 'neutral':
+            finding['is_snpedia_hit'] = True
+            enriched_count += 1
+
+            if snp_data['magnitude'] != '0':
                 finding['magnitude'] = snp_data['magnitude']
+
+            if snp_data['repute'] != 'neutral':
                 finding['repute'] = snp_data['repute']
-                
-                if snp_data['summary']:
-                    finding['summary'] = snp_data['summary']
-                
-                if snp_data['genes']:
-                    finding['genes'] = snp_data['genes']
-                
-                finding['is_snpedia_hit'] = True
-                enriched_count += 1
+
+            if snp_data['summary']:
+                finding['summary'] = snp_data['summary']
+
+            if snp_data['genes']:
+                finding['genes'] = snp_data['genes']
         
         if (i + 1) % 100000 == 0:
             print(f"  Processed {i+1:,} / {total:,} SNPs...")
