@@ -49,6 +49,7 @@ jobs:
             --include='/matrix-soundtrack.mp3' \
             --include='/matrix-theme.mid' \
             --include='/Promethease_*' \
+            --include='/nav-buttons.js' \
             --include='/combined-2025-viewer.html' \
             --include='/compare-reports.html' \
             --include='/2018-promethease/***' \
