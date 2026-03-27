@@ -79,6 +79,8 @@
     .match-badge.diff { background: rgba(255, 107, 107, 0.3); color: #ff6b6b; }
     .loading { text-align: center; padding: 2rem; color: var(--muted); }
     .empty-state { text-align: center; padding: 3rem; color: var(--muted); }
+    .btn-home { background: var(--panel); border: 1px solid var(--line); color: var(--text); }
+    .btn-home:hover { background: var(--line); color: #fff; }
     .count-badge { font-size: 0.8rem; color: var(--muted); }
     .pagination { display: flex; gap: 0.5rem; align-items: center; }
     .page-info { color: var(--muted); font-size: 0.8rem; min-width: 120px; text-align: center; }
@@ -104,7 +106,8 @@
       <h1 class="h5 mb-0">Promethease 2025 Combined</h1>
       <span class="person-badge john-badge">John Stinson</span>
       <span class="person-badge trina-badge">Trina Toohey</span>
-      <a href="all-reports.html" class="btn btn-sm btn-outline-secondary ms-auto">← Back to Reports</a>
+      <a href="index.html" class="btn btn-sm btn-home" title="Return to Home">🏠 Home</a>
+      <a href="all-reports.html" class="btn btn-sm btn-outline-secondary ms-2">All Reports</a>
     </div>
     <div class="controls">
       <input type="text" id="search" placeholder="Search rsID, gene, summary..." style="width: 220px;" />
