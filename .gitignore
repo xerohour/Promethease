@@ -40,6 +40,9 @@ conductor/
 2018-promethease-john.json
 2024-promethease-trina.json
 
+# Promethease temporary output files
+*.tmp.html
+
 # SNPedia data (download separately or generate with scripts)
 snpedia_data/
 snpedia_data.db
