@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
-<script>
-    // Enable dark mode by default
-    DarkReader.setFetchMethod(window.fetch);
-    DarkReader.enable({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10
-    });
-</script>
-  <meta name="color-scheme" content="dark" />
 <meta charset="UTF-8">
 
     
@@ -1625,18 +1614,7 @@ function d3Graph() {
     newwin.write('<!DOCTYPE html>\n');
 
     newwin.write('<html>\n');
-    newwin.write('<head><meta name="color-scheme" content="dark" />');
-    newwin.write('<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
-<script>
-    // Enable dark mode by default
-    DarkReader.setFetchMethod(window.fetch);
-    DarkReader.enable({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10
-    });
-</script>
-  <meta name="color-scheme" content="dark" />\n');
+    newwin.write('<head>\n');
     newwin.write('<meta charset="utf-8">\n');
     newwin.write('<style>\n');
     newwin.write('\n');
@@ -1929,18 +1907,7 @@ function externalGraph() {
 
     var newwin = graphwindow.document;
     newwin.write('<!DOCTYPE html>\n');
-    newwin.write('<html><head>
-<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
-<script>
-    // Enable dark mode by default
-    DarkReader.setFetchMethod(window.fetch);
-    DarkReader.enable({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10
-    });
-</script>
-  <meta name="color-scheme" content="dark" /><title>Promethease Graph</title>\n');
+    newwin.write('<html><head><title>Promethease Graph</title>\n');
     newwin.write('<script type="text/javascript" src="https://promethease-ondemand.s3.amazonaws.com/data/v/1/js/jquery-1.10.1.min.js"><\/script>\n');
     newwin.write('<script type="text/javascript" src="https://promethease-ondemand.s3.amazonaws.com/data/v/3/protovis.js"><\/script>\n');
     newwin.write('<script type="text/javascript">\n');
@@ -2111,8 +2078,7 @@ function externalGraph() {
     newwin.write('    </style>\n');
 
 
-    newwin.write('  <link rel="stylesheet" href="../../openai-brand.css" />
-</head>\n');
+    newwin.write('</head>\n');
     newwin.write('<body>\n');
 
 
@@ -2276,18 +2242,7 @@ function tabFormat() {
 
     o.push();
     o.push('<!DOCTYPE html>\n');
-    o.push('<html><head>
-<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
-<script>
-    // Enable dark mode by default
-    DarkReader.setFetchMethod(window.fetch);
-    DarkReader.enable({
-        brightness: 100,
-        contrast: 90,
-        sepia: 10
-    });
-</script>
-  <meta name="color-scheme" content="dark" /><title>Promethease Tab</title>\n');
+    o.push('<html><head><title>Promethease Tab</title>\n');
     o.push('    <style type="text/css">\n');
     o.push('\n');
     o.push('body, html {\n');
@@ -2299,8 +2254,7 @@ function tabFormat() {
     o.push('    </style>\n');
 
 
-    o.push('  <link rel="stylesheet" href="../../openai-brand.css" />
-</head>\n');
+    o.push('</head>\n');
     o.push('<body>');
 
 
@@ -299369,7 +299323,6 @@ model.loadRaw(mygenos);
 
 //]]>
 </script>
-  <link rel="stylesheet" href="../../openai-brand.css" />
 </head>
 <body>
 <div class="container"><!-- Collapsable nav bar -->
@@ -299444,10 +299397,3 @@ model.loadRaw(mygenos);
 
 </body>
 </html>
-
-
-
-
-
-
-
